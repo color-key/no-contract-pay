@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.alipay.mapper.CusRechargeMapper">
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.CusRecharge">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="cus_id" jdbcType="VARCHAR" property="cusId" />
+    <result column="cus_merchid" jdbcType="VARCHAR" property="cusMerchid" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="orderid" jdbcType="INTEGER" property="orderid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+ <select id="payorder"   parameterType="java.util.List"   resultMap="BaseResultMap">
+    select *  from cus_recharge
+    <where>
+	1=1
+	<if test="merchid!=null">
+	   and cus_merchid=#{merchid}
+  	</if>
+  	<if test="qrtype!=null">
+	   and type=#{qrtype}
+	  </if>
+	</where>
+    ORDER BY createtime DESC limit #{currentPage},#{pageSize}
+ </select>
+ 
+ <select id="payordercount" parameterType="java.util.List" resultType="java.lang.Integer">
+    select COUNT(*) from cus_recharge
+    <where>
+	1=1
+	<if test="merchid!=null">
+	   and cus_merchid=#{merchid}
+  	</if>
+  	<if test="qrtype!=null">
+	   and type=#{qrtype}
+	  </if>
+	</where>
+ </select>
+</mapper>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.alipay.mapper.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.Customer">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="wecahtnm" jdbcType="VARCHAR" property="wecahtnm" />
+    <result column="qqnm" jdbcType="VARCHAR" property="qqnm"/>
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="merchid" jdbcType="VARCHAR" property="merchid" />
+    <result column="secret" jdbcType="VARCHAR" property="secret" />
+    <result column="blance" jdbcType="DECIMAL" property="blance" />
+     <result column="easzadmin" jdbcType="INTEGER" property="easzadmin"/>
+     <result column="returncode" jdbcType="VARCHAR" property="returncode"/>
+
+  </resultMap>
+ <!-- <sql id="Base_Column_List">
+    uuid, email, username, password, phone, wecahtnm, qqnm, state, create_time, merchid, 
+    secret, blance
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from customer
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from customer
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xe.alipay.model.Customer">
+    insert into customer (uuid, email, username, 
+      password, phone, wecahtnm, 
+      qqnm, state, create_time, 
+      merchid, secret, blance
+      )
+    values (#{uuid,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{wecahtnm,jdbcType=VARCHAR}, 
+      #{qqnm,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{merchid,jdbcType=VARCHAR}, #{secret,jdbcType=VARCHAR}, #{blance,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xe.alipay.model.Customer">
+    insert into customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="wecahtnm != null">
+        wecahtnm,
+      </if>
+      <if test="qqnm != null">
+        qqnm,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="merchid != null">
+        merchid,
+      </if>
+      <if test="secret != null">
+        secret,
+      </if>
+      <if test="blance != null">
+        blance,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="wecahtnm != null">
+        #{wecahtnm,jdbcType=VARCHAR},
+      </if>
+      <if test="qqnm != null">
+        #{qqnm,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchid != null">
+        #{merchid,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null">
+        #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="blance != null">
+        #{blance,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xe.alipay.model.Customer">
+    update customer
+    <set>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="wecahtnm != null">
+        wecahtnm = #{wecahtnm,jdbcType=VARCHAR},
+      </if>
+      <if test="qqnm != null">
+        qqnm = #{qqnm,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchid != null">
+        merchid = #{merchid,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null">
+        secret = #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="blance != null">
+        blance = #{blance,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xe.alipay.model.Customer">
+    update customer
+    set email = #{email,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      wecahtnm = #{wecahtnm,jdbcType=VARCHAR},
+      qqnm = #{qqnm,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      merchid = #{merchid,jdbcType=VARCHAR},
+      secret = #{secret,jdbcType=VARCHAR},
+      blance = #{blance,jdbcType=DECIMAL}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>-->
+</mapper>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xe.alipay.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.Order" >
+    <id column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="ordernumber" property="ordernumber" jdbcType="VARCHAR" />
+    <result column="cus_merchid" property="cusMerchid" jdbcType="VARCHAR" />
+    <result column="cus_uuid" property="cusUuid" jdbcType="VARCHAR" />
+    <result column="qruuid" property="qruuid" jdbcType="VARCHAR" />
+    <result column="node" property="node" jdbcType="VARCHAR"></result>
+    <result column="djmoney" property="djmoney" jdbcType="DECIMAL"></result>
+    <result column="sjmoney" property="sjmoney" jdbcType="DECIMAL"></result>
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="qrtype" property="qrtype" jdbcType="INTEGER" />
+    <result column="openuderid" property="openuderid" jdbcType="VARCHAR" />
+    <result column="notifycont" property="notifycont" jdbcType="INTEGER" />
+
+  </resultMap>
+
+<!--
+  <select id="selecttest" resultType="com.xe.alipay.model.Order">
+    select * from `order`
+  </select>
+-->
+  <select id="fenyeorder"  parameterType="java.util.List" resultMap="BaseResultMap">
+select * from `order`
+<where>
+    cus_merchid=#{merchid}
+  <if test="qrtype!=null">
+   and   qrtype=#{qrtype}
+  </if>
+  ORDER BY createtime DESC
+    limit #{currentPage},#{pageSize}
+</where>
+</select>
+
+  <select id="fenyeorder"  parameterType="java.util.List" resultMap="BaseResultMap">
+    select * from `order`
+    <where>
+      cus_merchid=#{merchid}
+      <if test="qrtype!=null">
+        and   qrtype=#{qrtype}
+      </if>
+      limit #{currentPage},#{pageSize}
+    </where>
+  </select>
+
+  <select id="findorder"   parameterType="java.util.List"   resultMap="BaseResultMap">
+    select *  from `order`
+    <where>
+      cus_merchid=#{uid}
+      <if test="cus_merchid!=null and cus_merchid!=''">
+        cus_merchid=${cus_merchid}
+      </if>
+      <if test="ordernumber != null and ordernumber != ''">
+        and ordernumber=${ordernumber}
+      </if>
+      <if test="djmoney != null and djmoney != ''">
+        and sjmoney=${djmoney}
+      </if>
+      <if test="qrtype != null and qrtype != ''">
+        and qrtype=${qrtype}
+      </if>
+      limit #{currentPage},#{pageSize}
+    </where>
+  </select>
+
+</mapper>

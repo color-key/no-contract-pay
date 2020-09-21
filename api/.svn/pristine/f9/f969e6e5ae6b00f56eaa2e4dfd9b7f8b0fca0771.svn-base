@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xe.alipay.mapper.CusAccountMoneyMapper" >
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.CusAccountMoney" >
+    <id column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="acaccname" property="acaccname" jdbcType="VARCHAR" />
+    <result column="acpaytype" property="acpaytype" jdbcType="INTEGER" />
+    <result column="acamount" property="acamount" jdbcType="INTEGER" />
+    <result column="accreatetime" property="accreatetime" jdbcType="TIMESTAMP" />
+     <result column="cus_merchid" property="cus_merchid" jdbcType="VARCHAR"/>
+    <result column="state"  property="state" jdbcType="INTEGER"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    uuid, acaccname, acpaytype, acamount, accreatetime
+  </sql>
+
+</mapper>

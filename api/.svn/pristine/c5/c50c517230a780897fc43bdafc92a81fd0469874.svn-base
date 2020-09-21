@@ -1,0 +1,62 @@
+package com.xe.alipay.service.imp;
+import com.xe.alipay.mapper.OrderMapper;
+import com.xe.alipay.model.Order;
+import com.xe.alipay.model.Page;
+import com.xe.alipay.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+@Service
+public class OrderServiceimpl implements OrderService {
+    @Autowired
+    OrderMapper orderMapper;
+
+    @Override
+    public Page<Order> fenyeorder(String merchid,Integer qrtype, int pageNum, int pageSize) {
+    //当前页
+       int    currentPage=(pageNum-1)*pageSize;
+        System.out.println("起始页"+currentPage);
+        List<Order>   list=orderMapper.fenyeorder(merchid,qrtype,currentPage,pageSize);
+      System.out.println(list+"**************");
+       //总条数
+        int  allSizes=getCount(merchid);
+        System.out.println("总条数"+allSizes);
+        //总页数
+       int allPages=allSizes%pageNum==0?allSizes/pageSize:allSizes/pageSize+1;
+        System.out.println("总页数"+allPages);
+       Page  page=new Page(pageNum,pageSize,allSizes,allPages,list);
+       return page;
+    }
+
+    @Override
+    public int getCount(String cus_merchid) {
+       return orderMapper.getCount(cus_merchid);
+    }
+
+    @Override
+    public Page<Order> queryorder(String uid,String ordernumber, String cus_merchid, Double djmoney, int qrtype, int pageNum, int pageSize) {
+        //当前页
+        int    currentPage=(pageNum-1)*pageSize;
+        System.out.println("起始页"+currentPage);
+        List<Order>   list=orderMapper.findorder(uid,ordernumber,cus_merchid,djmoney,qrtype,currentPage,pageSize);
+       System.out.println(list+"****************8");
+        //总条数
+        int  allSizes=getCount(uid);
+        System.out.println("总条数"+allSizes);
+        //总页数
+        int allPages=allSizes%pageNum==0?allSizes/pageSize:allSizes/pageSize+1;
+        System.out.println("总页数"+allPages);
+
+        Page  page=new Page(pageNum,pageSize,allSizes,allPages,list);
+        System.out.println(page+"&&&&&&&&&&&&&77");
+        return page;
+    }
+
+    @Override
+    public int updatestateorder(String merchid,String ordernumber,int state) {
+        return orderMapper.updatestateorder(merchid,ordernumber,state);
+    }
+}

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.alipay.mapper.CusGetaccountMapper">
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.CusGetaccount">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="cus_uid" jdbcType="VARCHAR" property="cusUid" />
+    <result column="cus_merchid" jdbcType="VARCHAR" property="cusMerchid" />
+    <result column="accname" jdbcType="VARCHAR" property="accname" />
+    <result column="paytype" jdbcType="INTEGER"  property="paytype" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="node" jdbcType="VARCHAR" property="node"/>
+    <result column="state" jdbcType="INTEGER" property="state"/>
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    uuid, cus_uid, cus_merchid, accname, paytype, createtime,node,state
+  </sql>
+  <select id="fenyequery" parameterType="java.util.List" resultMap="BaseResultMap">
+       select
+      <include refid="Base_Column_List"/>
+      from cus_getaccount where  cus_uid=#{countuuid}
+      <if test="paytype!=null">
+          and  paytype=#{paytype,jdbcType=INTEGER}
+      </if>
+        limit #{currentPage},#{pageSize}
+  </select>
+    <select id="fenyeaccount" parameterType="java.util.List" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cus_getaccount
+        <where>
+            cus_merchid=#{cusMerchid}
+            <if test="paytype!=null">
+                and  paytype=#{paytype,jdbcType=INTEGER}
+            </if>
+            limit #{currentPage},#{pageSize}
+        </where>
+
+    </select>
+    <select id="fenyeaccountCount" parameterType="java.util.List" resultType="java.lang.Integer">
+        select COUNT(*) from cus_getaccount
+        <where>
+            cus_merchid=#{cusMerchid}
+            <if test="paytype!=null">
+                and  paytype=#{paytype,jdbcType=INTEGER}
+            </if>
+        </where>
+
+    </select>
+
+
+    <select id="getCount"   parameterType="java.lang.Integer"  resultType="java.lang.Integer">
+  SELECT COUNT(*) FROM cus_getaccount
+   <where>
+       cus_uid=#{countuuid}
+     <if test="paytype!=null">
+       and  paytype=#{paytype}
+     </if>
+   </where>
+</select>
+<update id="updateCusGetaccount" parameterType="java.lang.Integer">
+    update cus_getaccount
+    <set>
+    <if test="accname != null and accname != ''">
+        accname=#{accname},
+    </if>
+        <if test="state!=null and state!=''">
+        state=#{state},
+        </if>
+
+        <if test="node != null and node !=''">
+        node=#{node}
+        </if>
+    </set>
+    <where>
+        uuid=#{uuid}
+    </where>
+</update>
+
+
+
+  <!--<sql id="Base_Column_List">
+    uuid, cus_uid, cus_merchid, accname, paytype, createtime
+  </sql>
+  <sql id="Blob_Column_List">
+    node
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cus_getaccount
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cus_getaccount
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xe.alipay.model.CusGetaccount">
+    insert into cus_getaccount (uuid, cus_uid, cus_merchid, 
+      accname, paytype, createtime, 
+      node)
+    values (#{uuid,jdbcType=VARCHAR}, #{cusUid,jdbcType=VARCHAR}, #{cusMerchid,jdbcType=VARCHAR}, 
+      #{accname,jdbcType=VARCHAR}, #{paytype,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{node,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xe.alipay.model.CusGetaccount">
+    insert into cus_getaccount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="cusUid != null">
+        cus_uid,
+      </if>
+      <if test="cusMerchid != null">
+        cus_merchid,
+      </if>
+      <if test="accname != null">
+        accname,
+      </if>
+      <if test="paytype != null">
+        paytype,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="node != null">
+        node,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="cusUid != null">
+        #{cusUid,jdbcType=VARCHAR},
+      </if>
+      <if test="cusMerchid != null">
+        #{cusMerchid,jdbcType=VARCHAR},
+      </if>
+      <if test="accname != null">
+        #{accname,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null">
+        #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="node != null">
+        #{node,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xe.alipay.model.CusGetaccount">
+    update cus_getaccount
+    <set>
+      <if test="cusUid != null">
+        cus_uid = #{cusUid,jdbcType=VARCHAR},
+      </if>
+      <if test="cusMerchid != null">
+        cus_merchid = #{cusMerchid,jdbcType=VARCHAR},
+      </if>
+      <if test="accname != null">
+        accname = #{accname,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null">
+        paytype = #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="node != null">
+        node = #{node,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xe.alipay.model.CusGetaccount">
+    update cus_getaccount
+    set cus_uid = #{cusUid,jdbcType=VARCHAR},
+      cus_merchid = #{cusMerchid,jdbcType=VARCHAR},
+      accname = #{accname,jdbcType=VARCHAR},
+      paytype = #{paytype,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      node = #{node,jdbcType=LONGVARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xe.alipay.model.CusGetaccount">
+    update cus_getaccount
+    set cus_uid = #{cusUid,jdbcType=VARCHAR},
+      cus_merchid = #{cusMerchid,jdbcType=VARCHAR},
+      accname = #{accname,jdbcType=VARCHAR},
+      paytype = #{paytype,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>-->
+</mapper>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.alipay.mapper.AisleMapper">
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.Aisle">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="aitype" jdbcType="INTEGER" property="aitype" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="asname" jdbcType="VARCHAR" property="asname" />
+   <!--  一对一   -->
+    <association property="aislerate"  column="aislerate_uuid" javaType="com.xe.alipay.model.Aislerate">
+     <id  property="uuid" column="uuid"/>
+      <result column="asuid" property="asuid"/>
+      <result property="rate" column="rate" />
+    </association>
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    uuid, aitype, createtime, asname
+  </sql>
+  <select id="findaisle" parameterType="java.util.List" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from aisle
+    <where>
+      <if test="aitype!=null">
+        aitype=#{aitype,jdbcType=INTEGER}
+      </if>
+    </where>
+
+  </select>
+
+  <select id="hqueryAisle" parameterType="java.util.List" resultMap="BaseResultMap">
+
+     select a.aitype,a.createtime,a.asname,b.rate from aisle a LEFT JOIN aislerate b on a.aitype=b.asuid
+  </select>
+
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from aisle
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xe.alipay.model.Aisle">
+    insert into aisle (uuid, aitype, createtime, 
+      asname)
+    values (#{uuid,jdbcType=VARCHAR}, #{aitype,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{asname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xe.alipay.model.Aisle">
+    insert into aisle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="aitype != null">
+        aitype,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="asname != null">
+        asname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="aitype != null">
+        #{aitype,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="asname != null">
+        #{asname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xe.alipay.model.Aisle">
+    update aisle
+    <set>
+      <if test="aitype != null">
+        aitype = #{aitype,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="asname != null">
+        asname = #{asname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xe.alipay.model.Aisle">
+    update aisle
+    set aitype = #{aitype,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      asname = #{asname,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>-->
+</mapper>

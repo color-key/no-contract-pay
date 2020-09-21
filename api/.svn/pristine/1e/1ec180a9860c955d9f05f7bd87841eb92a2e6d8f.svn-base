@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.alipay.mapper.QrcodeMapper">
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.Qrcode">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="cus_accountname" jdbcType="VARCHAR" property="cusAccountname"/>
+    <result column="aliqrurl" jdbcType="VARCHAR" property="aliqrurl" />
+    <result column="node" jdbcType="VARCHAR" property="node" />
+   <result column="cus_merchid" jdbcType="VARCHAR" property="CusMerchid"/>
+    <result column="accpaytype" jdbcType="INTEGER" property="accpaytype" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="usestate" jdbcType="INTEGER" property="usestate" />
+
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, money,cus_accountname, aliqrurl, node, cus_merchid, accpaytype, createtime, usestate
+  </sql>
+  <select id="queryselect" parameterType="java.util.List" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from qrcode
+    <where>
+      cus_merchid=#{merchid}
+
+      <if test="accpaytype!=null">
+      and  accpaytype=#{accpaytype}
+      </if>
+      <if test="money!=null">
+        and  money BETWEEN #{money}-0.02 AND #{money}+0.02
+      </if>
+      <if test="cusAccountname!=null">
+        and cus_accountname=#{cusAccountname}
+      </if>
+    </where>
+  </select>
+<!--  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from qrcode
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from qrcode
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xe.alipay.model.Qrcode">
+    insert into qrcode (uuid, money, aliqrurl, 
+      node, cus_merchid, accpaytype, 
+      createtime, state)
+    values (#{uuid,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{aliqrurl,jdbcType=VARCHAR}, 
+      #{node,jdbcType=VARCHAR}, #{cusMerchid,jdbcType=VARCHAR}, #{accpaytype,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xe.alipay.model.Qrcode">
+    insert into qrcode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="aliqrurl != null">
+        aliqrurl,
+      </if>
+      <if test="node != null">
+        node,
+      </if>
+      <if test="cusMerchid != null">
+        cus_merchid,
+      </if>
+      <if test="accpaytype != null">
+        accpaytype,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="aliqrurl != null">
+        #{aliqrurl,jdbcType=VARCHAR},
+      </if>
+      <if test="node != null">
+        #{node,jdbcType=VARCHAR},
+      </if>
+      <if test="cusMerchid != null">
+        #{cusMerchid,jdbcType=VARCHAR},
+      </if>
+      <if test="accpaytype != null">
+        #{accpaytype,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xe.alipay.model.Qrcode">
+    update qrcode
+    <set>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="aliqrurl != null">
+        aliqrurl = #{aliqrurl,jdbcType=VARCHAR},
+      </if>
+      <if test="node != null">
+        node = #{node,jdbcType=VARCHAR},
+      </if>
+      <if test="cusMerchid != null">
+        cus_merchid = #{cusMerchid,jdbcType=VARCHAR},
+      </if>
+      <if test="accpaytype != null">
+        accpaytype = #{accpaytype,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xe.alipay.model.Qrcode">
+    update qrcode
+    set money = #{money,jdbcType=DECIMAL},
+      aliqrurl = #{aliqrurl,jdbcType=VARCHAR},
+      node = #{node,jdbcType=VARCHAR},
+      cus_merchid = #{cusMerchid,jdbcType=VARCHAR},
+      accpaytype = #{accpaytype,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>-->
+</mapper>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.alipay.mapper.TokenMapper">
+  <resultMap id="BaseResultMap" type="com.xe.alipay.model.Token">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="subject" jdbcType="VARCHAR" property="subject" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="expired_time" jdbcType="TIMESTAMP" property="expiredTime" />
+    <result column="refresh_token" jdbcType="VARCHAR" property="refreshToken" />
+    <result column="refresh_expired_time" jdbcType="TIMESTAMP" property="refreshExpiredTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xe.alipay.model.Token">
+    <result column="metadate" jdbcType="LONGVARCHAR" property="metadate" />
+  </resultMap>
+  <!--<sql id="Base_Column_List">
+    uuid, subject, token, expired_time, refresh_token, refresh_expired_time
+  </sql>
+  <sql id="Blob_Column_List">
+    metadate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from token
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from token
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xe.alipay.model.Token">
+    insert into token (uuid, subject, token, 
+      expired_time, refresh_token, refresh_expired_time, 
+      metadate)
+    values (#{uuid,jdbcType=VARCHAR}, #{subject,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, 
+      #{expiredTime,jdbcType=TIMESTAMP}, #{refreshToken,jdbcType=VARCHAR}, #{refreshExpiredTime,jdbcType=TIMESTAMP}, 
+      #{metadate,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xe.alipay.model.Token">
+    insert into token
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="subject != null">
+        subject,
+      </if>
+      <if test="token != null">
+        token,
+      </if>
+      <if test="expiredTime != null">
+        expired_time,
+      </if>
+      <if test="refreshToken != null">
+        refresh_token,
+      </if>
+      <if test="refreshExpiredTime != null">
+        refresh_expired_time,
+      </if>
+      <if test="metadate != null">
+        metadate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null">
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredTime != null">
+        #{expiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refreshToken != null">
+        #{refreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshExpiredTime != null">
+        #{refreshExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="metadate != null">
+        #{metadate,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xe.alipay.model.Token">
+    update token
+    <set>
+      <if test="subject != null">
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null">
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredTime != null">
+        expired_time = #{expiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refreshToken != null">
+        refresh_token = #{refreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshExpiredTime != null">
+        refresh_expired_time = #{refreshExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="metadate != null">
+        metadate = #{metadate,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xe.alipay.model.Token">
+    update token
+    set subject = #{subject,jdbcType=VARCHAR},
+      token = #{token,jdbcType=VARCHAR},
+      expired_time = #{expiredTime,jdbcType=TIMESTAMP},
+      refresh_token = #{refreshToken,jdbcType=VARCHAR},
+      refresh_expired_time = #{refreshExpiredTime,jdbcType=TIMESTAMP},
+      metadate = #{metadate,jdbcType=LONGVARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xe.alipay.model.Token">
+    update token
+    set subject = #{subject,jdbcType=VARCHAR},
+      token = #{token,jdbcType=VARCHAR},
+      expired_time = #{expiredTime,jdbcType=TIMESTAMP},
+      refresh_token = #{refreshToken,jdbcType=VARCHAR},
+      refresh_expired_time = #{refreshExpiredTime,jdbcType=TIMESTAMP}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>-->
+</mapper>

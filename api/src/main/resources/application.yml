@@ -1,0 +1,98 @@
+web:
+  #自定义文件上传目的地
+  upload-path:  /Users/fay/Documents/qrimages/upload/
+  #自定义文件返回地址
+  domain: /Users/fay/Documents/qrimages/upload/
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://121.36.218.101:3306/alipay?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: Mysql@8848
+  redis:
+    host: 121.36.218.101
+    port: 6379
+    password:
+    pool:
+      max-active: 100
+      max-idle: 10
+      max-wait: 100000
+    timeout: 0
+
+  jackson:
+    #日期格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+       #格式化输出
+      INDENT_OUTPUT: true
+      #忽略无法转换的对象
+      fail-on-empty-beans: false
+    #设置空如何序列化
+    defaultPropertyInclusion: NON_EMPTY
+    deserialization:
+      #允许对象忽略json中不存在的属性
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    parser:
+      #允许出现特殊字符和转义符
+      ALLOW_UNQUOTED_CONTROL_CHARS: true
+      #允许出现单引号
+      ALLOW_SINGLE_QUOTES: true
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/test/,file:${web.upload-path}
+
+mybatis:
+  type-aliases-package: com.xe.alipay.model
+  mapper-locations: classpath:com/xe/alipay/mapper/*.xml
+
+mapper:
+  mappers: com.xe.alipay.base.BaseMapper
+  not-empty: false
+  identity: MYSQL
+  ORDER: BEFORE
+
+server:
+  port: 8082
+  #数据库设置
+##日志级别
+
+#日志配置
+logging.level.com.xe.alipay.mapper: debug
+logging.level.org.springframework.web: debug
+logging.level.org.springframework.transaction: debug
+logging.level.org.mybatis: debug
+
+# 打印sql
+logging:
+  level:
+    com.xe.alipay.mapper : debug
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+      #type: com.alibaba.druid.pool.DruidDataSource
+  ######################### Druid连接池的配置信息  #################
+spring.druid.initialSize: 5                                 #初始化连接大小
+spring.druid.minIdle: 5                                     #最小连接池数量
+spring.druid.maxActive: 20                                  #最大连接池数量
+spring.druid.maxWait: 60000                                 #获取连接时最大等待时间，单位毫秒
+spring.druid.timeBetweenEvictionRunsMillis: 60000           #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+spring.druid.minEvictableIdleTimeMillis: 300000             #配置一个连接在池中最小生存的时间，单位是毫秒
+spring.druid.validationQuery: SELECT 1 FROM DUAL            #测试连接
+spring.druid.testWhileIdle: true                            #申请连接的时候检测，建议配置为true，不影响性能，并且保证安全性
+spring.druid.testOnBorrow: false                            #获取连接时执行检测，建议关闭，影响性能
+spring.druid.testOnReturn: false                            #归还连接时执行检测，建议关闭，影响性能
+spring.druid.poolPreparedStatements: false                  #是否开启PSCache，PSCache对支持游标的数据库性能提升巨大，oracle建议开启，mysql下建议关闭
+spring.druid.maxPoolPreparedStatementPerConnectionSize: 20  #开启poolPreparedStatements后生效
+spring.druid.filters: stat,wall,log4j                       #配置扩展插件，常用的插件有=>stat:监控统计  log4j:日志  wall:防御sql注入
+spring.druid.connectionProperties: 'druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000'  #通过connectProperties属性来打开mergeSql功能;慢SQL记录
+
+token.secret.key: SJAHGFHS
+token.refresh.key: GGHJSay
+
+
+
+
