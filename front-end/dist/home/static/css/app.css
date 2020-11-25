@@ -1,0 +1,69 @@
+.MobileProspect{ width: 90rem; padding: 80px 0; margin: auto; height: 392px;}
+.MobileProspect .left{ width: 580px; -webkit-box-shadow:0 0 15px rgba(0,0,0,0.05); -moz-box-shadow:0 0 15px rgba(0,0,0,0.05); box-shadow:0 0 15px rgba(0,0,0,0.05); margin-left: 20px;}
+.MobileProspect .left .name{ padding: 20px; width: 540px;}
+.MobileProspect .left .name p{ font-size: 20px; color: #333; font-weight: bold; margin-bottom: 15px;}
+.MobileProspect .left .name span{ font-size: 14px; color: #999;}
+.MobileProspect .left .img{ width: 540px; margin: 0 20px;}
+.MobileProspect .left .img img{ width: 100%;}
+.MobileProspect .left .cont{ width: 540px; background-color: #fbf1f1; margin: 25px auto 0; height: 40px; padding: 0 20px;}
+.MobileProspect .left .cont dl{ float: left; height: 40px; margin-right: 40px;}
+.MobileProspect .left .cont dl dt{ float: left; width: 8px; height: 8px; border-radius: 50%; margin:16px 10px 16px 0;}
+.MobileProspect .left .cont dl:nth-child(1) dt{ background-color: #a49593;}
+.MobileProspect .left .cont dl:nth-child(2) dt{ background-color: #edb7b7;}
+.MobileProspect .left .cont dl dd{ float: left; font-size: 14px; color: #333; line-height: 40px;}
+.MobileProspect .right{ width: 660px;}
+.MobileProspect .right .name{ font-size: 46px; color: #333;}
+.MobileProspect .right .line{ width: 40px; height: 4px; margin: 20px 0; background-color: #999;}
+.MobileProspect .right .cont{ font-size: 16px; color: #999;}
+.MobileProspect .right .info{ font-size: 32px; font-weight: bold; margin-top: 30px; color: #333; line-height: 56px;}
+.MobileProspect .right .info span{ color: #3C9BFB;}
+
+/* MobileWhy */
+.MobileWhy{ width: 100%; padding: 80px 0; margin: auto; background-color: #f8f8f8; height: 470px;}
+.MobileWhy .left{ width: 600px; margin-left: 60px;}
+.MobileWhy .left .name{ font-size: 46px; color: #333;}
+.MobileWhy .left .cont{ font-size: 16px; color: #999; margin: 20px auto 30px;}
+.MobileWhy .left .list{ font-size: 16px; line-height: 36px;}
+.MobileWhy .left .list p{ margin-bottom: 35px;}
+.MobileWhy .left .list p:nth-child(1){ color: #666;}
+.MobileWhy .left .list p:nth-child(2){ color: #3C9BFB;}
+.MobileWhy .right{ margin-right: 60px; padding-right: 120px; position: relative; height: 470px; width: 600px; background: url(../images/mobile/003.png) center right no-repeat;}
+.MobileWhy .right .img{ width: 240px; height: 470px; position: relative; z-index: 2; float: right; background: url(../images/mobile/002.png) center center no-repeat;}
+.MobileWhy .right .list{ position: absolute; right: 358px; top:70px; }
+.MobileWhy .right .list p{ float: right; height: 50px; border-top-left-radius: 25px; border-bottom-left-radius: 25px;  overflow: hidden; line-height: 50px; font-size: 16px; color: #fff; margin: 15px 0; transition: all 0.8s ease;padding:0 25px; width: 135px;}
+.MobileWhy .right .list p:nth-child(1){ background-color: #f0a161;  }
+.MobileWhy .right .list p:nth-child(2){ background-color: #56b9ec; }
+.MobileWhy .right .list p:nth-child(3){ background-color: #f5608a;  }
+.MobileWhy .right .list p:hover{  width: 200px;}
+
+/* MobileAdvantage */
+.MobileAdvantage{ width: 90rem; margin: 80px auto; padding: 0; position: relative; height: 331px;}
+.MobileAdvantage .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.MobileAdvantage .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.MobileAdvantage .list{ width: 100%; margin: 50px auto;}
+.MobileAdvantage .list dl{ float: left; width: 20%; text-align: center;}
+.MobileAdvantage .list dl dt{ width: 66px; height: 62px; margin: auto;  transition: 400ms; -webkit-transition: 400ms;transition: 0.4s 0s; -webkit-transition: 0.4s 0s;}
+.MobileAdvantage .list dl:nth-child(1) dt{ background: url(../images/mobile/004.png) center center no-repeat;}
+.MobileAdvantage .list dl:nth-child(2) dt{ background: url(../images/mobile/005.png) center center no-repeat;}
+.MobileAdvantage .list dl:nth-child(3) dt{ background: url(../images/mobile/006.png) center center no-repeat;}
+.MobileAdvantage .list dl:nth-child(4) dt{ background: url(../images/mobile/007.png) center center no-repeat;}
+.MobileAdvantage .list dl:nth-child(5) dt{ background: url(../images/mobile/008.png) center center no-repeat;}
+.MobileAdvantage .list dl dd{ font-size: 14px; color: #999; line-height: 24px;}
+.MobileAdvantage .list dl dd p{ font-size: 18px; color: #333; margin: 20px auto;}
+.MobileAdvantage .list dl:hover dt{opacity: 1;  transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); -moz-transform: rotate(360deg); }
+
+/* MobileCase */
+.MobileCase{ width: 100%; margin:  auto; background-color: #f8f8f8; padding:80px 0; position: relative; height: 809px;}
+.MobileCase .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.MobileCase .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.MobileCase .list{ width: 90rem; margin:70px auto 0;}
+.MobileCase .list dl{ float: left; margin: 0 30px; width: 300px; height: 570px; overflow: hidden; background: url(../images/mobile/009.png) center center no-repeat; position: relative;}
+.MobileCase .list dl dd{ width: 264px; height: 444px; margin: 66px 18px 60px 17px; position: relative; overflow: hidden;}
+.MobileCase .list dl img.img1{ width: 264px; height: 444px; margin: 0; position: relative; z-index: 1;}
+.MobileCase .list dl p{ width: 180px; height: 180px; padding:42px 42px; position: absolute; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 2; transform: translateY(264px); transition: all 0.8s ease;}
+.MobileCase .list dl p img{ width: 180px; height: 180px;}
+.MobileCase .list dl a{ display: block;}
+.MobileCase .list dl:hover p{transform: translateY(0); opacity:1;}
+.MobileCase .more{ text-align: center; width: 100%; margin: 40px auto 0;}
+.MobileCase .more a{ font-size: 16px; color: #333;}
+.MobileCase .more a:hover{ color: #3C9BFB; text-decoration: underline;}

@@ -1,0 +1,421 @@
+﻿.width-1200 {
+    width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.margin-left {
+    margin-left: 0 !important;
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+.float-l {
+    float: left;
+}
+
+.float-r {
+    float: right;
+}
+
+dt {
+    font-size: 0;
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*:focus {
+    outline: none;
+}
+
+.video-banner {
+    background: url(../images/video-banner.jpg) no-repeat center;
+    height: 296px;
+}
+
+.video-tent1 {
+    padding: 70px 0 0;
+}
+
+.video-tent1 .title {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    line-height: 26px;
+}
+
+.video-tent1 .content {
+    margin-top: 50px;
+}
+
+.video-tent1 .content ul li {
+    float: left;
+    width: 382px;
+    height: 308px;
+    border: 1px solid #efefef;
+    box-sizing: border-box;
+    margin: 0 0 60px 27px;
+}
+
+.video-tent1 .content ul li .content-title {
+    text-align: center;
+    line-height: 96px;
+    background: #eee;
+    font-size: 22px;
+    color: #333;
+}
+
+.video-tent1 .content ul li .content-title img {
+    vertical-align: middle;
+    margin-right: 25px;
+}
+
+.video-tent1 .content ul li .content-title-class {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    width: 288px;
+    line-height: 30px;
+    margin: 32px auto 25px;
+    background: #f8f8f8;
+}
+
+.video-tent1 .content ul li p {
+    padding: 0 28px;
+    font-size: 14px;
+    color: #666;
+    line-height: 28px;
+    text-align: justify;
+}
+
+.video-tent1 .content ul li:hover .video-tent1-content-title {
+    background: url(../images/video-img1.jpg) no-repeat center;
+    color: #fff;
+    /*	-o-transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	transition: 0.3s;*/
+}
+
+.video-tent1 .content ul li:first-child+li:hover .video-tent1-content-title {
+    background: url(../images/video-img9.jpg) no-repeat center;
+}
+
+.video-tent1 .content ul li:first-child+li+li:hover .video-tent1-content-title {
+    background: url(../images/video-img11.jpg) no-repeat center;
+}
+
+.video-tent1 .content ul li:hover .video-tent1-icon {
+    display: none;
+}
+
+.video-tent1 .content ul li:hover {
+    -webkit-box-shadow: 0 0 10px #dcdcdc;
+    -moz-box-shadow: 0 0 10px #dcdcdc;
+    box-shadow: 0 0 10px #dcdcdc;
+    -o-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.video-tent2-content {
+    background: #f8f8f8;
+}
+
+.video-tent2 {
+    padding: 70px 0 60px;
+}
+
+.video-tent2 .title {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    line-height: 26px;
+}
+
+.video-tent2 .content {
+    margin-top: 50px;
+}
+
+.video-tent2 .content ul li {
+    width: 270px;
+    height: 280px;
+    float: left;
+    padding-left: 36px;
+    box-sizing: border-box;
+    position: relative;
+    background: url(../images/video-img9.png) no-repeat left;
+}
+
+.video-tent2 .content ul li .content-title {
+    font-size: 20px;
+    color: #333;
+    line-height: 20px;
+}
+
+.video-tent2 .content ul li div {
+    font-size: 14px;
+    color: #666;
+    line-height: 28px;
+    margin-top: 51px;
+}
+
+.video-tent2 .content ul li img {
+    position: absolute;
+    bottom: 0;
+}
+
+.video-tent2 .content ul .width {
+    width: 120px;
+}
+
+.video-tent3 {
+    padding: 70px 0 60px;
+}
+
+.video-tent3 .title {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    line-height: 26px;
+}
+
+.video-tent3 .content {
+    margin-top: 50px;
+}
+
+.video-tent3 .content a {
+    display: block;
+}
+
+.video-tent3 .content dl {
+    float: left;
+    width: 279px;
+    margin: 0 0 25px 28px;
+}
+
+.video-tent3 .content dl:first-child+dl+dl+dl+dl {
+    margin-bottom: 0px;
+}
+
+.video-tent3 .content dl:first-child+dl+dl+dl+dl+dl {
+    margin-bottom: 0px;
+}
+
+.video-tent3 .content dl:first-child+dl+dl+dl+dl+dl+dl {
+    margin-bottom: 0px;
+}
+
+.video-tent3 .content dl:first-child+dl+dl+dl+dl+dl+dl+dl {
+    margin-bottom: 0px;
+}
+
+.video-tent3 .content dl dt {
+    width: 279px;
+    height: 187px;
+    position: relative;
+}
+
+.video-tent3 .content dl dt a .video-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -34px 0 0 -34px;
+    display: none;
+}
+
+.video-tent3 .content dl dd {
+    padding: 20px 16px;
+}
+
+.video-tent3 .content dl dd a {
+    font-size: 14px;
+    color: #666;
+    line-height: 16px;
+}
+
+.video-tent3 .content dl dd .float-l {
+    font-size: 16px;
+    color: #333;
+}
+
+.video-tent3 .content dl:first-child {
+    margin-left: 0;
+}
+
+.video-tent3 .content dl:first-child+dl+dl+dl+dl {
+    margin-left: 0;
+}
+
+.video-tent3 .content dl:hover {
+    -webkit-box-shadow: 0 0 10px #dcdcdc;
+    -moz-box-shadow: 0 0 10px #dcdcdc;
+    box-shadow: 0 0 10px #dcdcdc;
+    -o-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.video-tent3 .content dl:hover .video-icon {
+    display: block;
+    -o-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.video-tent4 {
+    padding: 70px 0 60px;
+}
+
+.video-tent4 .title {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    line-height: 26px;
+}
+
+.video-tent4 .content {
+    margin-top: 50px;
+    background: url(../images/video-img10.png) no-repeat center;
+    height: 235px;
+}
+
+.video-tent3-content {
+    background: url(../images/video-img10.jpg) no-repeat center;
+    height: 642px;
+    margin-top: 60px;
+}
+
+.video-tent5 {
+    padding: 70px 0 60px;
+}
+
+.video-tent5 .title {
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+    line-height: 26px;
+}
+
+.video-tent5 .content {
+    margin-top: 70px;
+}
+
+.video-tent5 .content .lt {
+    width: 738px;
+    height: 404px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    filter: Alpha(opacity=90);
+    position: static;
+    /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom: 1;
+    /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+}
+
+.video-tent5 .content .rt {
+    width: 432px;
+    height: 404px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    filter: Alpha(opacity=90);
+    position: static;
+    /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom: 1;
+    /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+}
+
+.video-tent5 .content .lt form {
+    padding-top: 20px;
+}
+
+.video-tent5 .content .lt form input {
+    font-size: 16px;
+    color: #666;
+    border: none;
+    background: #ddd;
+    line-height: 42px;
+    height: 42px;
+    padding-left: 12px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 690px;
+    margin: 24px auto 0;
+    display: block;
+}
+
+.video-tent5 .content .lt form div {
+    width: 690px;
+    margin: auto;
+}
+
+.video-tent5 .content .lt form div input {
+    width: 338px;
+}
+
+.video-tent5 .content .lt form .submit {
+    width: 206px;
+    height: 44px;
+    background: #dddcdc;
+    border: none;
+    margin: 52px auto 0;
+    margin-top: 40px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+    font-size: 14px;
+    color: #666;
+}
+
+.video-tent5 .content .rt {
+    padding: 0 32px 0 52px;
+    box-sizing: border-box;
+}
+
+.video-tent5 .content .rt div {
+    font-size: 24px;
+    color: #666;
+    line-height: 24px;
+    margin-top: 50px;
+}
+
+.video-tent5 .content .rt p {
+    font-size: 16px;
+    color: #666;
+    line-height: 16px;
+    margin-top: 46px;
+}
+
+.video-tent5 .content .rt ul {
+    margin-top: 42px;
+}
+
+.video-tent5 .content .rt ul li {
+    font-size: 16px;
+    color: #666;
+    line-height: 20px;
+    margin-top: 30px;
+    background: url(../images/video-img11.png) no-repeat left;
+    padding-left: 38px;
+}
+
+.video-tent5 .content .rt ul li:first-child+li {
+    background: url(../images/video-img12.png) no-repeat left;
+}
+
+.video-tent5 .content .rt ul li:first-child+li+li {
+    background: url(../images/video-img13.png) no-repeat left;
+}

@@ -1,0 +1,78 @@
+.fl{ float:left;}
+.fr{ float:right;}
+.c1440{ width:90rem; margin:0 auto; min-width:90rem;}
+.m1440{ min-width: 90rem;}
+
+/* pageSolution */
+.pageSolution{ width: 100%; padding: 80px 0; height: 500px; background: url(../images/brand/009.jpg) center top no-repeat}
+.pageSolution .title{width: 90rem; padding: 0 0; margin: auto; text-align: center;  color: #fff;}
+.pageSolution .title p{ font-size: 46px;   margin-bottom: 20px;}
+.pageSolution .title span{ font-size: 16px; line-height: 30px;}
+.pageSolution .list1{ width: 90rem; margin:60px auto 0; color: #fff; height: 100px;}
+.pageSolution .list2{ width: 90rem; margin:0 auto 0; color: #fff;}
+.pageSolution .list1 dl,.pageSolution .list2 dl{ float: left; width: 288px; color: #fff; text-align: center;}
+.pageSolution .list1 dl dt,.pageSolution .list2 dl dt{ width: 60px; height: 60px; margin: auto; border-radius: 50%; border: solid 2px #fff; overflow: hidden;}
+.pageSolution .list1 dl:nth-child(1) dt{ background: url(../images/brand/010.png) center center no-repeat;}
+.pageSolution .list1 dl:nth-child(2) dt{ background: url(../images/brand/011.png) center center no-repeat;}
+.pageSolution .list1 dl:nth-child(3) dt{ background: url(../images/brand/012.png) center center no-repeat;}
+.pageSolution .list1 dl:nth-child(4) dt{ background: url(../images/brand/013.png) center center no-repeat;}
+.pageSolution .list1 dl:nth-child(5) dt{ background: url(../images/brand/014.png) center center no-repeat;}
+.pageSolution .list2 dl:nth-child(1) dt{ background: url(../images/brand/015.png) center center no-repeat;}
+.pageSolution .list2 dl:nth-child(2) dt{ background: url(../images/brand/016.png) center center no-repeat;}
+.pageSolution .list2 dl:nth-child(3) dt{ background: url(../images/brand/017.png) center center no-repeat;}
+.pageSolution .list2 dl:nth-child(4) dt{ background: url(../images/brand/018.png) center center no-repeat;}
+.pageSolution .list2 dl:nth-child(5) dt{ background: url(../images/brand/019.png) center center no-repeat;}
+.pageSolution .list1 dl:hover dt,.pageSolution .list2 dl:hover dt{ background-color: #3C9BFB; border-color: #3C9BFB;}
+.pageSolution .list1 dl:hover,.pageSolution .list2 dl:hover{ color: #3C9BFB;}
+.pageSolution .list1 dl dd,.pageSolution .list2 dl dd{ font-size: 16px; margin-top: 15px;}
+.pageSolution .mid{ width: 100%; height: 35px; position: relative; margin:25px auto;}
+.pageSolution .mid .line-h{ width: 100%; height: 1px; background-color: #3c3c3c; position: absolute; top: 17px; z-index: 1;}
+.pageSolution .mid .line-v{ width: 90rem; margin: auto; position: relative; z-index: 2;}
+.pageSolution .mid .line-v p{ float: left; width: 1px; margin:0 143px 0 144px; height: 35px; background-color: #3c3c3c;}
+
+
+/* pageAdvantage */
+.pageAdvantage{  background-color: #3C9BFB; padding: 80px 0; width: 100%;height: 94px;}
+.pageAdvantage .list{ width: 90rem; margin: 0 auto;}
+.pageAdvantage .list dl{ float: left; width: 25%; text-align: center;}
+.pageAdvantage .list dl dt{ font-size: 60px; color: #fff; font-weight: bold; position: relative;}
+.pageAdvantage .list dl dt span.plus{ font-size: 32px; font-weight: normal;}
+.pageAdvantage .list dl dd{ font-size: 18px; color: #fff; }
+
+/* pagePartner */
+.pagePartner{ width: 90rem; padding: 80px 0; margin: auto; height: 500px;}
+.pagePartner .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.pagePartner .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.pagePartner .list{ width: 100%; margin: 50px auto 0;}
+.pagePartner .list li{ float: left; width: 20%;}
+.pagePartner .list li .img1{ width: 100%; /* -webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray; */ display: block;}
+.pagePartner .list li .img2{ display: none; width: 100%;}
+.pagePartner .list li:hover{ background-color: #3C9BFB;}
+.pagePartner .list li:hover .img1{ display: none; }
+.pagePartner .list li:hover .img2{ display: block; }
+
+/* WebProcess */
+.WebProcess{ width: 100%; padding: 80px 0; margin: auto; background: #f9f9f9 url(../images/web/021.png) right bottom 150px no-repeat;}
+.WebProcess .left{ width: 320px; padding-left: 40px;}
+.WebProcess .left .name{ font-size: 60px; color: #333;}
+.WebProcess .left .cont{ font-size: 16px; line-height: 30px; color: #999; margin-top: 15px;}
+.WebProcess .left .list{ width: 100%; margin-top: 40px;}
+.WebProcess .left .list dl{ float: left; width: 100%; margin: 10px 0;}
+.WebProcess .left .list dl dt{ float: left; width: 30px; height: 30px; margin-right: 25px;}
+.WebProcess .left .list dl:nth-child(1) dt{ background: url(../images/web/022.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(2) dt{ background: url(../images/web/023.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(3) dt{ background: url(../images/web/024.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(4) dt{ background: url(../images/web/025.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(5) dt{ background: url(../images/web/026.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(6) dt{ background: url(../images/web/027.png) center center no-repeat;}
+.WebProcess .left .list dl dd{ float: right; width: 265px; font-size: 14px; color: #999; line-height: 30px;}
+.WebProcess .left .list dl dd p{ font-size: 18px; color: #333;}
+.WebProcess .left .list dl:nth-child(1):hover dt{ background: url(../images/web/022-1.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(2):hover dt{ background: url(../images/web/023-1.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(3):hover dt{ background: url(../images/web/024-1.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(4):hover dt{ background: url(../images/web/025-1.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(5):hover dt{ background: url(../images/web/026-1.png) center center no-repeat;}
+.WebProcess .left .list dl:nth-child(6):hover dt{ background: url(../images/web/027-1.png) center center no-repeat;}
+.WebProcess .left .list dl:hover dd,.WebProcess .left .list dl:hover dd p{ color: #3C9BFB;}
+.WebProcess .right{ margin: 60px 0 0 0; width: 920px; height: 560px; background: url(../images/web/020.png) center center no-repeat;}
+.WebProcess .right1{ margin: 60px 0 0 0; width: 920px; height: 560px; background: url(../images/web/020-1.png) center center no-repeat;}

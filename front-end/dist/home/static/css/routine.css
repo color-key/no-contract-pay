@@ -1,0 +1,388 @@
+﻿p,
+dt,
+dd,
+dl,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 微软雅黑;
+}
+
+.rou-banner {
+    width: 100%;
+    height: 296px;
+    background: url(../images/rou-banner.png) no-repeat center;
+}
+
+.index_w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.rou-char {
+    width: 100%;
+    height: auto;
+    margin-bottom: 28px;
+}
+
+.rou-char-tit {
+    text-align: center;
+    font-size: 30px;
+    color: #333333;
+    padding-top: 70px;
+}
+
+.rou-char-title {
+    color: #6f6f6f;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.rou-char-imgs {
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.rou-w {
+    width: 1239px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.rou-char-imgs dl {
+    width: 377px;
+    height: 231px;
+    float: left;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    margin-right: 30px;
+    margin-bottom: 27px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    moz-transition: all 0.4s;
+}
+
+.rou-char-imgs dl:hover {
+    border: 1px solid;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    moz-transition: all 0.4s;
+    border: 1px solid #3C9BFB;
+}
+
+.rou-char-imgs dt {
+    margin-top: 5px;
+}
+
+.rou-imgs-tit {
+    color: #333333;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.rou-imgs-title {
+    width: 270px;
+    margin: 0 auto;
+    margin-top: 15px;
+    line-height: 25px;
+    color: #666666;
+    font-size: 14px;
+}
+
+.rou-why {
+    width: 100%;
+    height: 642px;
+    background: url(../images/rou-11.png) no-repeat center;
+}
+
+.rou-none {
+    margin-right: 0 !important;
+}
+
+.rou-why-imgs {
+    margin-top: 35px;
+}
+
+.rou-why-imgs dl {
+    width: 600px;
+    float: left;
+    margin-bottom: 25px;
+}
+
+.rou-why-imgs dt {
+    width: 92px;
+    height: 92px;
+    overflow: hidden;
+    display: block;
+}
+
+.rou-why-imgs dd {
+    margin-left: 20px;
+    float: left;
+}
+
+.rou-wht-tit {
+    font-size: 16px;
+    color: #333333;
+    margin-top: 10px;
+}
+
+.rou-wht-title {
+    font-size: 14px;
+    color: #888888;
+    margin-top: 10px;
+}
+
+.rou-super {
+    overflow: hidden;
+    margin-bottom: 77px;
+}
+
+.rou-super dl {
+    width: 261px;
+    height: 279px;
+    text-align: center;
+    border: 5px solid #eeeeee;
+    margin-top: 60px;
+    margin-right: 38px;
+    float: left;
+    color: #999999;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    moz-transition: all 0.4s;
+}
+
+.rou-super dt {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.rou-super dl:hover {
+    color: #fff !important;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    moz-transition: all 0.4s;
+    background: #3C9BFB;
+}
+
+.rou-hr {
+    width: 33px;
+    border: none;
+    border-top: 5px solid #e7e7e7;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.rou-super-tit {}
+
+.rou-super-title {
+    width: 210px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.rou-core {
+    width: 100%;
+    background: #f8f8f8;
+    padding-bottom: 60px;
+}
+
+.rou-core-imgs {
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.rou-core dl {
+    width: 240px;
+    float: left;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.rou-core dd {
+    margin-top: 15px;
+    color: #666666;
+}
+
+.rou-flow-img {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+/*------------------------------------------*/
+
+.wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    float: left;
+}
+
+.button {
+    position: relative;
+    color: white;
+}
+
+.button:nth-of-type(1):before,
+.button:nth-of-type(1):after,
+.button:nth-of-type(1) .inner:before,
+.button:nth-of-type(1) .inner:after {
+    background-color: #3C9BFB;
+}
+
+.button:nth-of-type(2):before,
+.button:nth-of-type(2):after,
+.button:nth-of-type(2) .inner:before,
+.button:nth-of-type(2) .inner:after {
+    background-color: #3C9BFB;
+}
+
+.button:nth-of-type(3):before,
+.button:nth-of-type(3):after,
+.button:nth-of-type(3) .inner:before,
+.button:nth-of-type(3) .inner:after {
+    background-color: #3C9BFB;
+}
+
+.button:before,
+.button:after,
+.button .inner:before,
+.button .inner:after {
+    position: absolute;
+    content: "";
+    display: block;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.button.horizontal:before,
+.button.horizontal:after,
+.button.both:before,
+.button.both:after {
+    left: 0;
+    width: 100%;
+    height: 2px;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+}
+
+.button.horizontal .inner:before,
+.button.horizontal .inner:after,
+.button.both .inner:before,
+.button.both .inner:after {
+    top: 0;
+    width: 2px;
+    height: 100%;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+}
+
+.button.horizontal .inner:before,
+.button.both .inner:before {
+    left: 0;
+}
+
+.button.horizontal .inner:after,
+.button.both .inner:after {
+    right: 0;
+}
+
+.button.horizontal:before,
+.button.both:before {
+    top: 0;
+}
+
+.button.horizontal:after,
+.button.both:after {
+    bottom: 0;
+}
+
+.button.horizontal:hover:before,
+.button.horizontal:hover:after,
+.button.both:hover:before,
+.button.both:hover:after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.button.horizontal:hover .inner:before,
+.button.horizontal:hover .inner:after,
+.button.both:hover .inner:before,
+.button.both:hover .inner:after {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.button.horizontal.clockwise .inner:before,
+.button.both.clockwise .inner:before {
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+}
+
+.button.horizontal.clockwise .inner:after,
+.button.both.clockwise .inner:after {
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+}
+
+.button.horizontal.clockwise:before,
+.button.both.clockwise:before {
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+}
+
+.button.horizontal.clockwise:after,
+.button.both.clockwise:after {
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.button.horizontal.clockwise:hover .inner:before,
+.button.both.clockwise:hover .inner:before {
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+}
+
+.button.horizontal.clockwise:hover:before,
+.button.both.clockwise:hover:before {
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.button.horizontal.clockwise:hover:after,
+.button.both.clockwise:hover:after {
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+}

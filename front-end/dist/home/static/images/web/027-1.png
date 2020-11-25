@@ -1,0 +1,1093 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <link rel="icon" type="image/x-icon" href="/m/favicon.ico" />
+<link rel="canonical" href="http://www.tianlad.com" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<meta baidu-gxt-verify-token="48ce440e470715eb5874ccb010c376a3">
+
+<title>「天蕾」您身边的互联网方案提供商-网站建设-seo优化-网络推广-小程序开发</title>
+
+<!-- <title>「天蕾」您身边的互联网方案提供商-高端网站建设- seo优化
+  -网络推广外包-小程序开发</title> -->
+<meta name="keywords" content="seo优化,seo推广,网站排名,网络推广,关键词优化,网站制作,网站建设,微信开发,公众号开发,小程序开发,天蕾">
+<meta name="description" content="天蕾致力于互联网品牌建设与网络营销，服务领域包括品牌网站建设、移动应用定制、互联网全案制作，一站式整合营销网络推广！全国热线电话：4007806980">
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?1cbbbc60dc373084318b53f5017cbeb8";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+<script type="text/javascript">
+  var pathname = window.location.pathname;
+  if(pathname.indexOf("/solution")>0){
+    document.title = "解决方案-天蕾";
+  }else if(pathname.indexOf("/service/wzjs")>0){
+    document.title = "品牌网站建设-天蕾";
+  }else if(pathname.indexOf("/service/appkf")>0){
+    document.title = "移动应用定制-天蕾";
+  }else if(pathname.indexOf("/service/wxkf")>0){
+    document.title = "微信定制开发-天蕾";
+  }else if(pathname.indexOf("/service/xcxkf")>0){
+    document.title = "全景漫游系统-天蕾";
+  }else if(pathname.indexOf("/service/seo")>0){
+    document.title = "搜索引擎优化-SEO-天蕾";
+  }else if(pathname.indexOf("/service/sem")>0){
+    document.title = "搜索引擎推广-SEM-天蕾";
+  }else if(pathname.indexOf("/service/aso")>0){
+    document.title = "应用商店优化-ASO-天蕾";
+  }else if(pathname.indexOf("/service/make")>0){
+    document.title = "视频制作-天蕾";
+  }else if(pathname.indexOf("/service/luntan")>0){
+    document.title = "论坛维护-天蕾";
+  }else if(pathname.indexOf("/service/wenda")>0){
+    document.title = "问答营销-天蕾";
+  }else if(pathname.indexOf("/service/xinwen")>0){
+    document.title = "新闻营销-天蕾";
+  }else if(pathname.indexOf("/service")>0){
+    document.title = "服务项目-天蕾";
+  }else if(pathname.indexOf("/solution")>0){
+    document.title = "解决方案-天蕾";
+  }else if(pathname.indexOf("/about/intro")>0){
+    document.title = "公司简介-天蕾";
+  }else if(pathname.indexOf("/about/contact")>0){
+    document.title = "联系我们-天蕾";
+  }else if(pathname.indexOf("/about/culture")>0){
+    document.title = "企业优势-天蕾";
+  }else if(pathname.indexOf("/about")>0){
+    document.title = "关于我们-天蕾";
+  }
+</script>
+<script type="text/javascript">
+  var str = window.location.href;
+  // if (str.indexOf("http") >= 0) {
+  //     reg = new RegExp("http://www.", "g"),
+  //     strurl = str.replace(reg, ""),
+  //     text = "http://m." + strurl;
+  // } else {
+  //     text = str.replace("www", "m");
+  // }
+  var text = "http://m.tianlad.com/"
+
+  function mobile_device_detect(url) {
+      var thisOS = navigator.platform;
+      var os = new Array("iPhone", "iPod", "iPad", "Android", "Nokia", "SymbianOS", "Symbian", "Windows Phone", "Phone", "Linux armv71", "MAUI", "UNTRUSTED/1.0", "Windows CE", "BlackBerry", "IEMobile");
+      for (var i = 0; i < os.length; i++) {
+          if (thisOS.match(os[i])) {
+              window.location = url;
+          }
+      }
+      if (navigator.platform.indexOf('iPad') != -1) {
+          window.location = url;
+      }
+      var check = navigator.appVersion;
+      if (check.match(/linux/i)) {
+          if (check.match(/mobile/i) || check.match(/X11/i)) {
+              window.location = url;
+          }
+      }
+      Array.prototype.in_array = function(e) {
+          for (i = 0; i < this.length; i++) {
+              if (this[i] == e)
+                  return true;
+          }
+          return false;
+      }
+  }
+
+  function QueryString(val) {
+      var uri = window.location.search;
+      var re = new RegExp("" + val + "=([^&?]*)", "ig");
+      return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+  }
+  var from = QueryString("from");
+  if (from != 'pc')
+      mobile_device_detect(text);
+</script>    <meta name="toTop" content="true">
+    <link href="/style/css/basic.css?v=2" rel="stylesheet" type="text/css">
+    <link href="/style/css/css_two.css?v=4" rel="stylesheet" type="text/css">
+    <link href="/style/css/inside_page.css?v=7" rel="stylesheet" type="text/css">
+    <link href="/style/css/style.css?v=4" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/style/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/style/js/superslide.2.1.js"></script>
+    <!-- <script type="text/javascript" src="/style/js/totop.js"></script> -->
+    <script type="text/javascript" src="/style/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/style/js/jq22.js"></script>
+    </script>
+    <script type="text/javascript" src="/style/js/jquery.superslide.2.1.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/statics/fay/css/jishukaifa/page.css">
+    <link rel="stylesheet" type="text/css" href="schtml/default/css/animate.min.css">
+</head>
+<body>
+    <!-- top -->
+    <!-- 导航条下拉 -->
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var qcloud = {};
+            $('[_t_nav]').hover(function() {
+                var _nav = $(this).attr('_t_nav');
+                clearTimeout(qcloud[_nav + '_timer']);
+                qcloud[_nav + '_timer'] = setTimeout(function() {
+                    $('[_t_nav]').each(function() {
+                        $(this)[_nav == $(this).attr('_t_nav') ? 'addClass' : 'removeClass']('nav-up-selected');
+                    });
+                    $('#' + _nav).stop(true, true).slideDown(0);
+                }, 0);
+            }, function() {
+                var _nav = $(this).attr('_t_nav');
+                clearTimeout(qcloud[_nav + '_timer']);
+                qcloud[_nav + '_timer'] = setTimeout(function() {
+                    $('[_t_nav]').removeClass('nav-up-selected');
+                    $('#' + _nav).stop(true, true).slideUp(0);
+                }, 0);
+            });
+        });
+    </script>
+
+    <!-- 导航条下拉 -->
+    <!-- 导航栏固定 -->
+    <script>
+        $(document).ready(function() {
+            $(document).scroll(function() {
+                var top = $(document).scrollTop();
+                if (top > 42) {
+                    $('#head-v3').addClass('new-head');
+                    $('#head-box').addClass('head-box');
+                } else if (top < 42) {
+                    $('#head-v3').removeClass('new-head');
+                    $('#head-box').removeClass('head-box');
+                }
+            });
+        });
+    </script>
+    <!-- 导航栏固定 -->
+    <!-- 顶部二维码弹出 -->
+    <script type="text/javascript">
+        $(function() {
+            var x = 10;
+            var y = 20;
+            $("a.tooltip").mouseover(function(e) {
+                this.myTitle = this.title;
+                this.title = "";
+                var imgTitle = this.myTitle ? "<br />" + this.myTitle + " " : "";
+                var tooltip = "<div id='tooltip'><img src='" + this.href + "' alt='' />" + imgTitle + "</div>";
+                $("body").append(tooltip);
+                $("#tooltip").css({
+                    "top": (e.pageY + y) + "px",
+                    "left": (e.pageX + x) + "px"
+                }).show("fast");
+                100
+            }).mouseout(function(e) {
+                this.title = this.myTitle;
+                $("#tooltip").remove();
+            }).mousemove(function(e) {
+                $("#tooltip").css({
+                    "top": (e.pageY + y) + "px",
+                    "left": (e.pageX + x) + "px"
+                });
+            });
+        })
+    </script>
+    <!-- 顶部二维码弹出 -->
+    <!-- 导航条 -->
+    <div class="head-v3">
+         
+<div class="navigation-up">
+    <div class="navigation-inner">
+        <a href="http://www.tianlad.com"><img src="/style/picture/logo.png" alt=""></a>
+        <div class="navigation-v3" id="menu-piece">
+            <ul>
+                                <li class="" _t_nav="home"><a href="http://www.tianlad.com">首页</a>
+                </li>
+                                  <li class="" _t_nav="service"><a href="http://www.tianlad.com/html/service/">服务项目</a>
+                  </li>
+                                  <li class="" _t_nav="solution"><a href="http://www.tianlad.com/html/solution/">解决方案</a>
+                  </li>
+                                  <li class="" _t_nav="blog"><a href="http://www.tianlad.com/html/blog/">天蕾学堂</a>
+                  </li>
+                                  <li class="" _t_nav="about"><a href="http://www.tianlad.com/html/about/">关于我们</a>
+                  </li>
+                                            </ul>
+        </div>
+<!--
+        <div class="top-right">
+            <a href=""></a>
+            <a href="http://www.tianlad.com/html/blog/">天蕾学堂</a>
+
+        </div>
+-->
+    </div>
+</div>
+<div class="navigation-down">
+    <div id="service" class="navigation-down-menu-1" style="display: none;" _t_nav="service">
+        <div class="navigation-down-inner-1">
+            <ul class="service-down-con">
+                <li>
+                    <p>技术开发<span>承载平台</span></p>
+                    <a href="http://www.tianlad.com/html/service/wzjs/">品牌网站建设 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                    <a href="http://www.tianlad.com/html/service/appkf/">移动应用定制 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                    <a href="http://www.tianlad.com/html/service/wxkf/">微信定制开发 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                    <a href="http://www.tianlad.com/html/service/xcxkf/">全景漫游系统 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                </li>
+                <li>
+                    <p>媒体引流<span>流量引导</span></p>
+                    <a href="http://www.tianlad.com/html/service/seo/">搜索引擎优化-SEO <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                    <a href="http://www.tianlad.com/html/service/sem/">搜索引擎推广-SEM <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                    <a href="http://www.tianlad.com/html/service/aso/">应用商店优化-ASO</a>
+                </li>
+                <li>
+                    <p>内容营销<span>用户感受</span></p>
+                    <a href="http://www.tianlad.com/html/service/make/">视频制作</a>
+                    <a href="http://www.tianlad.com/html/service/luntan/">论坛维护</a>
+                </li>
+                <li>
+                    <p>口碑营销<span>用户呼应</span></p>
+                    <a href="http://www.tianlad.com/html/service/wenda/">问答营销 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                    <a href="http://www.tianlad.com/html/service/xinwen/">新闻营销 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="about" class="menu-3" style="display: none;" _t_nav="about">
+        <div class="navigation-down-inner-3">
+            <ul class="about-down-con">
+                                 <li class="h-bg1">
+                    <a href="http://www.tianlad.com/html/about/intro/">
+                        <p>公司简介</p>
+                    </a>
+                </li>
+                                <li class="h-bg2">
+                    <a href="http://www.tianlad.com/html/about/contact/">
+                        <p>联系我们</p>
+                    </a>
+                </li>
+                                <li class="h-bg3">
+                    <a href="http://www.tianlad.com/html/about/culture/">
+                        <p>企业优势</p>
+                    </a>
+                </li>
+                             </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+  var nav = document.getElementById("menu-piece");
+  var links = nav.getElementsByTagName("li");
+  var lilen = nav.getElementsByTagName("a");
+  var currenturl = document.location.href;
+  var last = 0;
+  for (var i = 0; i < links.length; i++){
+      var linkurl = lilen[i].getAttribute("href");
+      if (currenturl.indexOf(linkurl) != -1) {
+          last = i;
+      }
+  }
+  links[last].className = "menu_on";
+</script>    </div>
+    <!-- 导航条 -->
+    <!-- top -->
+    <div class="index-fullSlide fullSlide">
+        <div class="bd">
+            <ul>
+                <li style="background:#3C9BFB url(/home/static/images/home/banner/3.jpg) center no-repeat;" class="banner_1">
+                    <div class="index-slide-content">
+                        <h2>SEO服务-按结果付费</h2>
+                        <p>千余家用户经验，五年诚信品牌实力见证，站在客户角度，一对一服务，</p>
+                        <p>让你网站销量暴增，效果稳定。</p>
+                        <a href="http://www.tianlad.com/html/service/seo/" target="_blank">了解详情</a>
+                    </div>
+                </li>
+                <li style="background:#3C9BFB url(/home/static/images/home/banner/1.jpg) center no-repeat;" class="banner_2">
+                    <div class="index-slide-content">
+                        <h2>新媒体运营</h2>
+                        <p>知名上海新媒体运营, 5年为多家500强企业在提供新媒体运营服务，</p>
+                        <p>资深运营资历,以效果为导向,量身定做适合您企业新媒体的营销方案。</p>
+                        <a href="http://www.tianlad.com/html/solution/" target="_blank">了解详情</a>
+                    </div>
+                </li>
+                <li style="background:#3C9BFB url(/home/static/images/home/banner/2.jpg) center no-repeat;">
+                    <div class="index-slide-content">
+                        <h2>网站建设</h2>
+                        <p>用心做好每一个网站，原创定制网站建设和营销，</p>
+                        <p>坚持做有用的网站和有效果的网络营销。</p>
+                        <a href="http://www.tianlad.com/html/service/wzjs/" target="_blank">了解详情</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hd">
+            <ul></ul>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        //          
+        //      $(".fullSlide").hover(function() {
+        //          $(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+        //          }, function() {
+        //          $(this).find(".prev,.next").fadeOut()
+        //          });
+        // 
+        //          jQuery(".fullSlide").slide({
+        //          titCell: ".hd ul",
+        //        mainCell: ".bd ul",
+        //          effect: "fold",
+        //          autoPlay: true,
+        //          autoPage: true,
+        //          trigger: "click",
+        //          interTime: "4500",
+        //              startFun: function(i) {
+        //              var curLi = jQuery(".fullSlide .bd li").eq(i);
+        //                  if (!!curLi.attr("_src")) {
+        //                  curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+        //                  }
+        //              }
+        //              });
+        jQuery(".fullSlide").slide({
+            titCell: ".hd ul",
+            mainCell: ".bd ul",
+            effect: "fold",
+            autoPlay: true,
+            autoPage: true,
+            interTime: "4500",
+            trigger: "click",
+        });
+    </script>
+    <div class="new-index-piece2">
+         
+                <div class="title">天蕾学堂<img src="/statics/images/news.png"/></div>
+            
+          <!--begin--> 
+                    <a href="http://www.tianlad.com/html/2020/blog_0707/33.html" style="font-size:inherit;">
+         <dl class="new-index-piece2-first">
+            <dt><img src="/style/picture/img3.png" alt="" /></dt>
+            <dd>
+                <h3>网站主页的权重分析:高权重来自这四个方面</h3>
+                <p>网站的第一页是最重要的。无论是栏目页面还是网站的内页，都不能简单地......</p>
+            </dd>
+        </dl>
+</a>
+          <a href="http://www.tianlad.com/html/2020/blog_0707/32.html" style="font-size:inherit;">
+         <dl class="new-index-piece2-first">
+            <dt><img src="/style/picture/img3.png" alt="" /></dt>
+            <dd>
+                <h3>百度指数下跌的原因是什么？有效的解决办法是什么？</h3>
+                <p>数量是交通的基础。海量数据的每一次转换都会触动站长的敏感神经。网站......</p>
+            </dd>
+        </dl>
+</a>
+          <a href="http://www.tianlad.com/html/2020/blog_0707/31.html" style="font-size:inherit;">
+         <dl class="new-index-piece2-first">
+            <dt><img src="/style/picture/img3.png" alt="" /></dt>
+            <dd>
+                <h3>如何当好一个百度竞价员</h3>
+                <p>网上的文章太多了，但是没有一篇是系统的和完整的，这使得一些初学者很......</p>
+            </dd>
+        </dl>
+</a>
+                              <!--end-->
+<!--
+        <dl class="new-index-piece2-first">
+            <dt><img src="/style/picture/img3.png" alt="" /></dt>
+            <dd>
+                <h3>经验丰富</h3>
+                <p>基于实战积累了丰富经验</p>
+            </dd>
+        </dl>
+        <dl class="new-index-piece2-second">
+            <dt><img src="/style/picture/img4.png" alt="" /></dt>
+            <dd>
+                <h3>流程科学</h3>
+                <p>基于行业总结了科学流程</p>
+            </dd>
+        </dl>
+        <dl class="new-index-piece2-third">
+            <dt><img src="/style/picture/img5.png" alt="" /></dt>
+            <dd>
+                <h3>产品丰富</h3>
+                <p>基于需求研发多层次产品</p>
+            </dd>
+        </dl>
+        <dl class="new-index-piece2-fourth">
+            <dt><img src="/style/picture/img6.png" alt="" /></dt>
+            <dd>
+                <h3>服务精细</h3>
+                <p>针对需求提供精细化服务</p>
+            </dd>
+        </dl>
+-->
+    </div>
+
+    <div class="content ">
+        <div class="new-index-service">
+            <div class="col_title">我们的服务</div>
+            <h3>用营销为品牌效力</h3>
+            <div class="new-index-piece3-content">
+                <div class="slideTxtBox">
+                    <div class="hd">
+                        <ul>
+                            <li class="two">
+                                <span></span>
+                                <h3>技术开发</h3>
+                                <p>承载平台</p>
+                            </li>
+                            <li class="three">
+                                <span></span>
+                                <h3>媒体引流</h3>
+                                <p>流量引导</p>
+                            </li>
+                            <li class="one">
+                                <span></span>
+                                <h3>内容营销</h3>
+                                <p>用户感受</p>
+                            </li>
+                            <li class="four">
+                                <span></span>
+                                <h3>口碑营销</h3>
+                                <p>用户呼应</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <div class="bd-content-list">
+                            <div class="bd-content-list-left">
+                                <h3>技术开发</h3>
+                                <p>天蕾能够基于客户品牌和营销的需求出发，合理的帮助客户进行网站、小程序、APP等站点的策划，并应用当下流行的技术语言实现功能。</p>
+                            </div>
+                            <div class="bd-content-list-right">
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/wzjs/">品牌网站建设 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                                            <p>品牌网站建设、品牌商城建设、电商平台店铺装修、门户平台建设</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/appkf/">移动应用定制</a>
+                                            <p>让品牌关键词的搜索结果助力品牌成长</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/wxkf/">微信定制开发</a>
+                                            <p>通过百度知道、知乎等平台品牌传播</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/xcxkf/">全景漫游系统 <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                                            <p>视频拍摄及各大视频平台的传播</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="bd-content-list">
+                            <div class="bd-content-list-left">
+                                <h3>媒体引流</h3>
+                                <p>天蕾从PC、移动两大端口的承载平台的特征出发，通过精细的搜索引擎营销、信息流广告投放等手段帮助客户实现有效的广告投放和流量引导。</p>
+                            </div>
+                            <div class="bd-content-list-right">
+                                <ul>
+                                    <li>
+                                      <div>
+                                          <a href="http://www.tianlad.com/html/service/seo/">搜索引擎优化-SEO <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                                          <p>通过网站内部和外部的优化，让精准关键词在搜索引擎上更好的展现</p>
+                                      </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/sem/">搜索引擎推广-SEM <img src="/home/static/images/header/hot.png" height="20px" style="margin-left: 8px;"/></a>
+                                            <p>帮助客户在百度、谷歌等搜索引擎上进行付费推广，精准引流</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/aso/">应用商店优化-ASO</a>
+                                            <p>帮助App在App Store和安卓市场上有更好排名</p>
+                                        </div>
+                                    </li>
+<!--
+                                    <li>
+                                        <div>
+                                            <a>广告投放</a>
+                                            <p>全网广告投放渠道，重新定义互联网广告</p>
+                                        </div>
+                                    </li>
+-->
+                                    <!-- <li>
+                                        <div>
+                                            <a>整合营销</a>
+                                            <p>微信是目前用户最多的超级App，基于微信做精准营销</p>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="bd-content-list">
+                            <div class="bd-content-list-left">
+                                <h3>内容营销</h3>
+                                <p>天蕾根据客户品牌调性和产品整年活动规划进行口碑宣传策划。系统科学的安排高质量内容撰写、渠道选择、内容发布和数据统计与分析。</p>
+                            </div>
+                            <div class="bd-content-list-right">
+                                <ul>
+                                  <li>
+                                    <div>
+                                        <a href="http://www.tianlad.com/html/service/make/">视频制作</a>
+                                        <p>视频拍摄及各大视频平台的传播</p>
+                                    </div>
+                                </li>
+                                <li>
+                                  <div>
+                                      <a href="http://www.tianlad.com/html/service/luntan/">论坛维护</a>
+                                      <p>让品牌关键词的搜索结果助力品牌成长</p>
+                                  </div>
+                                </li>
+                                    
+                                    <!-- <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/video/">视频营销</a>
+                                            <p>视频拍摄及各大视频平台的传播</p>
+                                        </div>
+                                    </li> -->
+
+                                    
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="bd-content-list">
+                            <div class="bd-content-list-left">
+                                <h3>口碑营销</h3>
+                                <p>天蕾帮助品牌通过微信、微博等新媒体将用户转化为粉丝进行精细化管理和有节制的使用。并通过线下互动的方式帮助品牌进行营销的呼应。</p>
+                            </div>
+                            <div class="bd-content-list-right">
+                                <ul>
+                                  <li>
+                                    <div>
+                                        <a href="http://www.tianlad.com/html/service/wenda/">问答营销</a>
+                                        <p>通过百度知道、知乎等平台进行品牌传播</p>
+                                    </div>
+                                  </li>
+                                  
+                                  <li>
+                                      <div>
+                                          <a href="http://www.tianlad.com/html/service/xinwen/">新闻营销</a>
+                                          <p>将企业的新闻和软文迅速推广到超过5000家媒体平台</p>
+                                      </div>
+                                  </li>
+                                    <!-- <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/wxyx/">微信营销</a>
+                                            <p>微信是目前用户最多的超级App，基于微信做精准营销</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/wbyx/">微博营销</a>
+                                            <p>微博是生人社交的巨大App，便于品牌信息传播</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/gghd/">公关互动</a>
+                                            <p>媒体邀约、整合营销配合、新品推荐会</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="http://www.tianlad.com/html/service/sqyx/">社群营销</a>
+                                            <p>视频拍摄及各大视频平台的传播</p>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    jQuery(".slideTxtBox").slide({
+                        effect: "left",
+                        trigger: "click"
+                    });
+                </script>
+            </div>
+            <!-- <div class="w1200 index-over">
+<dl><dt><img src="/style/picture/new-service-img1.png" alt=""></dt>
+<dd>
+<p>搜索营销</p><span><a href="/server/sem/">搜索引擎推广-SEM</a> |<a href="/server/seo/">搜索引擎优化-SEO</a></span><span><a
+     href="/server/orm/">在线名誉管控-ORM</a> |<a href="/server/aso/">应用商店搜索优化-ASO</a></span>
+</dd>
+</dl>
+<dl><dt><img src="/style/picture/new-service-img2.png" alt=""></dt>
+<dd>
+<p>口碑营销</p><span><a href="/server/wenda/">问答营销</a> |<a href="/server/luntan/">论坛营销</a></span><span><a href="/server/news/">新闻营销</a>
+    |<a href="/server/video/">视频营销</a></span>
+</dd>
+</dl>
+<dl><dt><img src="/style/picture/new-service-img3.png" alt=""></dt>
+<dd>
+<p>社交媒体营销</p><span><a href="/server/weixin/">微信营销</a> |<a href="/server/weibo/">微博营销</a></span><span><a href="/server/gongguan/">公关活动</a>
+    |<a href="/server/shequn/">社群营销</a></span>
+</dd>
+</dl>
+<dl><dt><img src="/style/picture/new-service-img4.png" alt=""></dt>
+<dd>
+<p>技术服务</p><span><a href="/server/jsfw/">网站建设</a> |<a href="/server/appkaifa/">APP开发</a></span><span><a href="/server/weixinkaifa/">公众号开发</a>
+    |<a href="/server/xiaochengxu/">小程序开发</a></span>
+</dd>
+</dl>
+<dl class="img-left"><dt><img src="/style/picture/new-service-img5.png" alt=""></dt>
+<dd>
+<p>移动营销</p><span><a href="###">移动SEO</a> |<a href="/chanpin/paws/">熊掌号运维</a></span><span><a href="###">移动广告投放</a></span>
+</dd>
+</dl>
+<dl><dt><img src="/style/picture/new-service-img6.png" alt=""></dt>
+<dd>
+<p>活动策划</p><span><a href="###">展览展示</a> |<a href="###">发布会</a></span><span><a href="###">巡展路演</a> |<a href="###">公司年会</a></span>
+</dd>
+</dl>
+</div> -->
+
+        </div>
+        <div class="clear"></div>
+        <div class="tent3">
+          <div class="pagePartner">
+            <div class="title wow fadeInUp" data-wow-offset="10" data-wow-delay="0.1s"><p>天蕾与客户共成长</p>没有短暂的客户，只有永远的朋友；我们服务中小企业，定位品质客户</div>
+            <div class="list clear">
+                <ul>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.2s"><a href="javascript:void(0)" title="栖巢咖啡"><img class="img1" src="/home/static/images/partner/001.png" alt="栖巢咖啡" title="栖巢咖啡"><img class="img2" src="/home/static/images/partner/001-1.png" alt="栖巢咖啡" title="栖巢咖啡"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.3s"><a href="javascript:void(0)" title="安徽农金"><img class="img1" src="/home/static/images/partner/002.png" alt="安徽农金" title="安徽农金"><img class="img2" src="/home/static/images/partner/002-1.png" alt="安徽农金" title="安徽农金"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.4s"><a href="javascript:void(0)" title="中酒连锁"><img class="img1" src="/home/static/images/partner/003.png" alt="中酒连锁" title="中酒连锁"><img class="img2" src="/home/static/images/partner/003-1.png" alt="中酒连锁" title="中酒连锁"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.5s"><a href="javascript:void(0)" title="普华科技"><img class="img1" src="/home/static/images/partner/004.png" alt="普华科技" title="普华科技"><img class="img2" src="/home/static/images/partner/004-1.png" alt="普华科技" title="普华科技"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.6s"><a href="javascript:void(0)" title="城建设计院"><img class="img1" src="/home/static/images/partner/005.png" alt="城建设计院" title="城建设计院"><img class="img2" src="/home/static/images/partner/005-1.png" alt="城建设计院" title="城建设计院"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.7s"><a href="javascript:void(0)" title="七禾田集团"><img class="img1" src="/home/static/images/partner/006.png" alt="七禾田集团" title="七禾田集团"><img class="img2" src="/home/static/images/partner/006-1.png" alt="七禾田集团" title="七禾田集团"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.8s"><a href="javascript:void(0)" title="美巢装饰"><img class="img1" src="/home/static/images/partner/007.png" alt="美巢装饰" title="美巢装饰"><img class="img2" src="/home/static/images/partner/007-1.png" alt="美巢装饰" title="美巢装饰"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="0.9s"><a href="javascript:void(0)" title="蚂蚁乐居"><img class="img1" src="/home/static/images/partner/008.png" alt="蚂蚁乐居" title="蚂蚁乐居"><img class="img2" src="/home/static/images/partner/008-1.png" alt="蚂蚁乐居" title="蚂蚁乐居"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="1.0s"><a href="javascript:void(0)" title="美菱生物医疗"><img class="img1" src="/home/static/images/partner/009.png" alt="美菱生物医疗" title="美菱生物医疗"><img class="img2" src="/home/static/images/partner/009-1.png" alt="美菱生物医疗" title="美菱生物医疗"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="1.1s"><a href="javascript:void(0)" title="百丽橱柜"><img class="img1" src="/home/static/images/partner/010.png" alt="百丽橱柜" title="百丽橱柜"><img class="img2" src="/home/static/images/partner/010-1.png" alt="百丽橱柜" title="百丽橱柜"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="1.2s"><a href="javascript:void(0)" title="大源集团"><img class="img1" src="/home/static/images/partner/011.png" alt="大源集团" title="大源集团"><img class="img2" src="/home/static/images/partner/011-1.png" alt="大源集团" title="大源集团"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="1.3s"><a href="javascript:void(0)" title="格美电器"><img class="img1" src="/home/static/images/partner/012.png" alt="格美电器" title="格美电器"><img class="img2" src="/home/static/images/partner/012-1.png" alt="格美电器" title="格美电器"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="1.4s"><a href="javascript:void(0)" title="骨味坊"><img class="img1" src="/home/static/images/partner/013.png" alt="骨味坊" title="骨味坊"><img class="img2" src="/home/static/images/partner/013-1.png" alt="骨味坊" title="骨味坊"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="1.5s"><a href="javascript:void(0)" title="六安图书馆"><img class="img1" src="/home/static/images/partner/014.png" alt="六安图书馆" title="六安图书馆"><img class="img2" src="/home/static/images/partner/014-1.png" alt="六安图书馆" title="六安图书馆"></a></li>
+                    <li class="wow fadeInUp" data-wow-offset="10" data-wow-delay="1.6s"><a href="javascript:void(0)" title="名流健康集团"><img class="img1" src="/home/static/images/partner/015.png" alt="名流健康集团" title="名流健康集团"><img class="img2" src="/home/static/images/partner/015-1.png" alt="名流健康集团" title="名流健康集团"></a></li>
+                </ul>
+            </div>
+          </div> 
+        </div>
+        
+        <!-- <div class="tent3">
+            <div class="col_title ">我们的客户</div>
+            <h3>与我们共同成长的客户</h3>
+            <div class="w1201">
+                <ul class="our_kh">
+                    <li style="background: url(statics/images/partner/001.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/002.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/003.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/004.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/005.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/006.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/007.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/008.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/009.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/010.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/011.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/012.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/013.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/014.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/015.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/016.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/017.png) no-repeat center;"></li>
+                    <li style="background: url(statics/images/partner/018.png) no-repeat center;"></li>
+                </ul>
+            </div>
+        </div> -->
+        <div class="clear"></div>
+        <div class="tent2">
+            <div class="col_title">我们的优势</div>
+            <h3>为什么选择天蕾</h3>
+            <div class="w1200">
+                <div class="whyme"><img src="/home/static/images/home/expect.png" alt="" />
+                    <div class="w_right">
+                        <p>多位行业专家</p><span>我们拥有多位互联营销专家，他们在网络营销行业耕耘多年，有独特洞察力！</span>
+                    </div>
+                </div>
+                <div class="whyme"><img src="/home/static/images/home/work.png" alt="" />
+                    <div class="w_right">
+                        <p>行业经验丰富</p><span>天蕾专家团队在技术和营销领域拥有多年互联网营销经验。丰富的行业经验和解决方案有助于营销目标达成。</span>
+                    </div>
+                </div>
+                <div class="whyme"><img src="/home/static/images/home/kpi.png" alt="" />
+                    <div class="w_right">
+                        <p>绩效指标明确</p><span>天蕾将沟通中约定的合作绩效指标都写入合同。包括执行绩效和效果绩效。</span>
+                    </div>
+                </div>
+                <div class="whyme"><img src="/home/static/images/home/service.png" alt="" />
+                    <div class="w_right">
+                        <p>服务流程精细</p><span>基于行业经验，天蕾细分服务执行环节为独特节点流程，方便针对节点考核和优化！</span>
+                    </div>
+                </div>
+                <div class="whyme"><img src="/home/static/images/home/look.png" alt="" />
+                    <div class="w_right">
+                        <p>执行监控全面</p><span>天蕾的服务执行公开透明，技术上修改执行，营销上的内容发布都以全面的报告形式呈现给客户！</span>
+                    </div>
+                </div>
+                <div class="whyme"><img src="/home/static/images/home/team.png" alt="" />
+                    <div class="w_right">
+                        <p>团队精益执行</p><span>天蕾从成立之初就自建了底层执行团队。执行环节不外包能够提升项目执行效率和精益项目管控。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-index-news">
+            <div class="new-index-title">天蕾学堂</div>
+            <h3 class="new-index-piece-title">在这里了解最新的互联网知识内容</h3>
+            <div class="w1200 index-over">
+
+                <div>
+                                         <dl>
+
+                        <dt>
+
+                                <a href="http://www.tianlad.com/html/2020/blog_0707/33.html">
+
+                                    <span><img src='/uploadfile/2020/0630/20200630125317657.jpg' border='0' width='378' height='378' alt='网站主页的权重分析:高权重来自这四个方面'></span>
+
+                                </a>
+
+                            </dt>
+
+                        <dd>
+
+                            <p>
+
+                                <a href="http://www.tianlad.com/html/2020/blog_0707/33.html">网站主页的权重分析:高权重来自这四个方面</a>
+
+                            </p>
+
+                            <span>网站的第一页是最重要的。无论是栏目页面还是网站的内页，都不能简......</span>
+
+                        </dd>
+
+                    </dl>
+                                        <dl>
+
+                        <dt>
+
+                                <a href="http://www.tianlad.com/html/2020/blog_0707/32.html">
+
+                                    <span><img src='/uploadfile/2020/0630/20200630125317657.jpg' border='0' width='378' height='378' alt='百度指数下跌的原因是什么？有效的解决办法是什么？'></span>
+
+                                </a>
+
+                            </dt>
+
+                        <dd>
+
+                            <p>
+
+                                <a href="http://www.tianlad.com/html/2020/blog_0707/32.html">百度指数下跌的原因是什么？有效的解决办法是什么？</a>
+
+                            </p>
+
+                            <span>数量是交通的基础。海量数据的每一次转换都会触动站长的敏感神经。......</span>
+
+                        </dd>
+
+                    </dl>
+                                        <dl>
+
+                        <dt>
+
+                                <a href="http://www.tianlad.com/html/2020/blog_0707/31.html">
+
+                                    <span><img src='/uploadfile/2020/0630/20200630125317657.jpg' border='0' width='378' height='378' alt='如何当好一个百度竞价员'></span>
+
+                                </a>
+
+                            </dt>
+
+                        <dd>
+
+                            <p>
+
+                                <a href="http://www.tianlad.com/html/2020/blog_0707/31.html">如何当好一个百度竞价员</a>
+
+                            </p>
+
+                            <span>网上的文章太多了，但是没有一篇是系统的和完整的，这使得一些初学......</span>
+
+                        </dd>
+
+                    </dl>
+                     
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="tent7">
+            <div class="col_title">我们的伙伴</div>
+            <h3 class="new-index-piece-title2 new-index-piece-title">感谢一路有你们</h3>
+            <div class="w1200">
+            <ul class="partner">
+                <!-- <li> <img src="/style/picture/new-sem-img3.jpg" alt="百度推广">
+                    <p>百度推广</p>
+                </li> -->
+                <li> <img src="/style/picture/new-sem-img4.jpg" alt="谷歌">
+                    <p>谷歌</p>
+                </li>
+                <li> <img src="/style/picture/new-sem-img5.jpg" alt="360搜索">
+                    <p>360搜索</p>
+                </li>
+                <li> <img src="/style/picture/new-sem-img6.jpg" alt="搜狗搜索">
+                    <p>搜狗搜索</p>
+                </li>
+                <li> <img src="/style/picture/new-sem-img7.jpg" alt="必应">
+                    <p>必应</p>
+                </li>
+                <li> <img src="/style/picture/new-sem-img8.jpg" alt="神马">
+                    <p>神马</p>
+                </li>
+            </ul>
+        </div>
+            
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="fotbb tent5" style="background: #0574e2;padding: 20px 0; height: 180px;text-align: left;">
+  <div style="width: 80%;margin-left: 10%;">
+    <div>
+      <div style="display: flex;align-items: center;justify-content: space-between;border-bottom: 1px solid #fff;padding-bottom: 20px;height: 80px;">
+                <p><a href="http://www.tianlad.com/html/service/">服务项目</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.tianlad.com/html/solution/">解决方案</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.tianlad.com/html/blog/">天蕾学堂</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.tianlad.com/html/about/">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <img src="/statics/images/qrcode.png" style="width: 80px;margin-right: 40px;">
+       </div>
+      <div style="display: flex;align-items: center;justify-content: space-between;padding-top: 10px;">
+        <div>
+                    <p class="footer_link"><a style="font-size:12px;text-decoration: none;">友情链接： </a></p>
+          <p>沪ICP备20012510号 上海天蕾企业服务有限公司 | Copyright © 2020 By TianLad</p>
+        </div>
+        <p>客服电话：400-780-6980</p>
+      </div>
+    </div>
+ </div>
+</div>
+<div style="position: fixed; left: 0; top: 50%; width: 66px; height: 66px;z-index: 9999;cursor: pointer;" class="fay-left-nav">
+  <img src="/home/static/images/wechat.png" width="100%" style="box-shadow: 1px 31px 80px #aaaaaa;border-radius: 0 10px 10px 0;"/>
+  <div style="width: 120px;position: absolute;left: 66px;top: -20px;" class="fay-left-nav-wechatQrcode">
+    <img src="/statics/images/qrcode.png" style="box-shadow: 1px 31px 80px #aaaaaa;"/>
+  </div>
+</div>
+<script>
+  $(".fay-left-nav-wechatQrcode").css("display","none");
+  $(".fay-left-nav").hover(function(){
+      $(".fay-left-nav-wechatQrcode").css("display","block");
+  },function(){
+      $(".fay-left-nav-wechatQrcode").css("display","none");
+  });
+</script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".side_nav").hover(function() {
+                $(this).find("div").stop().animate({
+                    right: "0",
+                    opacity: 1
+                }, "fast").css("display", "block")
+            }, function() {
+                $(this).find("div.gr1").stop().animate({
+                    right: "-135",
+                    opacity: 1
+                }, "fast")
+            });
+        });
+        $(document).ready(function() {
+            $(".gr2").each(function() {
+                $(this).mouseover(function() {
+                    $(this).addClass("gr2_on");
+                });
+                $(this).mouseout(function() {
+                    $(this).removeClass("gr2_on");
+                });
+            });
+        });
+        $(function() {
+            $(".showbox").click(function() {
+                $("#TB_overlayBG").css({
+                    display: "block",
+                    height: $(document).height()
+                });
+                $(".box").css({
+                    left: ($("body").width() - $(".box").width()) / 2 - 20 + "px",
+                    top: ($(window).height() - $(".box").height()) / 20 + $(window).scrollTop() + "px",
+                    display: "block"
+                });
+            });
+            $(".close").click(function() {
+                $("#TB_overlayBG").css("display", "none");
+                $(".box ").css("display", "none");
+            });
+        })
+    </script>
+    <div id="TB_overlayBG"></div>
+    <div class="box">
+        <h2><a href="###" class="close">关闭</a></h2>
+        <form action="/plus/diy.php" enctype="multipart/form-data" method="post"><input type="hidden" name="action" value="post" /><input type="hidden" name="diyid" value="2" /><input type="hidden" name="do" value="2" />
+            <div class="mainlist">
+                <div class="tjxq">提交您的需求</div>
+                <dl><dt>姓名/Name:</dt>
+                    <dd><input type="text" name="name" id="name" class="intxt mvb1" value="" required data-msg-required="不能为空" /></dd>
+                </dl>
+
+                <dl><dt>公司名称/Company:</dt>
+
+                    <dd><input type="text" name="company" id="company" class="intxt mvb1" value="" required data-msg-required="不能为空" /></dd>
+
+                </dl>
+
+                <dl><dt>邮箱/Email:</dt>
+
+                    <dd><input type="text" name="email" id="email" class="intxt mvb1" value="" required data-msg-required="不能为空" /></dd>
+
+                </dl>
+
+                <dl><dt>电话/Tel:</dt>
+
+                    <dd><input type="text" name="tel" id="tel" class="intxt mvb1" value="" required data-msg-required="不能为空" /></dd>
+
+                </dl>
+
+                <dl><dt>服务需求:</dt><select class="mvb2" name="need" id='need'>
+
+                <option value="选择您的服务">选择您的服务</option>
+
+                <option value="搜索引擎营销">搜索引擎营销</option>
+
+                <option value="口碑营销">口碑营销</option>
+
+                <option value="互动营销">互动营销</option>
+
+                <option value="技术服务">技术服务</option>
+
+              </select></dl><input type="hidden" name="ip" id="ip" value=""><input type="hidden" name="time" id="time" value=""><input type="hidden" name="required" value="name,company,email,tel" />
+
+                <dl>
+
+                    <dd><input type="submit" name="submit" value="确认提交" class="submitBtn"></dd>
+
+                </dl><input type="hidden" name="dede_fields" value="name,text;company,text;email,text;tel,text;need,select;ip,text;time,text;gongsi_name,text" /><input type="hidden" name="dede_fieldshash" value="db5adaeaf92c8bf73eda87123339c06c" />
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div class="new-footer-cont">
+      <p class="new-footer-cont-close"></p>
+      <ul>
+        <form action="/index.php?m=formguide&c=index&a=show&formid=15&siteid=1" enctype="multipart/form-data" method="post" onsubmit="return checkForm(this)">
+          <input type="hidden" name="info[contact_name]" value="首页进入" />
+          <li class="new-f-cont-tit1">立即与天蕾专业顾问联系</li>
+          <li class="new-f-cont-tit2">400-780-6980</li>
+          <li class="new-f-cont-tit3">
+            <input type="text" name="info[contact_phone]" id="tel1" placeholder="请输入您的电话号码！">
+            <input type="submit" name="dosubmit" id="new-fot-btn" onclick="checkForm(o)" value=" ">
+            <span>预约顾问</span>
+          </li>
+          <li class="new-f-cont-tit1">或者您可以马上与天蕾专业顾问在线沟通</li>
+          <li class="new-f-cont-tit4"><a href="http://p.qiao.baidu.com/cps/chat?siteId=15193023&userId=30743658&siteToken=1cbbbc60dc373084318b53f5017cbeb8" target="_blank">在线咨询</a></li>
+        </form>
+
+        <script type="text/javascript">
+            function checkForm(o) {
+                var re = /^1[3|4|5|7|8]\d{9}$/;
+                var tel = document.getElementById("tel1");
+                if (tel.value == '') {
+                    alert("请输入您的电话号码！");
+                    return false;
+                }
+
+                if (!re.test(tel.value)) {
+                    alert("请填写正确的手机号码！");
+                    return false;
+                }
+            }
+        </script>
+      </ul>
+    </div>
+
+    <div class='new-footer-cont-bg'></div>
+
+    <!-- 弹出窗口js -->
+
+    <script type="text/javascript">
+        var t = setTimeout(function() {
+            $('.new-footer-cont').animate({
+                top: 0,
+                bottom: 0
+            });
+
+            $('.new-footer-cont-bg').css({
+                'display': 'block'
+            });
+        }, 30000);
+
+        $('.new-footer-cont .new-footer-cont-close,.new-footer-cont-bg').click(function(ev) {
+            $('.new-footer-cont').animate({
+                top: '-150%',
+                bototm: '100%'
+            });
+
+            $('.new-footer-cont-bg').css({
+                'display': 'none'
+            });
+
+            var t = setTimeout(function() {
+                $('.new-footer-cont').animate({
+                    top: 0,
+                    bottom: 0
+                });
+
+                $('.new-footer-cont-bg').css({
+                    'display': 'block'
+                });
+            }, 30000);
+
+        });
+    </script>
+
+    </div>
+    <!-- footer -->
+    <script>
+        $(".new-index-piece2-second").hover(function() {
+            $(".new-index-piece2-first").css("border-right", "1px solid #208bf7");
+        }, function() {
+            $(".new-index-piece2-first").css("border-right", "1px solid #3C9BFB");
+        });
+        $(".new-index-piece2-third").hover(function() {
+            $(".new-index-piece2-second").css("border-right", "1px solid #208bf7");
+        }, function() {
+            $(".new-index-piece2-second").css("border-right", "1px solid #3C9BFB");
+        });
+        $(".new-index-piece2-fourth").hover(function() {
+            $(".new-index-piece2-third").css("border-right", "1px solid #208bf7");
+        }, function() {
+            $(".new-index-piece2-third").css("border-right", "1px solid #3C9BFB");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+/* Website */
+
+.Website {
+  width: 100%;
+  padding: 80px 0;
+  margin: 0 auto;
+  background: #fff url(../images/web/007.png) center bottom no-repeat;
+  border-bottom: solid 1px #eee;
+  height: 500px;
+}
+
+.Website .cont {
+  width: 90rem;
+  margin: 0 auto;
+}
+
+.Website .cont .left {
+  width: 800px;
+  padding-left: 120px;
+  background: url(../images/web/001.png) top left 35px no-repeat;
+}
+
+.Website .cont .left .name {
+  font-size: 46px;
+  color: #333;
+}
+
+.Website .cont .left .con {
+  font-size: 16px;
+  color: #999;
+  line-height: 30px;
+  margin-top: 15px;
+}
+
+.Website .cont .left .line {
+  width: 40px;
+  height: 4px;
+  background-color: #999;
+  margin: 20px 0;
+}
+
+.Website .cont .left .item {
+  width: 100%;
+}
+
+.Website .cont .left .item p {
+  float: left;
+  width: 200px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.Website .cont .left .item p span {
+  color: #3C9BFB;
+}
+
+.Website .cont .right {
+  width: 380px;
+  height: 310px;
+  background: url(../images/web/002.png) center center no-repeat;
+  margin-right: 70px;
+}
+
+.Website .list {
+  width: 90rem;
+  margin: 80px auto 0;
+}
+
+.Website .list dl {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+
+.Website .list dl dt {
+  width: 66px;
+  height: 66px;
+  margin: auto;
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  transition: 0.4s 0s;
+  -webkit-transition: 0.4s 0s;
+}
+
+.Website .list dl:nth-child(1) dt {
+  background: url(../images/web/003.png) center center no-repeat;
+}
+
+.Website .list dl:nth-child(2) dt {
+  background: url(../images/web/004.png) center center no-repeat;
+}
+
+.Website .list dl:nth-child(3) dt {
+  background: url(../images/web/005.png) center center no-repeat;
+}
+
+.Website .list dl:nth-child(4) dt {
+  background: url(../images/web/006.png) center center no-repeat;
+}
+
+.Website .list dl dd {
+  font-size: 14px;
+  color: #999;
+  line-height: 26px;
+}
+
+.Website .list dl dd p {
+  font-size: 18px;
+  color: #333;
+  margin: 25px auto;
+}
+
+.Website .list dl:hover dt {
+  opacity: 1;
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+}
+
+/* WebExperience */
+.WebExperience{ width: 90rem; margin: auto; padding: 80px 0; height: 550px;}
+.WebExperience .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.WebExperience .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.WebExperience .list{ width: 100%; margin: 50px auto 0;}
+.WebExperience .list dl{ float: left; width: 25%;}
+.WebExperience .list dl dt{ width: 100%;}
+.WebExperience .list dl dt img{ width: 100%;}
+.WebExperience .list dl dd{ text-align: center; font-size: 14px; color: #999; line-height: 26px;}
+.WebExperience .list dl dd p{ font-size: 20px; color: #333; margin: 30px auto 20px;}
+
+/* WebAdvantage */
+.WebAdvantage{ width: 100%; padding: 80px 0; margin: auto; background-color: #f8f8f8; height: 500px;}
+.WebAdvantage .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.WebAdvantage .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.WebAdvantage .list{ width: 90rem; margin: 50px auto 0;}
+.WebAdvantage .list dl{ float: left; width: 252px; padding: 40px 0; height: 220px; position: relative; background-color: #fff; -webkit-box-shadow:0 0 10px rgba(0,0,0,0.05); -moz-box-shadow:0 0 10px rgba(0,0,0,0.05); box-shadow:0 0 10px rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden; position: relative; margin-left: 45px;}
+.WebAdvantage .list dl:first-child{ margin-left: 0;}
+.WebAdvantage .list dl h1{ width: 100%; height: 100%; position: absolute; background-color: #3C9BFB; z-index: 1; top: 0; left: 0; transform: translateY(100%); transition: all 0.8s ease;}
+.WebAdvantage .list dl dt{ width: 90px; height: 90px; margin: auto; border-radius: 50%; border: solid 2px #3C9BFB; position: relative; z-index: 2; transition: all 0.8s ease;}
+.WebAdvantage .list dl:nth-child(1) dt{ background:#fff url(../images/web/012.png) center center no-repeat;}
+.WebAdvantage .list dl:nth-child(2) dt{ background:#fff url(../images/web/013.png) center center no-repeat;}
+.WebAdvantage .list dl:nth-child(3) dt{ background:#fff url(../images/web/014.png) center center no-repeat;}
+.WebAdvantage .list dl:nth-child(4) dt{ background:#fff url(../images/web/015.png) center center no-repeat;}
+.WebAdvantage .list dl:nth-child(5) dt{ background:#fff url(../images/web/016.png) center center no-repeat;}
+.WebAdvantage .list dl dd{ text-align: center; font-size: 14px; color: #999; line-height: 26px; position: relative; z-index: 2; transition: all 0.8s ease;}
+.WebAdvantage .list dl dd p{ font-size: 20px; margin: 25px auto 10px; color: #333;}
+.WebAdvantage .list dl:hover h1{ transform: translateY(0); opacity: 1;}
+.WebAdvantage .list dl:hover dd,.WebAdvantage .list dl:hover dd p{ color: #fff;}
+.WebAdvantage .list dl:hover dt{ border-color: #fff;}
+
+/* RelatedCase */
+.RelatedCase{ background-color: #f8f8f8; padding: 80px 0; width: 100%; height: 850px;}
+.RelatedCase .title{width: 90rem; padding: 0  ; margin: auto;  font-size: 16px; text-align: center;  color: #999;}
+.RelatedCase .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.RelatedCase .list{ width: 90rem; margin: 30px auto 0;}
+.RelatedCase .list ul{ width: 102%; margin: 0 -1%;}
+.RelatedCase .list ul li{ float: left; width: 31.33%; margin: 1%; position: relative; overflow: hidden;}
+.RelatedCase .list ul li .img{ width: 100%; position: relative; z-index: 1;}
+.RelatedCase .list ul li .img img{ width: 100%;  transition: all 0.3s ease; }
+.RelatedCase .list ul li .cont{ width: 60%; padding: 20% 20%; height: 60%; color: #fff; background-color: rgba(0, 0, 0, 0.4);  position: absolute; top: 0; left: 0; transform: translateY(-101%); transition: all 0.8s ease; z-index: 2; text-align: center;}
+.RelatedCase .list ul li .cont .name{ font-size: 24px; font-weight: bold;}
+.RelatedCase .list ul li .cont .con{ font-size: 14px; line-height: 24px; margin-top: 20px;}
+.RelatedCase .list ul li:hover img{transform:scale(1.2);}
+.RelatedCase .list ul li:hover .cont{transform: translateY(0); opacity:1;}
+.RelatedCase .more{ text-align: center; width: 100%; margin: 40px auto 0;}
+.RelatedCase .more a{ font-size: 16px; color: #333;}
+.RelatedCase .more a:hover{ color: #3C9BFB; text-decoration: underline;}

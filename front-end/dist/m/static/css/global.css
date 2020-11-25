@@ -1,0 +1,160 @@
+﻿@charset "UTF-8";
+/**
+ * @authors luankezhen (luankezhen@foxmail.com)
+ * @date    2013-08-18 14:49:58
+ */
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, hr, fieldset, form, label, legend, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, hgroup {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: Verdana,"Microsoft YaHei", "SimHei", "SimSun";
+	line-height: 150%;
+}
+img {
+	max-width: 100%;
+	border:0;
+	vertical-align:middle;
+}
+ul,li {
+	list-style:none; 
+}
+html, body {
+	min-height: 100%;
+	/* background: #000; */
+	font-size: 24px;
+	color: #666;
+}
+body {
+	font-family: Verdana;
+	-webkit-text-size-adjust: none;
+	width: 640px; margin: 0 auto;
+}
+/*选中后背景色*/
+::selection {color: #fff;background: #fd6114;} 
+::-moz-selection {color: #fff;background: #fd6114;}
+a {
+	/*	*/
+	text-decoration:none;
+}
+a:link{
+	text-decoration:none;
+	color: #666;
+}
+
+a:visited {
+	text-decoration:none;
+	color: #666;
+}
+
+a:hover {
+	outline: 0;
+	color: #51943a;
+}
+.a-del {
+	color: #c00;
+}
+.a-del:hover {
+	color: #b00;
+	text-decoration: underline;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.icon-arrow-right {
+	
+}
+.fb18 {
+	font-size: 18px;
+	font-weight: bold;
+}
+.fb24 {
+	font-size: 24px;
+	font-weight: bold;
+}
+.cred {
+	color: #c00 !important;
+}
+.cblue {
+	color: #06c !important;
+}
+
+/*====IE提示====*/
+.ie8-tips {
+	width:100%;
+	padding:30px 0;
+	border-bottom:1px solid #0066cc;
+	background:#fff;
+	color:#333;
+	line-height:50px;
+	text-align:center;
+	font-size:2em;
+}
+.ie8-tips p {
+	padding:5px 0;
+}
+.ie8-tips a {
+	margin:0 1em;
+	font-size:2em;
+}
+/*=清除非IE浏览器下的浮动溢出=*/
+.wrapfix:after{	
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.wrapfix {
+	display: inline-table;
+}
+/* Hides from IE-mac \*/
+* html .wrapfix {
+	height: 1%;
+}
+.wrapfix {
+	display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+
+.clearfix:after {
+  clear: both;
+}
+/* End hide from IE-mac */
+div#cambrian0{
+	height: 80px;
+}
+div#cambrian0 .tH6Qv7 ._26Hteq ._1UhIYm ._3FeqpQ{
+	height: 60px;
+	width: 60px
+}
+div#cambrian0 .tH6Qv7 ._26Hteq ._2htEKn .DUXzra{
+	font-size: 24px;
+	line-height: 28px;
+}
+div#cambrian0 .tH6Qv7 ._26Hteq ._2htEKn ._2c3HBO{
+	font-size: 20px;
+	height: 24px;
+	line-height: 24px;
+	padding: 0px 7px;
+}
+div#cambrian0 .tH6Qv7 ._26Hteq ._2htEKn .ocg5pY{
+	font-size: 20px;
+	line-height: 22px;
+	margin-top: 10px;
+}
+div#cambrian0 .R2CNzl{
+	height: 30px;
+	width: 100px;
+	line-height: 30px;
+	font-size: 22px;
+	margin-top: 6px;
+	
+}

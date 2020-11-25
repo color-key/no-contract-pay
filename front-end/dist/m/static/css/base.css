@@ -1,0 +1,59 @@
+﻿@charset "utf-8";
+*{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+body,html {
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	text-size-adjust: none;
+	max-height: 100%;
+}
+body{
+	width: 750px;
+	margin: 0 auto;
+	background: #F5F5F5;
+}
+img {
+	border: none;
+	max-width: 100%;
+}
+dt {
+	font-size: 0;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a img {
+	border: none;
+}
+a:active,a:hover,a:visited,a:link {
+	text-decoration: none;
+	background: none;
+}
+*:focus {
+	outline: none;
+}
+/*自定义css*/
+.index-690{
+	padding: 0 30px;
+}
+.index-over{
+	overflow: hidden;
+}
+.index-right-mar{
+	margin-right: 0 !important;
+}
+.index-left-mar{
+	margin-left: 0 !important;
+}

@@ -1,0 +1,78 @@
+/* VrService */
+.VrService{ width: 90rem; padding: 80px 0; margin: auto; height: 554px;}
+.VrService .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.VrService .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.VrService .list{ width: 100%; margin-top: 55px;}
+.VrService .list dl{ float: left; width: 29.86%; margin-left: 5.21%}
+.VrService .list dl:first-child{ margin-left: 0;}
+.VrService .list dl dt{ width: 100%;  overflow: hidden;}
+.VrService .list dl dt img{ width: 100%; transition: all 0.5s ease; }
+.VrService .list dl dd{ width: 100%; font-size: 14px; color: #999; line-height: 24px;}
+.VrService .list dl dd p{ font-size: 22px; font-weight: bold; color: #333; margin: 20px 0;}
+.VrService .list dl:hover img{transform:scale(1.2);}
+.VrService .list dl:hover dd p{ color: #3C9BFB;}
+
+
+/* VrSelect */
+.VrSelect{ width: 100%; height: 422px;padding: 80px 0; margin: auto; background-color: #f8f8f8;}
+.VrSelect .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.VrSelect .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.VrSelect .list{ width: 90rem; margin: 70px auto 0;  }
+.VrSelect .list dl{ float: left; width: 20%; padding: 0 2.5%;}
+.VrSelect .list dl dt{ width: 70px; height: 70px; transition: 400ms; -webkit-transition: 400ms;transition: 0.4s 0s; -webkit-transition: 0.4s 0s;}
+.VrSelect .list dl:nth-child(1) dt{ background: url(../images/vr/004.png) center center no-repeat;}
+.VrSelect .list dl:nth-child(2) dt{ background: url(../images/vr/005.png) center center no-repeat;}
+.VrSelect .list dl:nth-child(3) dt{ background: url(../images/vr/006.png) center center no-repeat;}
+.VrSelect .list dl:nth-child(4) dt{ background: url(../images/vr/007.png) center center no-repeat;}
+.VrSelect .list dl dd{ font-size: 14px; color: #999; line-height: 24px; }
+.VrSelect .list dl dd p{ font-size: 22px; color: #333; font-weight: bold; margin: 30px 0 25px;}
+.VrSelect .list dl:hover dt{ opacity: 1;  transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); -moz-transform: rotate(360deg); }
+
+/* VrScenes */
+.VrScenes{ width: 100%; padding: 70px 0 80px; height: 720px; margin: auto; background: url(../images/vr/008.jpg) center top no-repeat;}
+.VrScenes .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #fff;}
+.VrScenes .title p{ font-size: 46px;  margin-bottom: 20px;}
+.VrScenes .list{ width: 90rem; margin: 40px auto 0;  }
+.VrScenes .list ul{width: 102%; margin: 0 -1% ;}
+.VrScenes .list ul li{ float: left; width: 23%; margin: 1%; overflow: hidden;}
+.VrScenes .list ul li .img{ float: left; width: 100%; overflow: hidden;}
+.VrScenes .list ul li img{ width: 100%; transition: all 0.5s ease; }
+.VrScenes .list ul li p{ float: left; width: 100%; height: 36px; line-height: 36px; text-align: center; font-size: 16px; color: #333; background-color: rgba(255, 255, 255, 0.9);}
+.VrScenes .list ul li:hover img{transform:scale(1.2);}
+.VrScenes .list ul li:hover p{ background-color: rgba(255, 66, 61, 0.9); color: #fff;}
+
+
+/* VrCase */
+.VrCase{ background-color: #f8f8f8; padding: 80px 0; width: 100%; height: 498px;}
+.VrCase .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.VrCase .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.VrCase .list{ width: 90rem; margin: 30px auto 0;}
+.VrCase .list ul{ width: 102%; margin: 0 -1%;}
+.VrCase .list ul li{ float: left; width: 31.33%; margin: 1%; position: relative; overflow: hidden;}
+.VrCase .list ul li .img{ width: 100%; position: relative; z-index: 1;}
+.VrCase .list ul li .img img{ width: 100%;  transition: all 0.3s ease; }
+.VrCase .list ul li .cont{ width: 60%; padding: 0 20%; height: 100%; color: #fff; background-color: rgba(0, 0, 0, 0.4);  position: absolute; top: 0; left: 0; transform: translateY(80%); transition: all 0.8s ease; z-index: 2; overflow: hidden;  text-align: center;}
+.VrCase .list ul li .cont .name{ font-size: 22px; line-height: 65px; transform: translateY(0); transition: all 0.8s ease;}
+.VrCase .list ul li .cont .icon{ transform: translateY(-300%); transition: all 0.8s ease;}
+.VrCase .list ul li:hover .img img{transform:scale(1.2);}
+.VrCase .list ul li:hover .cont{transform: translateY(0); opacity:1;}
+.VrCase .list ul li:hover .name{transform: translateY(260%); opacity:1;}
+.VrCase .list ul li:hover .icon{transform: translateY(140%); opacity:1;}
+.VrCase .more{ text-align: center; width: 100%; margin: 40px auto 0;}
+.VrCase .more a{ font-size: 16px; color: #333;}
+.VrCase .more a:hover{ color: #3C9BFB; text-decoration: underline;}
+
+
+/* VrProcess */
+.VrProcess{ background-color: #f8f8f8; padding: 80px 0; width: 100%;height: 347px;}
+.VrProcess .title{width: 100%; padding: 0  ; font-size: 16px; text-align: center;  color: #999;}
+.VrProcess .title p{ font-size: 46px; color: #333;  margin-bottom: 20px;}
+.VrProcess .list{ width: 90rem; margin: 60px auto 0;}
+.VrProcess .list dl{ float: left; width: 180px; position: relative; margin: 0 30px; height: 180px; overflow: hidden; }
+.VrProcess .list dl dt{ width: 100%; position: relative; z-index: 1;}
+.VrProcess .list dl dt img{ width: 100%;}
+.VrProcess .list dl dd{ transform: translateY(140px); height: 100%; width: 100%; background-color: rgba(0, 0, 0, 0.6); color: #fff; text-align: center; font-size: 18px; transition: all 0.8s ease; position: absolute; top: 0; left: 0; z-index: 2;}
+.VrProcess .list dl dd p{ line-height: 40px; font-size: 18px; transform: translateY(0); transition: all 0.8s ease;}
+.VrProcess .list dl:hover dd{transform: translateY(0); opacity:1;}
+.VrProcess .list dl:hover dd p{transform: translateY(70px); opacity:1;}
+
