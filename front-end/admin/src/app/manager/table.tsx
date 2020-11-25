@@ -8,10 +8,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
-import {getJson} from '@fay-react/lib/fetch';
+import {getJson, postJson} from '@fay-react/lib/fetch';
 import {BASE_URL} from '@/env';
 import {ManagerType, SearchStateType} from './index';
 import {datetimeFormat} from '@/lib/date-format';
+import {getUser} from '@fay-react/lib/user';
 
 const useRowStyles = makeStyles({
   root: {
@@ -40,7 +41,7 @@ interface Props{
 }
 
 export default ({search}: Props) => {
-
+  const user = getUser();
   const [data, setData] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -55,7 +56,13 @@ export default ({search}: Props) => {
   };
 
   const getData = (search: SearchStateType) => {
-    getJson({path: BASE_URL+'/manager/find', data: search}).then(res => {
+    // const data = {...search, pageNum: page + 1, pageSize: rowsPerPage}
+    const reqPage = page + 1;
+    postJson({
+      path: BASE_URL+'/auth/adminuser' + '?pageNum=' + reqPage + '&pageSize=' + rowsPerPage,
+      headers: {"X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token},
+      data
+    }).then(res => {
       console.log(res);
       if(res.success){
         setData(res.result);
