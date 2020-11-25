@@ -8,6 +8,7 @@ export default ({children}: any) => {
   const router = useRouter();
 
   const root: any = {
+    'manager': <Layout>{children}</Layout>,
     'blog': <Layout>{children}</Layout>,
     'demand': <Layout>{children}</Layout>,
     'deploy': <Layout>{children}</Layout>,

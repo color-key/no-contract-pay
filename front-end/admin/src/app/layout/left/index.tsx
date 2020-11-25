@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme: Theme) =>
       borderBottom: '1px solid #666',
     },
     titleTypography: {
-      marginLeft: theme.spacing(2)
+      marginLeft: theme.spacing(2),
+      cursor: 'pointer'
     },
     list: {
       position: 'absolute',
@@ -99,7 +100,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const navData = [{
   icon: SupervisorAccountIcon,
   text: '管理员',
-  path: ''
+  path: '/manager'
 },{
   icon: BookIcon,
   text: '天蕾学堂',
@@ -130,7 +131,7 @@ export default () => {
     <div className={classes.root}>
       <div className={classes.title}>
         <Avatar sizes={"24px"} alt="Tianlad" src={PATH_PREFIX + "/static/logo/tianlad.png"} />
-        <Typography variant={"h6"} className={classes.titleTypography}>天蕾企业服务</Typography>
+        <Typography variant={"h6"} className={classes.titleTypography} onClick={() => Router.push(PATH_PREFIX)}>天蕾企业服务</Typography>
       </div>
       <List component="nav" className={classes.list} aria-label="contacts">
         {
