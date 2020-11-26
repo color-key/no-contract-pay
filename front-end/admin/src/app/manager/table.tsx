@@ -1,105 +1,147 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TablePagination from '@material-ui/core/TablePagination';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import Table from '@/components/table';
 import Paper from '@material-ui/core/Paper';
-import {getJson, postJson} from '@fay-react/lib/fetch';
-import {BASE_URL} from '@/env';
-import {ManagerType, SearchStateType} from './index';
-import {datetimeFormat} from '@/lib/date-format';
-import {getUser} from '@fay-react/lib/user';
+import { getJson, postJson } from '@fay-react/lib/fetch';
+import { BASE_URL } from '@/env';
+import { ManagerType, SearchStateType } from './index';
+import { getUser } from '@fay-react/lib/user';
 
-const useRowStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    
+    width: '100%',
+    overflowX: 'auto',
+    margin: theme.spacing(1, 0)
   },
-});
+  table: {
+    minWidth: 700,
+    fontSize: '0.75rem'
+  },
+}))
 
-function Row(props: { row: ManagerType}) {
-  const { row } = props;
-  const classes = useRowStyles();
-
-  return (
-    <React.Fragment>
-      <TableRow className={classes.root}>
-        <TableCell component="th" scope="row">
-          {row.username}
-        </TableCell>
-        <TableCell>{datetimeFormat(row.creation_datetime)}</TableCell>
-      </TableRow>
-    </React.Fragment>
-  );
-}
-
-interface Props{
+interface Props {
   search: SearchStateType
 }
+interface Org {
+  blance: number
+  createTime: string
+  easzadmin: number
+  email: string
+  merchid: string
+  password: string
+  phone: string
+  qqnm: string
+  secret: string
+  state: number
+  username: string
+  uuid: string
+  wecahtnm: string
+}
 
-export default ({search}: Props) => {
+export default ({ search }: Props) => {
   const user = getUser();
-  const [data, setData] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const handleChangePage = (_event: unknown, newPage: number) => {
-    setPage(newPage);
+  const defaultPage = 1;
+  const defaultRowsPerPage = 10;
+  const classes = useStyles({});
+  const [state, setState] = React.useState({ data: { rows: [{}], count: 0 }, loading: true, pageParams: { num: defaultPage, size: defaultRowsPerPage } });
+
+  React.useEffect(() => {
+    getData(defaultPage, defaultRowsPerPage);
+  }, [])
+  const handlePageChange = (page: number, rowsPerPage: number) => {
+    setState({ pageParams: { num: page, size: rowsPerPage }, data: state.data, loading: true });
+    getData(page, rowsPerPage);
   };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
-  const getData = (search: SearchStateType) => {
-    // const data = {...search, pageNum: page + 1, pageSize: rowsPerPage}
-    const reqPage = page + 1;
+  const getData = (page: number, rowsPerPage: number) => {
     postJson({
-      path: BASE_URL+'/auth/adminuser' + '?pageNum=' + reqPage + '&pageSize=' + rowsPerPage,
-      headers: {"X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token},
-      data
+      path: BASE_URL + '/auth/adminuser' + '?pageNum=' + page + '&pageSize=' + rowsPerPage,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
-      if(res.success){
-        setData(res.result);
+      if (res.code === '0000') {
+        setState({ pageParams: { num: res.data.pageNum - 1, size: res.data.pageSize }, data: { rows: res.data.list, count: res.data.allPages || 0 }, loading: false });
       }
     })
   }
 
-  React.useEffect(() => {
-    getData(search);
-  }, [JSON.stringify(search)]);
+  const columns = [
+    {
+      width: '30%',
+      title: '用户名',
+      dataIndex: 'username',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{text || '-'}</div>
+        </React.Fragment>
+      )
+    },
+    {
+      width: '10%',
+      title: '邮箱',
+      dataIndex: 'email',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{text || '-'}</div>
+        </React.Fragment>
+      )
+    },
+    {
+      width: '10%',
+      title: '手机',
+      dataIndex: 'phone',
+    },
+    {
+      width: '10%',
+      title: '金额',
+      dataIndex: 'blance',
+    },
+    {
+      width: '10%',
+      title: '创建时间',
+      dataIndex: 'createTime',
+    },
+    {
+      width: '10%',
+      title: '微信名',
+      dataIndex: 'wecahtnm',
+      render: (_text: string) => (
+        <React.Fragment>
+          <div>{_text || '-'}</div>
+        </React.Fragment>
+      )
+    },
+    {
+      width: '10%',
+      title: '状态',
+      dataIndex: 'state',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{text || '-'}</div>
+        </React.Fragment>
+      )
+    },
+    {
+      width: '10%',
+      title: '操作',
+      dataIndex: 'uuid',
+      render: (_text: string, row: any) => <div />
+    }
+  ];
+
+  const pagination = {
+    page: state.pageParams.num,
+    rowsPerPage: state.pageParams.size,
+    count: state.data.count,
+    onChange: handlePageChange
+  };
 
   return (
-    <Paper>
-      <TableContainer>
-        <Table aria-label="collapsible table">
-          <TableHead>
-            <TableRow>
-              <TableCell>用户名</TableCell>
-              <TableCell>创建时间</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row: ManagerType) => (
-              <Row key={row.id} row={row}/>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={data.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
-    </Paper>
+    <div>
+      <Paper className={classes.root}>
+        <Table className={classes.table} columns={columns} dataSource={state.data.rows} pagination={pagination} rowKey={(row: Org) => JSON.stringify(row)} loading={state.loading} />
+      </Paper>
+    </div>
   );
 }

@@ -17,11 +17,11 @@ const list = [
     path: '/manager',
   },
   {
-    name: '天蕾学堂',
+    name: '全部商户',
     path: '/blog',
   },
   {
-    name: '表单获取',
+    name: '新增商户',
     path: '/demand',
   },
   {
