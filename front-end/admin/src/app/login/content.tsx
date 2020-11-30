@@ -85,7 +85,8 @@ export default ({ className }: any) => {
       console.log(res);
       if(res.code === '0000'){
         const token = res.data.token;
-        getUserInfo(token).then(user => {
+        saveUser({token, account: data.account});
+        getUserInfo().then(user => {
           user.account = data.account;
           user.token = token;
           console.log(user);

@@ -12,10 +12,6 @@ export default ({children}: any) => {
     'manager/detail': <Layout>{children}</Layout>,
     'merchants': <Layout>{children}</Layout>,
     'merchants/detail': <Layout>{children}</Layout>,
-    'blog': <Layout>{children}</Layout>,
-    'demand': <Layout>{children}</Layout>,
-    'deploy': <Layout>{children}</Layout>,
-    'tdk': <Layout>{children}</Layout>,
     'banner': <Layout>{children}</Layout>,
     '': <Layout>{children}</Layout>,
     'login': children,
@@ -23,6 +19,7 @@ export default ({children}: any) => {
     'order': <Layout>{children}</Layout>,
     'way': <Layout>{children}</Layout>,
     'account': <Layout>{children}</Layout>,
+    'statistics': <Layout>{children}</Layout>,
   }
 
   const path = router.pathname.substr((PATH_PREFIX+'/').length, router.pathname.length-(PATH_PREFIX+'/').length);

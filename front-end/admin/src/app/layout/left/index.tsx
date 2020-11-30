@@ -123,6 +123,10 @@ const navData = [{
   icon: TitleIcon,
   text: '订单管理',
   path: '/order'
+},{
+  icon: TitleIcon,
+  text: '收入统计',
+  path: '/statistics'
 }]
 
 export default () => {
