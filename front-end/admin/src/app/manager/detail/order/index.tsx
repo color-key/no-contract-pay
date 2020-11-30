@@ -50,7 +50,7 @@ interface Org {
   wecahtnm: string
 }
 
-const detailOrder = () => {
+const detailOrder = ({item} : any) => {
   const user = getUser();
   const router = useRouter();
 
@@ -112,12 +112,13 @@ const detailOrder = () => {
 
   const getData = (page: number, rowsPerPage: number) => {
     postJson({
-      path: BASE_URL + '/auth/adminuser' + '?pageNum=' + page + '&pageSize=' + rowsPerPage,
+      //查看订单：http://47.75.151.104:8083/api/auth/queryOrder?merchid=100008&pageNum=1&pageSize=10
+      path: BASE_URL + '/auth/queryOrder' + '?pageNum=' + page + '&pageSize=' + rowsPerPage + '&merchid=' + item.merchid,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
       if (res.code === '0000') {
-        setState({ pageParams: { num: res.data.pageNum - 1, size: res.data.pageSize }, data: { rows: res.data.list, count: res.data.allPages || 0 }, loading: false });
+        setState({ pageParams: { num: res.page.pageNum - 1, size: res.page.pageSize }, data: { rows: res.page.list, count: res.page.allPages || 0 }, loading: false });
       }
     })
   }
@@ -132,7 +133,7 @@ const detailOrder = () => {
     {
       width: '15%',
       title: '商户号',
-      dataIndex: 'username',
+      dataIndex: 'cusMerchid',
       render: (text: string) => (
         <React.Fragment>
           <div>{text || '-'}</div>
@@ -142,7 +143,7 @@ const detailOrder = () => {
     {
       width: '20%',
       title: '订单号',
-      dataIndex: 'email',
+      dataIndex: 'ordernumber',
       render: (text: string) => (
         <React.Fragment>
           <div>{text || '-'}</div>
@@ -152,32 +153,32 @@ const detailOrder = () => {
     {
       width: '10%',
       title: '类型',
-      dataIndex: 'phone',
+      dataIndex: 'qrtype',
     },
     {
       width: '10%',
       title: '定价',
-      dataIndex: 'blance',
+      dataIndex: 'djmoney',
     },
     {
       width: '10%',
       title: '实价',
-      dataIndex: 'blance',
+      dataIndex: 'sjmoney',
     },
     {
       width: '10%',
       title: '状态',
-      dataIndex: 'blance',
+      dataIndex: 'state',
     },
     {
       width: '15%',
       title: '创建时间',
-      dataIndex: 'blance',
+      dataIndex: 'createtime',
     },
     {
       width: '10%',
       title: '备注',
-      dataIndex: 'blance',
+      dataIndex: 'returncode',
     },
   ];
 

@@ -49,7 +49,7 @@ export default () => {
 
   const getData = (page: number, rowsPerPage: number) => {
     postJson({
-      path: BASE_URL + `auth/fenyequerymeny?money=${ctx.state.pic.money}&accname=${ctx.state.pic.accname}&paytype=${ctx.state.pic.paytype}&pageNum=${page}&pageSize=${rowsPerPage}`,
+      path: BASE_URL + `auth/fenyequerymeny?accname=${ctx.state.pic.accname}&paytype=${ctx.state.pic.paytype}&pageNum=${page}&pageSize=${rowsPerPage}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);

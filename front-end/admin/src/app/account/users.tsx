@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '0.75rem'
   },
   btn: {
-    background: '#1cd1aa',
+    background: theme.palette.primary.main,
     color: '#FFFFFF',
     minWidth: 100,
     height: 36,

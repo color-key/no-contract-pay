@@ -21,15 +21,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 60,
     display: 'flex',
     justifyContent: 'space-around',
-    color: '#1cd1aa',
+    color: theme.palette.primary.main,
     background: '#FFFFFF',
     '&:hover': {
-      background: '#1cd1aa',
+      background: theme.palette.primary.main,
       color: '#FFFFFF'
     }
   },
   buttonActive: {
-    background: '#1cd1aa',
+    background: theme.palette.primary.main,
     color: '#FFFFFF'
   }
 }))
@@ -63,7 +63,7 @@ const managerDetail = () => {
           idx === 2 ?
           <Account /> :
           idx === 3 ?
-          <Order /> :
+          <Order item={item}/> :
           idx === 4 ?
           <Pic item={item}/> :
           null

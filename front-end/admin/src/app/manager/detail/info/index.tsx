@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: 20
   },
   itemTitle: {
-    backgroundColor: '#1cd1aa',
+    backgroundColor: theme.palette.primary.main,
     color: '#FFFFFF',
     padding: 8
   },

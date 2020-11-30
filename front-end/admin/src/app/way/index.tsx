@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: theme.spacing(3, 0)
   },
   btn: {
-    background: '#1cd1aa',
+    background: theme.palette.primary.main,
     color: '#FFFFFF',
     minWidth: 100,
     height: 56,

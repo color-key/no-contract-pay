@@ -131,7 +131,7 @@ export default () => {
     <div className={classes.root}>
       <div className={classes.title}>
         <Avatar sizes={"24px"} alt="Tianlad" src={PATH_PREFIX + "/static/logo/tianlad.png"} />
-        <Typography variant={"h6"} className={classes.titleTypography} onClick={() => Router.push(PATH_PREFIX)}>天蕾企业服务</Typography>
+        <Typography variant={"h6"} className={classes.titleTypography} onClick={() => Router.push(PATH_PREFIX)}>后台管理</Typography>
       </div>
       <List component="nav" className={classes.list} aria-label="contacts">
         {

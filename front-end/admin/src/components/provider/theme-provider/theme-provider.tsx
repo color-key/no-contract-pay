@@ -9,7 +9,7 @@ import React from 'react';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#9c27b0',
+      main: '#263BE0',
       dark: '#5D38DB',
       light: blue[50],
     },
@@ -49,8 +49,8 @@ const theme = createMuiTheme({
       // },
       containedPrimary: {
         '&:hover': {
-          boxShadow: '0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2)',
-          backgroundColor: '#9c27b0',
+          boxShadow: '0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 96, 255, 0.2)',
+          backgroundColor: '#0060FF',
         }
       }
     }
