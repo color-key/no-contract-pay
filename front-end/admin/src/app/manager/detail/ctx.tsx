@@ -5,7 +5,7 @@ const defaultState = {
   user: null,
   pic: {
     time: 0,
-    accname: '',
+    merchid: '',
     paytype: '0',
   }
 }
