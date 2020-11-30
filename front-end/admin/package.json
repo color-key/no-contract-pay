@@ -17,8 +17,10 @@
   "dependencies": {
     "@fay-react/lib": "0.0.1-alpha.38",
     "@fay-react/material": "0.0.1-alpha.8",
+    "@types/qrcode.react": "^1.0.1",
     "material-ui-dropzone": "^3.3.1",
-    "moment": "^2.25.3"
+    "moment": "^2.25.3",
+    "qrcode.react": "^1.0.0"
   },
   "devDependencies": {
     "@fay-next/config": "0.0.1-alpha.12",

@@ -58,7 +58,7 @@ export const getBalanceDetail = () => {
 export const payment = (type: string, amount: string) => {
   return new Promise<any>((resolve) => {
     postJson({
-      path: BASE_URL+`/auth/payment?aitype=${type}&amount=${amount}`,
+      path: BASE_URL+`/rechage/payment?aitype=${type}&amount=${amount}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
     }).then(res => {
       auth(res.code);

@@ -4,6 +4,10 @@
     "target": "http://47.75.151.104:8083/api"
   },
   {
+    "path": "rechage",
+    "target": "http://47.75.151.104:8083/rechage"
+  },
+  {
     "path": "test-api",
     "target": "http://localhost:8082/api"
   }
