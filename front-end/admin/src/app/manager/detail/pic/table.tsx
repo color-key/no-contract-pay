@@ -49,19 +49,20 @@ export default () => {
 
   const getData = (page: number, rowsPerPage: number) => {
     postJson({
-      path: BASE_URL + `auth/fenyequerymeny?accname=${ctx.state.pic.accname}&paytype=${ctx.state.pic.paytype}&pageNum=${page}&pageSize=${rowsPerPage}`,
+      //query?cus_merchid=100008&accpaytype=0/
+      path: BASE_URL + `auth/query?cus_merchid=${ctx.state.pic.merchid}&paytype=${ctx.state.pic.paytype}&pageNum=${page}&pageSize=${rowsPerPage}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
       if (res.code === '0000') {
-        setState(res.data.list);
+        setState(res.data || []);
       }
     })
   }
   return (
     <div>
       <Paper className={classes.root}>
-        
+        {JSON.stringify(state)}
       </Paper>
     </div>
   );

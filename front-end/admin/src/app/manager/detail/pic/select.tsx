@@ -52,7 +52,7 @@ export default ({ item }: any) => {
   const anchorAccountRef = React.useRef<HTMLButtonElement>(null);
   const anchorPayRef = React.useRef<HTMLButtonElement>(null);
   const [state, setState] = React.useState<any>({
-    account: { accname: '全部', uuid: '0' },
+    account: { accname: '全部', uuid: '0', cusMerchid: '' },
     openAccount: false,
     typeAccountTxt: '全部',
     accountList: [],
@@ -157,7 +157,7 @@ export default ({ item }: any) => {
   const handleCheck = () => {
     const value = {
       time: new Date().getTime(),
-      accname: state.account.cusMerchid,
+      merchid: state.account.cusMerchid,
       paytype: state.pay.aitype
     }
     ctx.dispatch({ type: 'pic', payload: value })
