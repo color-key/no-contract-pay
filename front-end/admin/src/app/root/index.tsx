@@ -9,6 +9,9 @@ export default ({children}: any) => {
 
   const root: any = {
     'manager': <Layout>{children}</Layout>,
+    'manager/detail': <Layout>{children}</Layout>,
+    'merchants': <Layout>{children}</Layout>,
+    'merchants/detail': <Layout>{children}</Layout>,
     'blog': <Layout>{children}</Layout>,
     'demand': <Layout>{children}</Layout>,
     'deploy': <Layout>{children}</Layout>,
@@ -17,6 +20,9 @@ export default ({children}: any) => {
     '': <Layout>{children}</Layout>,
     'login': children,
     'coming-soon': children,
+    'images': <Layout>{children}</Layout>,
+    'way': <Layout>{children}</Layout>,
+    'account': <Layout>{children}</Layout>,
   }
 
   const path = router.pathname.substr((PATH_PREFIX+'/').length, router.pathname.length-(PATH_PREFIX+'/').length);

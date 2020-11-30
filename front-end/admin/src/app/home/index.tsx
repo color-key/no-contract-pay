@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import { Theme } from '@/components/theme';
 import Router from 'next/router';
-import {PATH_PREFIX} from '@/env';
+import { PATH_PREFIX } from '@/env';
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -13,24 +13,24 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 const list = [
   {
-    name: '管理员',
+    name: '全部商户',
     path: '/manager',
   },
   {
-    name: '全部商户',
-    path: '/blog',
-  },
-  {
     name: '新增商户',
-    path: '/demand',
+    path: '/merchants',
   },
   {
-    name: 'tdk管理',
-    path: '/tdk'
+    name: '全部图片',
+    path: '/images',
   },
   {
-    name: 'banner管理',
-    path: '/banner'
+    name: '通道',
+    path: '/way'
+  },
+  {
+    name: '充值收款账户',
+    path: '/account'
   }
 ];
 
@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <div>
       {
-        list.map((item: {path: string, name: string }, idx: number) =>
+        list.map((item: { path: string, name: string }, idx: number) =>
           <Button variant='outlined'
             color='primary'
             className={classes.button}

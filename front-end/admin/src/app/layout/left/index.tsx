@@ -99,24 +99,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const navData = [{
   icon: SupervisorAccountIcon,
-  text: '管理员',
+  text: '全部商户',
   path: '/manager'
 },{
   icon: BookIcon,
-  text: '天蕾学堂',
-  path: '/blog'
+  text: '新增商户',
+  path: '/merchants'
 },{
   icon: ListAltIcon,
-  text: '表单获取',
-  path: '/demand'
+  text: '全部图片',
+  path: '/images'
 },{
   icon: TitleIcon,
-  text: 'TDK管理',
-  path: '/tdk'
+  text: '通道',
+  path: '/way'
 },{
   icon: ViewCarouselIcon,
-  text: 'Banner管理',
-  path: '/banner'
+  text: '充值收款账户',
+  path: '/account'
 // },{
 //   icon: UpdateIcon,
 //   text: '部署',

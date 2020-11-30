@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Menu from './menu';
 import {getUser} from '@fay-react/lib/user';
 import {ManagerType} from '@/app/manager';
+import Breadcrumbs from './breadcrumbs';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +54,7 @@ export default () => {
   return (
     <div className={classes.root}>
       <div className={classes.topLeft}>
-        {/* 天蕾 */}
+        <Breadcrumbs />
       </div>
       <div className={classes.topRight}>
         {

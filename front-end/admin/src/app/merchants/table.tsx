@@ -7,7 +7,7 @@ import { BASE_URL } from '@/env';
 import { ManagerType, SearchStateType } from './index';
 import { getUser } from '@fay-react/lib/user';
 import Link from '@material-ui/core/Link';
-import {useRouter} from 'next/router';
+import Router from 'next/router';
 import {PATH_PREFIX} from '@/env';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -43,7 +43,7 @@ interface Org {
 
 export default ({ search }: Props) => {
   const user = getUser();
-  const router = useRouter();
+
   const defaultPage = 1;
   const defaultRowsPerPage = 10;
   const classes = useStyles({});
@@ -68,17 +68,11 @@ export default ({ search }: Props) => {
       }
     })
   }
-  const handleDetail = (item: Org) => {
-    router.push({
-      pathname: PATH_PREFIX + '/manager/detail',
-      query: {...item}
-    });
-  }
 
   const columns = [
     {
-      width: '30%',
-      title: '用户名',
+      width: '15%',
+      title: '账户ID',
       dataIndex: 'username',
       render: (text: string) => (
         <React.Fragment>
@@ -87,8 +81,8 @@ export default ({ search }: Props) => {
       )
     },
     {
-      width: '10%',
-      title: '邮箱',
+      width: '15%',
+      title: '用户名',
       dataIndex: 'email',
       render: (text: string) => (
         <React.Fragment>
@@ -97,23 +91,23 @@ export default ({ search }: Props) => {
       )
     },
     {
-      width: '10%',
-      title: '手机',
+      width: '25%',
+      title: '邮箱',
       dataIndex: 'phone',
     },
     {
-      width: '10%',
-      title: '金额',
+      width: '15%',
+      title: '手机',
       dataIndex: 'blance',
     },
     {
-      width: '10%',
-      title: '创建时间',
+      width: '15%',
+      title: '账户状态',
       dataIndex: 'createTime',
     },
     {
-      width: '10%',
-      title: '微信名',
+      width: '15%',
+      title: '账户余额',
       dataIndex: 'wecahtnm',
       render: (_text: string) => (
         <React.Fragment>
@@ -121,22 +115,6 @@ export default ({ search }: Props) => {
         </React.Fragment>
       )
     },
-    {
-      width: '10%',
-      title: '状态',
-      dataIndex: 'state',
-      render: (text: string) => (
-        <React.Fragment>
-          <div>{text || '-'}</div>
-        </React.Fragment>
-      )
-    },
-    {
-      width: '10%',
-      title: '操作',
-      dataIndex: 'uuid',
-      render: (_text: string, row: Org) => <Link style={{cursor: 'pointer'}} onClick={() => handleDetail(row)}>详情</Link>
-    }
   ];
 
   const pagination = {
