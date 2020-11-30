@@ -120,7 +120,7 @@ const detailOrder = ({item} : any) => {
     }).then(res => {
       console.log(res);
       if (res.code === '0000') {
-        setState({ pageParams: { num: res.page.pageNum - 1, size: res.page.pageSize }, data: { rows: res.page.list, count: res.page.allPages || 0 }, loading: false });
+        setState({ pageParams: { num: res.page.pageNum - 1, size: res.page.pageSize }, data: { rows: res.page.list || [], count: res.page.allPages || 0 }, loading: false });
       }
     })
   }
