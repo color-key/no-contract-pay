@@ -10,7 +10,6 @@ import clsx from 'clsx';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import ListAltIcon from '@material-ui/icons/ListAlt';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 // import {getUser} from '@fay-react/lib/user';
 import {useRouter} from 'next/router';
@@ -18,7 +17,6 @@ import Link from 'next/link';
 import {PATH_PREFIX} from '@/env';
 // import UpdateIcon from '@material-ui/icons/Update';
 import TitleIcon from '@material-ui/icons/Title';
-import BookIcon from '@material-ui/icons/Book';
 import ViewCarouselIcon from '@material-ui/icons/ViewCarousel';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -101,26 +99,30 @@ const navData = [{
   icon: SupervisorAccountIcon,
   text: '全部商户',
   path: '/manager'
-},{
-  icon: BookIcon,
-  text: '新增商户',
-  path: '/merchants'
-},{
-  icon: ListAltIcon,
-  text: '全部图片',
-  path: '/images'
+// },{
+//   icon: BookIcon,
+//   text: '新增商户',
+//   path: '/merchants'
+// },{
+//   icon: ListAltIcon,
+//   text: '全部图片',
+//   path: '/images'
 },{
   icon: TitleIcon,
   text: '通道',
   path: '/way'
 },{
   icon: ViewCarouselIcon,
-  text: '充值收款账户',
+  text: '收款账户',
   path: '/account'
 // },{
 //   icon: UpdateIcon,
 //   text: '部署',
 //   path: '/deploy'
+},{
+  icon: TitleIcon,
+  text: '订单管理',
+  path: '/order'
 }]
 
 export default () => {
@@ -130,8 +132,7 @@ export default () => {
   return (
     <div className={classes.root}>
       <div className={classes.title}>
-        <Avatar sizes={"24px"} alt="Tianlad" src={PATH_PREFIX + "/static/logo/tianlad.png"} />
-        <Typography variant={"h6"} className={classes.titleTypography} onClick={() => Router.push(PATH_PREFIX)}>后台管理</Typography>
+        <Typography variant={"h6"} className={classes.titleTypography} onClick={() => Router.push(PATH_PREFIX)}>支付后台管理</Typography>
       </div>
       <List component="nav" className={classes.list} aria-label="contacts">
         {

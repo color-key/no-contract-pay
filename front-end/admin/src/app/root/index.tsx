@@ -20,7 +20,7 @@ export default ({children}: any) => {
     '': <Layout>{children}</Layout>,
     'login': children,
     'coming-soon': children,
-    'images': <Layout>{children}</Layout>,
+    'order': <Layout>{children}</Layout>,
     'way': <Layout>{children}</Layout>,
     'account': <Layout>{children}</Layout>,
   }

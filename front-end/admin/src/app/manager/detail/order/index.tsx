@@ -13,6 +13,8 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Box from '@material-ui/core/Box';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import {pay, orderState} from '@/lib/type';
+import {datetimeFormat} from '@/lib/date-format';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -154,6 +156,11 @@ const detailOrder = ({item} : any) => {
       width: '10%',
       title: '类型',
       dataIndex: 'qrtype',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{pay[text] || '-'}</div>
+        </React.Fragment>
+      )
     },
     {
       width: '10%',
@@ -169,16 +176,21 @@ const detailOrder = ({item} : any) => {
       width: '10%',
       title: '状态',
       dataIndex: 'state',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{orderState[text] || '-'}</div>
+        </React.Fragment>
+      )
     },
     {
       width: '15%',
       title: '创建时间',
       dataIndex: 'createtime',
-    },
-    {
-      width: '10%',
-      title: '备注',
-      dataIndex: 'returncode',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{datetimeFormat(text) || '-'}</div>
+        </React.Fragment>
+      )
     },
   ];
 

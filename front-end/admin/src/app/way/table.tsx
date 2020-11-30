@@ -119,8 +119,8 @@ export default () => {
       dataIndex: 'createTime',
       render: (org: any) => (
         <React.Fragment>
-          <Button className={classes.btn} onClick={handleFee}>修改费率</Button>
-          <Button className={clsx(classes.btn, classes.btnM)} onClick={handleDel}>删除</Button>
+          <Button variant={"contained"} color={'primary'} className={classes.btn} onClick={handleFee}>修改费率</Button>
+          <Button variant={"contained"} color={'primary'} className={clsx(classes.btn, classes.btnM)} onClick={handleDel}>删除</Button>
         </React.Fragment>
       )
     },

@@ -1,10 +1,9 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 // import { makeStyles, Theme } from '@material-ui/core/styles';
-// import Users from './users';
-// import Divider from '@material-ui/core/Divider';
 // import Button from '@material-ui/core/Button';
-import ManagerAccount from '../manager/detail/account';
+// import Divider from '@material-ui/core/Divider';
+import ManagerOrder from '../manager/detail/order';
 import {getUser} from '@fay-react/lib/user';
 
 // const useStyles = makeStyles((theme: Theme) => ({
@@ -32,7 +31,7 @@ import {getUser} from '@fay-react/lib/user';
 //   },
 // }))
 
-const Account = () => {
+const Order = () => {
   // const classes = useStyles();
   const [merchid, setMerchid] = React.useState<any>(null);
 
@@ -45,9 +44,9 @@ const Account = () => {
 
   return (
     <Box>
-      {merchid && <ManagerAccount item={{merchid}}/>}
+      {merchid && <ManagerOrder item={{merchid}}/>}
     </Box>
   )
 }
 
-export default Account;
+export default Order;

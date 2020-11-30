@@ -39,7 +39,7 @@ const Way = () => {
       <Box className={classes.title}>通道</Box>
       <Divider className={classes.divi} />
       <Table />
-      <Button className={classes.btn} onClick={() => setOpen(true)}>添加通道</Button>
+      <Button variant={"contained"} color={'primary'} className={classes.btn} onClick={() => setOpen(true)}>添加通道</Button>
       <Add open={open} onClose={() => setOpen(false)}/>
     </Box>
   )

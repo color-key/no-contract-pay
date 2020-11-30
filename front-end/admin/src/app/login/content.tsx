@@ -14,6 +14,7 @@ import Card from "@material-ui/core/Card";
 import Box from "@material-ui/core/Box";
 import { grey } from '@material-ui/core/colors';
 import ErrorInput from '@/components/err';
+import {getUserInfo} from '@/lib/api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,12 +84,14 @@ export default ({ className }: any) => {
     }).then(res => {
       console.log(res);
       if(res.code === '0000'){
-        const user = {
-          account: data.account,
-          token: res.data.token
-        };
-        saveUser(user);
-        router.push(PATH_PREFIX);
+        const token = res.data.token;
+        getUserInfo(token).then(user => {
+          user.account = data.account;
+          user.token = token;
+          console.log(user);
+          saveUser(user);
+          router.push(PATH_PREFIX);
+        })
       }else{
         setData({...data, err: '用户名或密码错误'})
       }

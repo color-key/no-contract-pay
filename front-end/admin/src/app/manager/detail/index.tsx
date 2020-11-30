@@ -61,7 +61,7 @@ const managerDetail = () => {
           idx === 1 ? 
           <Banace item={item}/> :
           idx === 2 ?
-          <Account /> :
+          <Account item={item}/> :
           idx === 3 ?
           <Order item={item}/> :
           idx === 4 ?

@@ -11,6 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Router from 'next/router';
 import ViewGrow from '@/components/view-grow';
+import {getUserInfo} from '@/lib/api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -96,12 +97,12 @@ export default () => {
       }).then(res => {
         console.log(res);
         if(res.code === '0000'){
-          const user = {
-            account: state.account,
-            token: res.data.token
-          };
-          saveUser(user);
-          Router.push(PATH_PREFIX);
+          getUserInfo(res.data.token).then(user => {
+            user.account = state.account;
+            user.token = res.data.token;
+            saveUser(user);
+            Router.push(PATH_PREFIX);
+          })
         }else{
           setError('用户名或密码错误')
         }

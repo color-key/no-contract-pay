@@ -92,7 +92,7 @@ export default () => {
       dataIndex: 'aislerate',
       render: (text: string) => (
         <React.Fragment>
-          <Button className={classes.btn}>删除</Button>
+          <Button variant={"contained"} color={'primary'} className={classes.btn}>删除</Button>
         </React.Fragment>
       )
     },

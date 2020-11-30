@@ -13,6 +13,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Box from '@material-ui/core/Box';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import {pay} from '@/lib/type';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -49,7 +50,7 @@ interface Org {
   node: string
 }
 
-const detailAccount = () => {
+const detailAccount = ({item}: any) => {
   const user = getUser();
   const router = useRouter();
   
@@ -103,7 +104,7 @@ const detailAccount = () => {
   }
 
   const classes = useStyles({});
-  const [state, setState] = React.useState({ data: { rows: [{}] }, loading: true });
+  const [state, setState] = React.useState({ data: { rows: [] }, loading: true });
 
   React.useEffect(() => {
     getData(type.value);
@@ -111,12 +112,12 @@ const detailAccount = () => {
 
   const getData = (paytype: string) => {
     postJson({
-      path: BASE_URL + `auth/queryUser?paytype=${paytype}`,
+      path: BASE_URL + `auth/listaccount?cusMerchid=${item.merchid}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
-      if (res.code === '0000') {
-        setState({ data: { rows: res.list }, loading: false });
+      if (res.cood === '0000') {
+        setState({ data: { rows: res.pageinfo }, loading: false });
       }
     })
   }
@@ -128,7 +129,7 @@ const detailAccount = () => {
       dataIndex: 'paytype',
       render: (text: string) => (
         <React.Fragment>
-          <div>{text}</div>
+          <div>{pay[text]}</div>
         </React.Fragment>
       )
     },
@@ -142,16 +143,16 @@ const detailAccount = () => {
         </React.Fragment>
       )
     },
-    {
-      width: '30%',
-      title: '总流水',
-      dataIndex: 'allPages',
-    },
-    {
-      width: '30%',
-      title: '总订单',
-      dataIndex: 'pageNum',
-    },
+    // {
+    //   width: '30%',
+    //   title: '总流水',
+    //   dataIndex: 'allPages',
+    // },
+    // {
+    //   width: '30%',
+    //   title: '总订单',
+    //   dataIndex: 'pageNum',
+    // },
     {
       width: '10%',
       title: '备注',
@@ -162,11 +163,11 @@ const detailAccount = () => {
         </React.Fragment>
       )
     },
-    {
-      width: '10%',
-      title: '状态',
-      dataIndex: 'state',
-    },
+    // {
+    //   width: '10%',
+    //   title: '状态',
+    //   dataIndex: 'state',
+    // },
   ];
 
   return (
