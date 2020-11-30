@@ -9,7 +9,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import {getUser} from '@fay-react/lib/user';
 import Card from './card';
 import BalanceDetail from './balance-detail';
-import Recharge from './recharge';
+import {payment} from '@/lib/api';
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -36,13 +36,22 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Account = () => {
+const Recharge = () => {
   const classes = useStyles();
-  const [user, setUser] = React.useState(getUser());
+
+  const handlePayment = () => {
+    payment('0', '1000').then(res => {
+      console.log(res);
+    })
+  }
+
+  React.useEffect(() => {
+    handlePayment();
+  }, []);
 
   return (
     <Box>
-      <Box display={'flex'} alignItems={'center'}>
+      {/* <Box display={'flex'} alignItems={'center'}>
         <Box><Typography>账户余额：￥ {user && user.blance}</Typography></Box>
         <Box ml={2}><Button variant={"contained"} color={"primary"} size={"small"}>充值</Button></Box>
       </Box>
@@ -51,12 +60,9 @@ const Account = () => {
       </Box>
       <Box>
         <BalanceDetail/>
-      </Box>
-      <Box>
-        <Recharge/>
-      </Box>
+      </Box> */}
     </Box>
   )
 }
 
-export default Account;
+export default Recharge;

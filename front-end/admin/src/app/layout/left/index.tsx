@@ -18,6 +18,10 @@ import {PATH_PREFIX} from '@/env';
 // import UpdateIcon from '@material-ui/icons/Update';
 import TitleIcon from '@material-ui/icons/Title';
 import ViewCarouselIcon from '@material-ui/icons/ViewCarousel';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import PieChartIcon from '@material-ui/icons/PieChart';
+import PaymentIcon from '@material-ui/icons/Payment';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -108,11 +112,11 @@ const navData = [{
 //   text: '全部图片',
 //   path: '/images'
 },{
-  icon: TitleIcon,
+  icon: PaymentIcon,
   text: '通道',
   path: '/way'
 },{
-  icon: ViewCarouselIcon,
+  icon: AccountBalanceWalletIcon,
   text: '收款账户',
   path: '/account'
 // },{
@@ -120,11 +124,11 @@ const navData = [{
 //   text: '部署',
 //   path: '/deploy'
 },{
-  icon: TitleIcon,
+  icon: ReceiptIcon,
   text: '订单管理',
   path: '/order'
 },{
-  icon: TitleIcon,
+  icon: PieChartIcon,
   text: '收入统计',
   path: '/statistics'
 }]
