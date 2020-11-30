@@ -1,9 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Menu from './menu';
-import {getUser} from '@fay-react/lib/user';
-import {ManagerType} from '@/app/manager';
+import Info from './info';
+import { getUser } from '@fay-react/lib/user';
+import { ManagerType } from '@/app/manager';
 import Breadcrumbs from './breadcrumbs';
+import DropdownButton from './dropdown-button';
+import Box from '@material-ui/core/Box';
+import Avatar from '@material-ui/core/Avatar';
+import PersonIcon from '@/components/icons/head';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
+import { useRouter } from 'next/router';
+import {PATH_PREFIX} from '@/env';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,12 +49,29 @@ const useStyles = makeStyles((theme) => ({
   register: {
 
   },
+  rightBtn: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  avatar: {
+    backgroundColor: theme.palette.common.white,
+    width: 25,
+    height: 25
+  },
+  user: {
+    color: theme.palette.primary.main,
+    margin: theme.spacing(0, 1)
+  },
+  more: {
+    // color: '#FFFFFF',
+  },
 }));
 
 export default () => {
   const classes = useStyles();
+  const router = useRouter();
   const userFromCookie = getUser();
-  const [user, setUser] = React.useState<ManagerType|null>(null);
+  const [user, setUser] = React.useState<ManagerType | null>(null);
 
   React.useEffect(() => {
     setUser(userFromCookie);
@@ -58,8 +84,23 @@ export default () => {
       </div>
       <div className={classes.topRight}>
         {
-          user &&
-          <Menu user={user}/>
+          user ?
+            <DropdownButton
+              dropdownComponent={<Info />}>
+              <Box className={classes.rightBtn}>
+                <Avatar className={classes.avatar}>
+                  <PersonIcon color={'disabled'} />
+                </Avatar>
+                <Typography className={classes.user}>{user.username}</Typography>
+                <ExpandMoreIcon className={classes.more} />
+              </Box>
+            </DropdownButton>
+            :
+            <>
+              <Button variant="outlined" className={classes.login} onClick={() => router.push(PATH_PREFIX+'/login')}>
+                登录
+              </Button>
+            </>
         }
       </div>
     </div>
