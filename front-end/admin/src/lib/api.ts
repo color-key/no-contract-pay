@@ -1,6 +1,6 @@
 import {postJson, getJson} from '@fay-react/lib/fetch';
 import {getUser} from '@fay-react/lib/user';
-import {BASE_URL, PATH_PREFIX} from '@/env';
+import {BASE_URL, PATH_PREFIX, PAY_URL} from '@/env';
 
 const getToken = () => {
   const token = getUser().token;
@@ -58,7 +58,7 @@ export const getBalanceDetail = () => {
 export const payment = (type: string, amount: string) => {
   return new Promise<any>((resolve) => {
     postJson({
-      path: BASE_URL+`/rechage/payment?aitype=${type}&amount=${amount}`,
+      path: PAY_URL+`/payment?aitype=${type}&amount=${amount}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
     }).then(res => {
       auth(res.code);
