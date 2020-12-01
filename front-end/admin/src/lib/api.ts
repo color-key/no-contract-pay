@@ -56,7 +56,7 @@ export const getBalanceDetail = () => {
 }
 
 export const payment = (type: string, amount: string) => {
-  return new Promise<any>((resolve) => {
+  return new Promise<any>((resolve, reject) => {
     postJson({
       path: PAY_URL+`/payment?aitype=${type}&amount=${amount}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
@@ -64,6 +64,8 @@ export const payment = (type: string, amount: string) => {
       auth(res.code);
       if (res.code === '0000') {
         resolve(res.data);
+      } else {
+        reject(res.data)
       }
     })
   })

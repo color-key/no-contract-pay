@@ -11,6 +11,7 @@ import {PATH_PREFIX} from '@/env';
 import Change from './change';
 import Del from './del';
 import clsx from 'clsx';
+import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -118,10 +119,10 @@ export default () => {
       title: '操作',
       dataIndex: 'createTime',
       render: (org: any) => (
-        <React.Fragment>
+        <Box display='flex'>
           <Button variant={"contained"} color={'primary'} className={classes.btn} onClick={handleFee}>修改费率</Button>
           <Button variant={"contained"} color={'primary'} className={clsx(classes.btn, classes.btnM)} onClick={handleDel}>删除</Button>
-        </React.Fragment>
+        </Box>
       )
     },
   ];

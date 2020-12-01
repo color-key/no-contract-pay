@@ -6,10 +6,12 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 // import Users from './users';
 // import Divider from '@material-ui/core/Divider';
 // import Button from '@material-ui/core/Button';
-import {getUser} from '@fay-react/lib/user';
+import { getUser } from '@fay-react/lib/user';
 import Card from './card';
 import BalanceDetail from './balance-detail';
 import Recharge from './recharge';
+import PayAlert from './pay';
+import {payment} from '@/lib/api';
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -39,22 +41,35 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Account = () => {
   const classes = useStyles();
   const [user, setUser] = React.useState(getUser());
+  const [alert, setAlert] = React.useState({
+    pay: false,
+    qr: false
+  })
+
+  const payClick = (way: string, money: string, callback: any) => {
+    debugger;
+    payment(way, money).then(res => {
+      console.log(res);
+      setAlert({pay: false, qr: true});
+    }).catch(e => callback(e))
+  }
 
   return (
     <Box>
       <Box display={'flex'} alignItems={'center'}>
         <Box><Typography>账户余额：￥ {user && user.blance}</Typography></Box>
-        <Box ml={2}><Button variant={"contained"} color={"primary"} size={"small"}>充值</Button></Box>
+        <Box ml={2}><Button variant={"contained"} color={"primary"} size={"small"} onClick={() => setAlert({...alert, pay: true})}>充值</Button></Box>
       </Box>
       <Box>
-        <Card/>
+        <Card />
       </Box>
       <Box>
-        <BalanceDetail/>
+        <BalanceDetail />
       </Box>
       <Box>
-        <Recharge/>
+        <Recharge />
       </Box>
+      <PayAlert open={alert.pay} payFuc={payClick} onClose={() => setAlert({...alert, pay: false})}/>
     </Box>
   )
 }

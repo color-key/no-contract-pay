@@ -7,6 +7,7 @@ import { BASE_URL } from '@/env';
 import { getUser } from '@fay-react/lib/user';
 import {useRouter} from 'next/router';
 import {PATH_PREFIX} from '@/env';
+import {datetimeFormat} from '@/lib/date-format';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -66,7 +67,7 @@ const detailMoney = ({ item }: any) => {
       dataIndex: 'createtime',
       render: (text: string) => (
         <React.Fragment>
-          <div>{text || '-'}</div>
+          <div>{datetimeFormat(text) || '-'}</div>
         </React.Fragment>
       )
     },

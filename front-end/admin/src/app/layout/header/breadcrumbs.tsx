@@ -9,13 +9,19 @@ const breadcrumbs = () => {
   let [, , main, sub, detail] = router.asPath.split('/');
   if(detail && detail.substring(0, 1) === '?') detail = '';
   console.log('router', router.asPath.split('/'));
-  const handleClick = () => { };
+  const mainString = (sub: string) => {
+    if(sub === 'manager') return '全部商户';
+    else if(sub === 'way') return '通道';
+    else if(sub === 'account') return '收款账户';
+    else if(sub === 'order') return '订单管理';
+    else if(sub === 'statistics') return '收入统计';
+  }
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <Link color="inherit" href="/admin" onClick={handleClick}>首页</Link>
-      { main && <Link color="inherit" href={`/admin/${main}`} onClick={handleClick}>{main}</Link>}
+      <Link color="inherit" href="/admin" >首页</Link>
+      { main && <Link color="inherit" href={`/admin/${main}`} >{mainString(main)}</Link>}
       {sub &&
-        <Link color="inherit" href={`/admin/${main}/${sub}`}  onClick={handleClick}>
+        <Link color="inherit" href={`/admin/${main}/${sub}`}>
           {sub}
         </Link>
       }

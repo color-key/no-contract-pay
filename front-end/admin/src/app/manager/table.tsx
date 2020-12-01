@@ -9,6 +9,8 @@ import { getUser } from '@fay-react/lib/user';
 import Link from '@material-ui/core/Link';
 import {useRouter} from 'next/router';
 import {PATH_PREFIX} from '@/env';
+import {pay} from '@/lib/type';
+import {datetimeFormat} from '@/lib/date-format';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -110,6 +112,11 @@ export default ({ search }: Props) => {
       width: '10%',
       title: '创建时间',
       dataIndex: 'createTime',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{datetimeFormat(text) || '-'}</div>
+        </React.Fragment>
+      )
     },
     {
       width: '10%',
@@ -121,16 +128,16 @@ export default ({ search }: Props) => {
         </React.Fragment>
       )
     },
-    {
-      width: '10%',
-      title: '状态',
-      dataIndex: 'state',
-      render: (text: string) => (
-        <React.Fragment>
-          <div>{text || '-'}</div>
-        </React.Fragment>
-      )
-    },
+    // {
+    //   width: '10%',
+    //   title: '状态',
+    //   dataIndex: 'state',
+    //   render: (text: string) => (
+    //     <React.Fragment>
+    //       <div>{text || '-'}</div>
+    //     </React.Fragment>
+    //   )
+    // },
     {
       width: '10%',
       title: '操作',
