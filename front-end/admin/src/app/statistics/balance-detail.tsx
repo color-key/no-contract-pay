@@ -56,7 +56,7 @@ const BalanceDetail = () => {
   const getData = () => {
     getBalanceDetail().then(res => {
       console.log(res);
-      setState({ data: { rows: res, count: res.length}, loading: false });
+      setState({ data: { rows: res.data || [], count: res.length || 0}, loading: false });
     })
   }
 

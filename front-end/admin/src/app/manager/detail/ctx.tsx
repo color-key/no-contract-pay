@@ -6,7 +6,7 @@ const defaultState = {
   pic: {
     time: 0,
     merchid: '',
-    paytype: '0',
+    paytype: '',
   }
 }
 const reducer = (state: any, action: any) => {

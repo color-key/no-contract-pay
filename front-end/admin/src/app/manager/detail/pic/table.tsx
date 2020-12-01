@@ -48,6 +48,16 @@ export default () => {
   }, [JSON.stringify(ctx.state.pic)])
 
   const getData = (page: number, rowsPerPage: number) => {
+    let url = 'auth/query?', param: any = {pageNum: page, pageSize: rowsPerPage};
+    if(ctx.state.pic.merchid) {
+      param.cus_merchid = ctx.state.pic.merchid;
+    }
+    if(ctx.state.pic.paytype) {
+      param.paytype = ctx.state.pic.paytype;
+    }
+    //params.split('&').map(i => i.split('=')).reduce((i, j) => {i[j[0]]=j[1]; return i},{})
+    
+
     postJson({
       path: BASE_URL + `auth/query?cus_merchid=${ctx.state.pic.merchid}&paytype=${ctx.state.pic.paytype}&pageNum=${page}&pageSize=${rowsPerPage}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }

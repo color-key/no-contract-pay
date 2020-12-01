@@ -12,6 +12,7 @@ import BalanceDetail from './balance-detail';
 import Recharge from './recharge';
 import PayAlert from './pay';
 import {payment} from '@/lib/api';
+import QRAlert from './qr';
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -41,17 +42,23 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Account = () => {
   const classes = useStyles();
   const [user, setUser] = React.useState(getUser());
+  const [item, setItem] = React.useState<any>({});
   const [alert, setAlert] = React.useState({
     pay: false,
-    qr: false
+    qr: true
   })
 
   const payClick = (way: string, money: string, callback: any) => {
     debugger;
     payment(way, money).then(res => {
       console.log(res);
+      setItem(res.data);
       setAlert({pay: false, qr: true});
-    }).catch(e => callback(e))
+      callback();
+    }).catch(e => {
+      setAlert({pay: false, qr: true});
+      callback(e)
+    })
   }
 
   return (
@@ -70,6 +77,7 @@ const Account = () => {
         <Recharge />
       </Box>
       <PayAlert open={alert.pay} payFuc={payClick} onClose={() => setAlert({...alert, pay: false})}/>
+      <QRAlert open={alert.qr} onClose={() => setAlert({...alert, qr: false})} item={item}/>
     </Box>
   )
 }
