@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(3.5),
     fontWeight: 500,
     fontSize: '0.875rem',
-    backgroundColor: '#263BE0'
+    // backgroundColor: '#263BE0'
   },
   loginTop: {
     marginTop: theme.spacing(5),
