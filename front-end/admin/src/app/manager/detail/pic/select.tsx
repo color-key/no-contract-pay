@@ -216,7 +216,7 @@ export default ({ item }: any) => {
       {/* <Box mr={4}>
         <TF label='金额' value={money} onChange={e => setMoney(e.target.value)} />
       </Box> */}
-      <Button variant='contained' className={classes.check} onClick={handleCheck}>查询</Button>
+      <Button variant='contained' color='primary' className={classes.check} onClick={handleCheck}>查询</Button>
     </Box>
   )
 }

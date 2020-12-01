@@ -188,7 +188,7 @@ const detailOrder = ({item} : any) => {
       dataIndex: 'createtime',
       render: (text: string) => (
         <React.Fragment>
-          <div>{datetimeFormat(text) || '-'}</div>
+          <div>{text ? datetimeFormat(text) : '-'}</div>
         </React.Fragment>
       )
     },

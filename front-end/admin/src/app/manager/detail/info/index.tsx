@@ -84,7 +84,7 @@ const detailInfo = ({ item }: any) => {
   }
   return (
     <div className={classes.root}>
-      <Box className={classes.title}>{item.username}</Box>
+      {/* <Box className={classes.title}>{item.username}</Box> */}
       <Divider className={classes.divi} />
       <Box display='flex' border='1px solid #e0e0e0'>
         {columnsItem()}

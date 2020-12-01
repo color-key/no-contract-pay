@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     '&:hover': {
       background: theme.palette.primary.main,
       color: '#FFFFFF'
-    }
+    },
+    marginRight: theme.spacing(4)
   },
   buttonActive: {
     background: theme.palette.primary.main,
@@ -51,11 +52,11 @@ const managerDetail = () => {
     <div className={classes.root}>
       <ContxtProvider >
         <Info item={item} />
-        <Box display='flex' justifyContent='space-between' mt={2} mb={2}>
-          <Button variant="contained" onClick={() => handleClick(1)} className={clsx(classes.button, { [classes.buttonActive]: idx === 1 })} endIcon={<Reorder />}>余额明细</Button>
-          <Button variant="contained" onClick={() => handleClick(2)} className={clsx(classes.button, { [classes.buttonActive]: idx === 2 })} endIcon={<Reorder />}>收款账户</Button>
-          <Button variant="contained" onClick={() => handleClick(3)} className={clsx(classes.button, { [classes.buttonActive]: idx === 3 })} endIcon={<Reorder />}>订单详情</Button>
-          <Button variant="contained" onClick={() => handleClick(4)} className={clsx(classes.button, { [classes.buttonActive]: idx === 4 })} endIcon={<Reorder />}>收款二维码</Button>
+        <Box display='flex' mt={2} mb={2}>
+          <Button variant="contained" color={"primary"} onClick={() => handleClick(1)} className={clsx(classes.button, { [classes.buttonActive]: idx === 1 })} endIcon={<Reorder />}>余额明细</Button>
+          <Button variant="contained" color={"primary"} onClick={() => handleClick(2)} className={clsx(classes.button, { [classes.buttonActive]: idx === 2 })} endIcon={<Reorder />}>收款账户</Button>
+          <Button variant="contained" color={"primary"}onClick={() => handleClick(3)} className={clsx(classes.button, { [classes.buttonActive]: idx === 3 })} endIcon={<Reorder />}>订单详情</Button>
+          <Button variant="contained" color={"primary"} onClick={() => handleClick(4)} className={clsx(classes.button, { [classes.buttonActive]: idx === 4 })} endIcon={<Reorder />}>收款二维码</Button>
         </Box>
         {
           idx === 1 ? 
