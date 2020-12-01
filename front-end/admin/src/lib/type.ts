@@ -9,3 +9,8 @@ export const orderState: any = {
   '1': '失败',
   '2': '成功',
 }
+
+export const useState: any = {
+  '0': '启用',
+  '1': '禁用',
+}

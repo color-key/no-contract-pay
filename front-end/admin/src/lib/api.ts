@@ -68,3 +68,17 @@ export const payment = (type: string, amount: string) => {
     })
   })
 }
+
+export const addPayee = (accname: string, paytype: string, node: string) => {
+  return new Promise<any>((resolve) => {
+    postJson({
+      path: BASE_URL+`/auth/useradd?accname=${accname}&paytype=${paytype}&node=${node}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
+    }).then(res => {
+      auth(res.code);
+      if (res.code === '0000') {
+        resolve(res.data);
+      }
+    })
+  })
+}

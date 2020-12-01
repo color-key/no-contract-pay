@@ -13,7 +13,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Box from '@material-ui/core/Box';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-import {pay} from '@/lib/type';
+import {pay, useState} from '@/lib/type';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -50,7 +50,7 @@ interface Org {
   node: string
 }
 
-const detailAccount = ({item}: any) => {
+const detailAccount = ({item, operate= false}: any) => {
   const user = getUser();
   const router = useRouter();
   
@@ -163,12 +163,32 @@ const detailAccount = ({item}: any) => {
         </React.Fragment>
       )
     },
-    // {
-    //   width: '10%',
-    //   title: '状态',
-    //   dataIndex: 'state',
-    // },
+    {
+      width: '10%',
+      title: '状态',
+      dataIndex: 'state',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{useState[text] || '-'}</div>
+        </React.Fragment>
+      )
+    },
   ];
+
+  if(operate){
+    columns.push({
+      width: '10%',
+      title: '操作',
+      dataIndex: 'state',
+      render: (text: string) => (
+        <React.Fragment>
+          <Button color={"primary"}>储备二维码管理</Button>
+          <Button color={"primary"}>编辑</Button>
+          <Button color={"secondary"}>删除</Button>
+        </React.Fragment>
+      )
+    })
+  }
 
   return (
     <div>
