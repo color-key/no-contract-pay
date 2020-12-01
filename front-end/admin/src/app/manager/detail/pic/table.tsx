@@ -70,8 +70,8 @@ export default () => {
           fgColor="#000000" 
           imageSettings={{
             src:k.accpaytype === 0 ? `${PATH_PREFIX}/static/alipay.png` : `${PATH_PREFIX}/static/wxpay.png`,
-            width:50,
-            height:50
+            width:25,
+            height:25
           }}
           />
         </Box>
