@@ -14,6 +14,9 @@ import Card from "@material-ui/core/Card";
 import Box from "@material-ui/core/Box";
 import { grey } from '@material-ui/core/colors';
 import ErrorInput from '@/components/err';
+import EmailTF from '@/components/text-field/email-text-field';
+import PhoneTF from '@/components/text-field/phone-text-field';
+import {getUserInfo} from '@/lib/api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,20 +76,28 @@ export default ({ className }: any) => {
   const classes = useStyles();
   const router = useRouter();
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(false);
-  const [data, setData] = React.useState({ username: '', password: '', passwordT: '', keyenter: 0, errPWText: '', err: '', });
+  const [data, setData] = React.useState({ username: '', email: '', phone: '', password: '', passwordT: '', keyenter: 0, errPWText: '', err: '', });
 
   const register = () => {
-    setError(false);
     setLoading(true);
-    postJson({ path: BASE_URL + '/users/signin', data }).then(res => {
+    postJson({ 
+      path: BASE_URL + `/auth/register?email=${data.email}&username=${data.username}&password=${data.password}&phone=${data.phone}`,
+      headers: {"X-PLATFORM": "WEBAPP"}
+    }).then(res => {
       console.log(res);
       setLoading(false);
-      if ((res.status && res.status !== 200) || res.error) {
-        setError(true);
+      if (res.code === '0000') {
+        const token = res.data.token;
+        saveUser({token, account: data.username});
+        getUserInfo().then(user => {
+          user.account = data.username;
+          user.token = token;
+          console.log(user);
+          saveUser(user);
+          router.push(PATH_PREFIX);
+        })
       } else {
-        saveUser({ ...res.data, token: 'Bearer ' + res.data.token });
-        router.push(PATH_PREFIX);
+        setData({...data, err: res.message})
       }
     })
   }
@@ -110,11 +121,14 @@ export default ({ className }: any) => {
     <div className={clsx(classes.root, className)}>
       <div className={classes.title}>管理后台注册</div>
       <Card className={classes.content}>
-        {/* <Box textAlign='center'>
-          <img src={PATH_PREFIX + '/static/login/people.png'} className={classes.peopleImg} />
-        </Box> */}
         <Box mt={2} >
           <TextField label={'用户名'} fullWidth onChange={handleUsername} variant= 'outlined'/>
+        </Box>
+        <Box mt={2} >
+          <PhoneTF label={'手机'} fullWidth onChange={handleChange('phone')} variant= 'outlined'/>
+        </Box>
+        <Box mt={2} >
+          <EmailTF label={'邮箱'} fullWidth onChange={handleChange('email')} variant= 'outlined'/>
         </Box>
         <Box mt={2}>
           <PWInput onChange={handleChange('password')} errorText={data.errPWText} onKeyUp={handleKeyUp} hot={false} variant= 'outlined'/>
