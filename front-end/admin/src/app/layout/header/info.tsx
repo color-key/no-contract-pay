@@ -87,7 +87,7 @@ export default () => {
         <Button fullWidth onClick={handleChangePW} color={'secondary'}>修改密码</Button>
         <Button fullWidth onClick={handleLogout} color={'secondary'}>退出</Button>
       </Box>
-      <Change open={open}/>
+      <Change open={open} onClose={() => setOpen(false)}/>
     </Paper>
   );
 }

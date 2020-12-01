@@ -14,7 +14,6 @@ import Card from "@material-ui/core/Card";
 import Box from "@material-ui/core/Box";
 import { grey } from '@material-ui/core/colors';
 import ErrorInput from '@/components/err';
-import {getUserInfo} from '@/lib/api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,35 +73,28 @@ export default ({ className }: any) => {
   const classes = useStyles();
   const router = useRouter();
   const [loading, setLoading] = React.useState(false);
-  const [data, setData] = React.useState({ account: '', password: '', keyenter: 0, errPWText: '', err: '', });
+  const [error, setError] = React.useState(false);
+  const [data, setData] = React.useState({ username: '', password: '', passwordT: '', keyenter: 0, errPWText: '', err: '', });
 
-  const login = () => {
+  const register = () => {
+    setError(false);
     setLoading(true);
-    postJson({
-      path: BASE_URL + '/auth/login?account='+data.account+'&password='+data.password,
-      headers: {"X-PLATFORM": "WEBAPP"}
-    }).then(res => {
+    postJson({ path: BASE_URL + '/users/signin', data }).then(res => {
       console.log(res);
-      if(res.code === '0000'){
-        const token = res.data.token;
-        saveUser({token, account: data.account});
-        getUserInfo().then(user => {
-          user.account = data.account;
-          user.token = token;
-          console.log(user);
-          saveUser(user);
-          router.push(PATH_PREFIX);
-        })
-      }else{
-        setData({...data, err: '用户名或密码错误'})
+      setLoading(false);
+      if ((res.status && res.status !== 200) || res.error) {
+        setError(true);
+      } else {
+        saveUser({ ...res.data, token: 'Bearer ' + res.data.token });
+        router.push(PATH_PREFIX);
       }
     })
   }
 
-  const handleUsername = (e: any) => setData({ ...data, account: e.target.value });
+  const handleUsername = (e: any) => setData({ ...data, username: e.target.value });
   const handleChange = (key: string) => (value: any) => setData({ ...data, [key]: value });
 
-  const handleRegister = () => router.push(PATH_PREFIX + '/register');
+  const handleLogin = () => router.push(PATH_PREFIX + '/login');
 
   const handleKeyUp = (e: any) => {
     if (e.keyCode === 13) setData({ ...data, keyenter: data.keyenter + 1 });
@@ -111,21 +103,24 @@ export default ({ className }: any) => {
 
   React.useEffect(() => {
     if (data.keyenter === 0) return;
-    login();
+    register();
   }, [data.keyenter])
 
   return (
     <div className={clsx(classes.root, className)}>
-      <div className={classes.title}>管理后台登录</div>
+      <div className={classes.title}>管理后台注册</div>
       <Card className={classes.content}>
         {/* <Box textAlign='center'>
           <img src={PATH_PREFIX + '/static/login/people.png'} className={classes.peopleImg} />
         </Box> */}
         <Box mt={2} >
-          <TextField label={'账户'} fullWidth onChange={handleUsername} variant= 'outlined'/>
+          <TextField label={'用户名'} fullWidth onChange={handleUsername} variant= 'outlined'/>
         </Box>
         <Box mt={2}>
           <PWInput onChange={handleChange('password')} errorText={data.errPWText} onKeyUp={handleKeyUp} hot={false} variant= 'outlined'/>
+        </Box>
+        <Box mt={2}>
+          <PWInput label='再次输入密码' onChange={handleChange('passwordT')} errorText={data.errPWText} onKeyUp={handleKeyUp} hot={false} variant= 'outlined'/>
         </Box>
         {data.err && data.err.length > 0 ?
           <Box mt={2}>
@@ -133,15 +128,15 @@ export default ({ className }: any) => {
           </Box> : null
         }
         <div className={classes.loginTop}>
-          <Button disabled={loading} className={clsx(classes.login)} fullWidth onClick={login} color={'primary'} variant={"contained"}>
-            <Typography style={{ position: 'absolute' }}>登录</Typography>
+          <Button disabled={loading} className={clsx(classes.login)} fullWidth onClick={register} color={'primary'} variant={"contained"}>
+            <Typography style={{ position: 'absolute' }}>注册</Typography>
             {loading &&
               <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute' }}>
                 <CircularProgress size={28} />
               </div>
             }
           </Button>
-          <Box className={classes.register} onClick={handleRegister}>注册</Box>
+          <Box className={classes.register} onClick={handleLogin}>登录</Box>
         </div>
       </Card>
     </div>

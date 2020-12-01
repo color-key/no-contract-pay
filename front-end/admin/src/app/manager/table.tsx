@@ -67,6 +67,8 @@ export default ({ search }: Props) => {
       console.log(res);
       if (res.code === '0000') {
         setState({ pageParams: { num: res.data.pageNum - 1, size: res.data.pageSize }, data: { rows: res.data.list, count: res.data.allPages || 0 }, loading: false });
+      } else {
+        setState({...state, loading: false})
       }
     })
   }
@@ -114,7 +116,7 @@ export default ({ search }: Props) => {
       dataIndex: 'createTime',
       render: (text: string) => (
         <React.Fragment>
-          <div>{datetimeFormat(text) || '-'}</div>
+          <div>{ text ? datetimeFormat(text) : '-'}</div>
         </React.Fragment>
       )
     },
@@ -142,7 +144,7 @@ export default ({ search }: Props) => {
       width: '10%',
       title: '操作',
       dataIndex: 'uuid',
-      render: (_text: string, row: Org) => <Link style={{cursor: 'pointer'}} onClick={() => handleDetail(row)}>详情</Link>
+      render: (_text: string, row: Org) => <Link style={{cursor: 'pointer'}} onClick={() => handleDetail(row)}>{_text ? '详情' : '-'}</Link>
     }
   ];
 
