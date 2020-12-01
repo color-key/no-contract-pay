@@ -4,6 +4,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import TF from '@/components/text-field';
+import {changeWayRate, addWayRate} from '@/lib/api';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -24,36 +25,77 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const ChangeDialog = ({ open, onClose, item }: any) => {
+const ChangeDialog = ({ open, onClose, item, onRefresh }: any) => {
   const classes = useStyles();
-  const handleClose = () => { }
-  const handleSubmit = () => { }
+
+  const [rate, setRate] = React.useState(item ? item.aislerate ? item.aislerate.rate : 0 : 0);
+  const [loading, setLoading] = React.useState(false);
+
+  const handleClose = () => {
+    onClose();
+    setLoading(false);
+    setRate('');
+  }
+
+  const handleSubmit = () => {
+    setLoading(true);
+    if(item && item.aislerate){
+      changeWayRate(item.aitype, rate).then(_res => {
+        onClose();
+        onRefresh();
+        setLoading(false);
+      })
+    }else{
+      addWayRate(item.aitype, rate).then(_res => {
+        onClose();
+        onRefresh();
+        setLoading(false);
+      })
+    }
+  }
+
+  const disabled = Boolean(item && item.aislerate && item.aislerate.rate === rate);
+
   return (
     <Dialog
       open={open}
-      onClose={onClose}
+      onClose={handleClose}
       onSubmit={handleSubmit}
       title='费率'
       footer
       buttonVariant={['cancel', 'submit']}
       submitText={'保存'}
+      loading={loading}
+      submitDisabled={disabled}
     >
       <Box>
-        <Box display='flex'>
-          <Typography>渠道类型:&nbsp;</Typography>
-          <Typography>0</Typography>
+        <Box display='flex' alignItems={'center'}>
+          <Box width={100} textAlign={'right'}>
+            <Typography>渠道类型：</Typography>
+          </Box>
+          <Box ml={1}>
+            <Typography>{item && item.aitype}</Typography>
+          </Box>
         </Box>
-        <Box display='flex' mt={1} mb={1}>
-          <Typography>渠道名称:&nbsp;</Typography>
-          <Typography>支付宝</Typography>
+        <Box display='flex' mt={1} mb={1} alignItems={'center'}>
+          <Box width={100} textAlign={'right'}>
+            <Typography>渠道名称：</Typography>
+          </Box>
+          <Box ml={1}>
+            <Typography>{item && item.asname}</Typography>
+          </Box>
         </Box>
         <Box display='flex'>
-          <Typography>费率:&nbsp;</Typography>
-          <Box display='flex'>
+          <Box width={100} textAlign={'right'}>
+            <Typography>费率：</Typography>
+          </Box>
+          <Box display='flex' ml={1}>
             <TF
+              value={rate}
               inputProps={{ className: classes.tf }}
+              onChange={(e: any) => setRate(e.target.value)}
+              helperText={'格式为：6-->0.006(千分率)'}
             />
-            <Typography className={classes.tfDes}>{'格式为：6-->0.006(千分率)'}</Typography>
           </Box>
         </Box>
       </Box>

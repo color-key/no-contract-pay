@@ -1,18 +1,10 @@
 import {postJson, getJson} from '@fay-react/lib/fetch';
 import {getUser} from '@fay-react/lib/user';
-import {BASE_URL, PATH_PREFIX, PAY_URL} from '@/env';
+import {BASE_URL, PAY_URL} from '@/env';
 
 const getToken = () => {
   const token = getUser().token;
   return token;
-}
-
-const auth = (code: string) => {
-  if(code === '501'){
-    console.log(code);
-    location.href = PATH_PREFIX + '/login';
-    return;
-  }
 }
 
 export const getUserInfo = () => {
@@ -21,7 +13,6 @@ export const getUserInfo = () => {
       path: BASE_URL+'/auth/userandmin',
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
     }).then(res => {
-      auth(res.code);
       if (res.code === '0000') {
         resolve(res.data);
       }
@@ -35,7 +26,6 @@ export const getOrderStatistics = () => {
       path: BASE_URL+'/auth/orderstatistics',
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
     }).then(res => {
-      auth(res.code);
       if (res.code === '0000') {
         resolve(res.data);
       }
@@ -49,7 +39,6 @@ export const getBalanceDetail = () => {
       path: BASE_URL+'/auth/balancedescription',
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
     }).then(res => {
-      auth(res.code);
       resolve(res);
     })
   })
@@ -61,7 +50,6 @@ export const payment = (type: string, amount: string) => {
       path: PAY_URL+`/payment?aitype=${type}&amount=${amount}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
     }).then(res => {
-      auth(res.code);
       if (res.code === '0000') {
         resolve(res.data);
       } else {
@@ -77,9 +65,60 @@ export const addPayee = (accname: string, paytype: string, node: string) => {
       path: BASE_URL+`/auth/useradd?accname=${accname}&paytype=${paytype}&node=${node}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
     }).then(res => {
-      auth(res.code);
       if (res.code === '0000') {
         resolve(res.data);
+      }
+    })
+  })
+}
+
+export const addWay = (aitype: string, asname: string) => {
+  return new Promise<any>((resolve) => {
+    postJson({
+      path: BASE_URL+`/auth/channeladd?aitype=${aitype}&asname=${asname}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
+    }).then(res => {
+      if (res.code === '0000') {
+        resolve(res);
+      }
+    })
+  })
+}
+
+export const delWay = (aitype: string) => {
+  return new Promise<any>((resolve) => {
+    postJson({
+      path: BASE_URL+`/auth/channeldelete?aitype=${aitype}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
+    }).then(res => {
+      if (res.code === '0000') {
+        resolve(res);
+      }
+    })
+  })
+}
+
+export const addWayRate = (aitype: string, rate: string) => {
+  return new Promise<any>((resolve) => {
+    postJson({
+      path: BASE_URL+`/auth/aisleraterate?asuid=${aitype}&rate=${rate}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
+    }).then(res => {
+      if (res.code === '0000') {
+        resolve(res);
+      }
+    })
+  })
+}
+
+export const changeWayRate = (aitype: string, rate: string) => {
+  return new Promise<any>((resolve) => {
+    postJson({
+      path: BASE_URL+`/auth/updaterate?asuid=${aitype}&rate=${rate}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() }
+    }).then(res => {
+      if (res.code === '0000') {
+        resolve(res);
       }
     })
   })

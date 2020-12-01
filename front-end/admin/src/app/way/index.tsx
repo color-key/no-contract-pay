@@ -5,6 +5,11 @@ import Table from './table';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Add from './add';
+import Router from 'next/router';
+import {PATH_PREFIX} from '@/env';
+import { getJson, postJson } from '@fay-react/lib/fetch';
+import { BASE_URL } from '@/env';
+import { getUser } from '@fay-react/lib/user';
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -23,24 +28,40 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: theme.spacing(3, 0)
   },
   btn: {
-    background: theme.palette.primary.main,
-    color: '#FFFFFF',
     minWidth: 100,
-    height: 56,
-    padding: '1px 8px',
   },
 }))
 
 const Way = () => {
   const classes = useStyles();
+  const user = getUser();
   const [open, setOpen] = React.useState(false);
+  const [state, setState] = React.useState({ data: { rows: [] }, loading: true});
+
+  const getData = () => {
+    setState({...state, loading: true});
+    postJson({
+      path: BASE_URL + '/auth/queryC',
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
+    }).then(res => {
+      console.log(res);
+      if (res.code === '0000') {
+        setState({ data: { rows: res.list }, loading: false });
+      }
+    })
+  }
+
+  React.useEffect(() => {
+    getData();
+  }, [])
+
   return (
     <Box>
       <Box className={classes.title}>通道</Box>
       <Divider className={classes.divi} />
-      <Table />
+      <Table data={state.data} loading={state.loading} onRefresh={getData}/>
       <Button variant={"contained"} color={'primary'} className={classes.btn} onClick={() => setOpen(true)}>添加通道</Button>
-      <Add open={open} onClose={() => setOpen(false)}/>
+      <Add open={open} onClose={() => setOpen(false)} onRefresh={getData}/>
     </Box>
   )
 }
