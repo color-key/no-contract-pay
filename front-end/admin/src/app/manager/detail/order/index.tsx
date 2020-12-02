@@ -1,20 +1,17 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Table from '@/components/table';
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import { getJson, postJson } from '@fay-react/lib/fetch';
 import { BASE_URL } from '@/env';
 import { getUser } from '@fay-react/lib/user';
 import { useRouter } from 'next/router';
 import { PATH_PREFIX } from '@/env';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Box from '@material-ui/core/Box';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Button from '@material-ui/core/Button';
-import {pay, orderState} from '@/lib/type';
-import {datetimeFormat} from '@/lib/date-format';
+import { pay, orderState } from '@/lib/type';
+import { datetimeFormat } from '@/lib/date-format';
+import Search from './search';
+import Change from './change';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -25,11 +22,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   table: {
     minWidth: 700,
     fontSize: '0.75rem'
-  },
-  paper: {
-    zIndex: 10,
-    width: 100,
-    position: 'absolute'
   },
   btn: {
     minWidth: 88,
@@ -52,52 +44,13 @@ interface Org {
   wecahtnm: string
 }
 
-const detailOrder = ({item} : any) => {
+const detailOrder = ({ item, showType=true }: any) => {
   const user = getUser();
   const router = useRouter();
-
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef<HTMLButtonElement>(null);
-  const [typeTxt, setTypeTxt] = React.useState('全部');
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current!.focus();
-    }
-    prevOpen.current = open;
-  }, [open]);
-
-  const handleClick = (type: string) => () => {
-    let s = ''
-    if (type === 'wx') {
-      s = '微信';
-    } else if (type === 'ali') {
-      s = '支付宝'
-    } else {
-      s = '全部'
-    }
-    setTypeTxt(s);
-    setOpen(false);
-  }
-
-  const handleToggle = () => {
-    // tslint:disable-next-line:no-shadowed-variable
-    setOpen((prevOpen) => !prevOpen);
-  };
-  const handleClose = (event: React.MouseEvent<EventTarget>, _path?: string) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
-      return;
-    }
-    setOpen(false);
-  };
-
-  const handleListKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    }
-  }
-
+  const [payItem, setPayItem] = React.useState<any>({
+    open: false,
+    item: {}
+  });
 
   const defaultPage = 1;
   const defaultRowsPerPage = 10;
@@ -105,17 +58,18 @@ const detailOrder = ({item} : any) => {
   const [state, setState] = React.useState({ data: { rows: [{}], count: 0 }, loading: true, pageParams: { num: defaultPage, size: defaultRowsPerPage } });
 
   React.useEffect(() => {
-    getData(defaultPage, defaultRowsPerPage);
+    getData(defaultPage, defaultRowsPerPage, '');
   }, [])
   const handlePageChange = (page: number, rowsPerPage: number) => {
     setState({ pageParams: { num: page, size: rowsPerPage }, data: state.data, loading: true });
-    getData(page, rowsPerPage);
+    getData(page, rowsPerPage, '');
   };
 
-  const getData = (page: number, rowsPerPage: number) => {
+  const getData = (page: number, rowsPerPage: number, params: string) => {
     postJson({
+      // /auth/selectOrder?pageNum=1&pageSize=10&qrtype=0&djmoney=0&ordernumber=531109142480424960&state=&begintime=2020-11-01+00:00:00&endtime=2020-12-01+00:00:00
       //查看订单：http://47.75.151.104:8083/api/auth/queryOrder?merchid=100008&pageNum=1&pageSize=10
-      path: BASE_URL + '/auth/queryOrder' + '?pageNum=' + page + '&pageSize=' + rowsPerPage + '&merchid=' + item.merchid,
+      path: BASE_URL + '/auth/queryOrder' + '?pageNum=' + page + '&pageSize=' + rowsPerPage + '&merchid=' + item.merchid + params,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
@@ -124,14 +78,18 @@ const detailOrder = ({item} : any) => {
       }
     })
   }
-  const handleDetail = (item: Org) => {
-    router.push({
-      pathname: PATH_PREFIX + '/manager/detail',
-      query: { ...item }
-    });
+
+  const handleSearch = (search: any) => {
+    const params = Object.keys(search).filter(k => search[k] !== '').map(k => k !== '' && (k + '=' + search[k])).join('&')
+    getData(defaultPage, defaultRowsPerPage, '&'+params);
   }
 
-  const columns = [
+  const handleTypeClick =(item: any) => {
+    console.log(item);
+    setPayItem({open: true, item});
+  }
+
+  const col = [
     {
       width: '15%',
       title: '商户号',
@@ -191,8 +149,22 @@ const detailOrder = ({item} : any) => {
           <div>{text ? datetimeFormat(text) : '-'}</div>
         </React.Fragment>
       )
-    },
-  ];
+    }, 
+  ]
+
+  const columns = showType ? 
+  [...col,
+    {
+      width: '10%',
+      title: '操作',
+      dataIndex: 'uuid',
+      render: (_text: any, org: any) => (
+        <React.Fragment>
+          {_text && <Button variant={"contained"} color={"primary"} onClick={() => handleTypeClick(org)}>{org.state === 0 ? '我已收款' : '未收款'}</Button>}
+        </React.Fragment>
+      )
+    }, 
+  ] : col;
 
   const pagination = {
     page: state.pageParams.num,
@@ -203,32 +175,11 @@ const detailOrder = ({item} : any) => {
 
   return (
     <div>
-      <Box position='relative' zIndex={10}>
-        <Button
-          className={classes.btn}
-          ref={anchorRef}
-          aria-controls={open ? 'menu-list-type' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-          endIcon={<ExpandMoreIcon />}
-        >
-          {typeTxt}
-        </Button>
-        {
-          open && <Paper className={classes.paper}>
-            <ClickAwayListener onClickAway={handleClose}>
-              <MenuList autoFocusItem={open} id="menu-list-type" onKeyDown={handleListKeyDown}>
-                <MenuItem onClick={handleClick('')}>全部</MenuItem>
-                <MenuItem onClick={handleClick('ali')}>支付宝</MenuItem>
-                <MenuItem onClick={handleClick('wx')}>微信</MenuItem>
-              </MenuList>
-            </ClickAwayListener>
-          </Paper>
-        }
-      </Box>
+      <Search onSearch={handleSearch}/>
       <Paper className={classes.root}>
         <Table className={classes.table} columns={columns} dataSource={state.data.rows} pagination={pagination} rowKey={(row: Org) => JSON.stringify(row)} loading={state.loading} />
       </Paper>
+      <Change open={payItem.open} item={payItem.item} onClose={() => setPayItem({...payItem, open: false})}/>
     </div>
   );
 }
