@@ -54,13 +54,13 @@ const ChangeDialog = ({ item, open, onClose }: any) => {
     >
       <Box>
         <Box display='flex' alignItems={'center'}>
-          <Typography>订单号:{data.orderid}</Typography>
+          <Typography>订单号:{data.ordernumber}</Typography>
         </Box>
         <Box display='flex' mt={2} alignItems={'center'}>
-          <Typography>金额:{data.money}</Typography>
+          <Typography>金额:{data.sjmoney}</Typography>
         </Box>
         <Box display='flex' mt={2} alignItems={'center'}>
-          <Typography>您确定{data.type ? '未收款' : '已收款'}?</Typography>
+          <Typography>您确定{data.state == 2 ? '未收款' : '已收款'}?</Typography>
         </Box>
       </Box>
     </Dialog>

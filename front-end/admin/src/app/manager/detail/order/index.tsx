@@ -58,18 +58,18 @@ const detailOrder = ({ item, showType=true }: any) => {
   const [state, setState] = React.useState({ data: { rows: [{}], count: 0 }, loading: true, pageParams: { num: defaultPage, size: defaultRowsPerPage } });
 
   React.useEffect(() => {
-    getData(defaultPage, defaultRowsPerPage);
+    getData(defaultPage, defaultRowsPerPage, '');
   }, [])
   const handlePageChange = (page: number, rowsPerPage: number) => {
     setState({ pageParams: { num: page, size: rowsPerPage }, data: state.data, loading: true });
-    getData(page, rowsPerPage);
+    getData(page, rowsPerPage, '');
   };
 
-  const getData = (page: number, rowsPerPage: number) => {
+  const getData = (page: number, rowsPerPage: number, params: string) => {
     postJson({
       // /auth/selectOrder?pageNum=1&pageSize=10&qrtype=0&djmoney=0&ordernumber=531109142480424960&state=&begintime=2020-11-01+00:00:00&endtime=2020-12-01+00:00:00
       //查看订单：http://47.75.151.104:8083/api/auth/queryOrder?merchid=100008&pageNum=1&pageSize=10
-      path: BASE_URL + '/auth/queryOrder' + '?pageNum=' + page + '&pageSize=' + rowsPerPage + '&merchid=' + item.merchid,
+      path: BASE_URL + '/auth/queryOrder' + '?pageNum=' + page + '&pageSize=' + rowsPerPage + '&merchid=' + item.merchid + params,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
@@ -78,26 +78,10 @@ const detailOrder = ({ item, showType=true }: any) => {
       }
     })
   }
-  const handleDetail = (item: Org) => {
-    router.push({
-      pathname: PATH_PREFIX + '/manager/detail',
-      query: { ...item }
-    });
-  }
 
   const handleSearch = (search: any) => {
-    /*
-    {
-    ordernumber: '',
-    djmoney: '',
-    begintime: '', //2020-11-01+00:00:00
-    endtime: '', //2020-12-01+00:00:00
-    state: '',
-    qrtype: '',
-  }
-    */
     const params = Object.keys(search).filter(k => search[k] !== '').map(k => k !== '' && (k + '=' + search[k])).join('&')
-    // getData()
+    getData(defaultPage, defaultRowsPerPage, '&'+params);
   }
 
   const handleTypeClick =(item: any) => {
