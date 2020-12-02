@@ -176,7 +176,7 @@ const detailOrder = ({ item, showType=true }: any) => {
       dataIndex: 'uuid',
       render: (_text: any, org: any) => (
         <React.Fragment>
-          <Button variant={"contained"} color={"primary"} onClick={() => handleTypeClick(org)}>{org.state === 0 ? '我已收款' : '未收款'}</Button>
+          {_text && <Button variant={"contained"} color={"primary"} onClick={() => handleTypeClick(org)}>{org.state === 0 ? '我已收款' : '未收款'}</Button>}
         </React.Fragment>
       )
     }, 
