@@ -230,3 +230,14 @@ export const uploadQrcode = (accname: string, money: string, paytype: string, fo
     })
   })
 }
+
+export const updPwd = (oldPwd: string, newPwd: string) => {
+  return new Promise<any>((resolve) => {
+    postJson({
+      path: BASE_URL+`/auth/updPassword?oldPwd=${oldPwd}&newPwd=${newPwd}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() },
+    }).then(res => {
+      resolve(res);
+    })
+  })
+}
