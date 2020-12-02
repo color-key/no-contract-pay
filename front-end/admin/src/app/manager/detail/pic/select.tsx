@@ -67,7 +67,7 @@ export default ({ item }: any) => {
   const getData = () => {
     Promise.all([
       postJson({
-        path: BASE_URL + `auth/queryUser?paytype=0`,
+        path: BASE_URL + `auth/listaccount?cusMerchid=${item.merchid}`,
         headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
       }),
       postJson({
@@ -76,8 +76,9 @@ export default ({ item }: any) => {
       })
     ]).then(([res1, res2]: any) => {
       let accountList: any = [], payList: any = [];
-      if (res1.code === '0000') {
-        accountList = [{ accname: '', uuid: '0' }, ...res1.list]
+      if (res1.cood === '0000') {
+        accountList = [{ accname: '', uuid: '0' }, ...res1.pageinfo]
+        console.log('accountList', accountList);
       }
       if (res2.code === '0000') {
         payList = [{aitype: '', asname: '全部'}, ...res2.list]
