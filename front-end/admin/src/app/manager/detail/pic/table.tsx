@@ -35,29 +35,30 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-export default () => {
+export default ({item}: any) => {
   const user = getUser();
   const ctx = React.useContext(Contxt);
-  const defaultPage = 1;
-  const defaultRowsPerPage = 10000;
   const classes = useStyles({});
   const [state, setState] = React.useState<any>([]);
 
   React.useEffect(() => {
-    getData(defaultPage, defaultRowsPerPage);
+    getData();
   }, [JSON.stringify(ctx.state.pic)])
 
-  const getData = (page: number, rowsPerPage: number) => {
-    let url = 'auth/query?', param: any = {pageNum: page, pageSize: rowsPerPage};
+  const getData = () => {
+    let url = '/auth/query?', param: any = {};
     if(ctx.state.pic.merchid) {
       param.cus_merchid = ctx.state.pic.merchid;
+    } else {
+      param.cus_merchid = item.merchid
     }
     if(ctx.state.pic.paytype) {
       param.paytype = ctx.state.pic.paytype;
     }
-
+    const subPath = Object.keys(param).filter(k => param[k] !== '').map(k => k !== '' && (k + '=' + param[k])).join('&');
     postJson({
-      path: BASE_URL + `auth/query?cus_merchid=${ctx.state.pic.merchid}&paytype=${ctx.state.pic.paytype}&pageNum=${page}&pageSize=${rowsPerPage}`,
+      ///auth/query?cus_merchid=100008&accpaytype=0
+      path: BASE_URL + url + subPath,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);

@@ -15,7 +15,7 @@ const detailPic = ({item} : any) => {
   return (
     <div className={classes.root}>
       <Select item={item}/>
-      <Table />
+      <Table item={item}/>
     </div>
   )
 }
