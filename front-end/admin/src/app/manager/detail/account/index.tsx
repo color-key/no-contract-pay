@@ -14,6 +14,9 @@ import Box from '@material-ui/core/Box';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import {pay, useState} from '@/lib/type';
+import AddDialog from './add';
+import DelDialog from './del';
+import EditDialog from './edit';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -55,6 +58,10 @@ const detailAccount = ({item, operate= false}: any) => {
   const router = useRouter();
   
   const [open, setOpen] = React.useState(false);
+  const [addOpen, setAddOpen] = React.useState(false);
+  const [del, setDel] = React.useState(null);
+  const [edit, setEdit] = React.useState(undefined);
+
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   // const [typeTxt, setTypeTxt] = React.useState('全部');
   const [type, setType] = React.useState({
@@ -96,6 +103,8 @@ const detailAccount = ({item, operate= false}: any) => {
     setOpen(false);
   };
 
+  const handleAddClose = () => setAddOpen(false);
+
   const handleListKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Tab') {
       event.preventDefault();
@@ -107,10 +116,10 @@ const detailAccount = ({item, operate= false}: any) => {
   const [state, setState] = React.useState({ data: { rows: [] }, loading: true });
 
   React.useEffect(() => {
-    getData(type.value);
+    getData();
   }, [])
 
-  const getData = (paytype: string) => {
+  const getData = () => {
     postJson({
       path: BASE_URL + `auth/listaccount?cusMerchid=${item.merchid}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
@@ -167,7 +176,7 @@ const detailAccount = ({item, operate= false}: any) => {
       width: '10%',
       title: '状态',
       dataIndex: 'state',
-      render: (text: string) => (
+      render: (text: string, _obj: any) => (
         <React.Fragment>
           <div>{useState[text] || '-'}</div>
         </React.Fragment>
@@ -179,20 +188,26 @@ const detailAccount = ({item, operate= false}: any) => {
     columns.push({
       width: '10%',
       title: '操作',
-      dataIndex: 'state',
-      render: (text: string) => (
+      dataIndex: 'uuid',
+      render: (_text: string, obj: any) => (
         <React.Fragment>
-          <Button color={"primary"}>储备二维码管理</Button>
-          <Button color={"primary"}>编辑</Button>
-          <Button color={"secondary"}>删除</Button>
+          <Button color={"primary"} onClick={() => router.push(PATH_PREFIX+`/account/qrcodeManage?accname=${obj.accname}&paytype=${obj.paytype}`)}>储备二维码管理</Button>
+          <Button color={"primary"} onClick={() => setEdit(obj)}>编辑</Button>
+          <Button color={"secondary"} onClick={() => setDel(obj)}>删除</Button>
         </React.Fragment>
       )
     })
   }
-
+console.log(edit);
   return (
     <div>
       <Box position='relative' zIndex={10}>
+        {
+          operate &&
+          <Box mb={3}>
+            <Button variant={"contained"} color={"primary"} onClick={() => setAddOpen(true)}>添加收款账户</Button>
+          </Box>
+        }
         <Button
           className={classes.btn}
           ref={anchorRef}
@@ -218,6 +233,9 @@ const detailAccount = ({item, operate= false}: any) => {
       <Paper className={classes.root}>
         <Table className={classes.table} columns={columns} dataSource={state.data.rows} rowKey={(row: Org) => JSON.stringify(row)} loading={state.loading} />
       </Paper>
+      <AddDialog open={addOpen} onClose={handleAddClose} onRefresh={getData}/>
+      <DelDialog open={del !== null} item={del} onClose={() => setDel(null)} onRefresh={getData}/>
+      <EditDialog open={edit !== undefined} item={edit} onClose={() => setEdit(undefined)} onRefresh={getData}/>
     </div>
   );
 }

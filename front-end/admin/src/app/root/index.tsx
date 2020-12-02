@@ -19,6 +19,7 @@ export default ({children}: any) => {
     'order': <Layout>{children}</Layout>,
     'way': <Layout>{children}</Layout>,
     'account': <Layout>{children}</Layout>,
+    'account/qrcodeManage': <Layout>{children}</Layout>,
     'statistics': <Layout>{children}</Layout>,
   }
 

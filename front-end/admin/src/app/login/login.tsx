@@ -97,7 +97,7 @@ export default () => {
       }).then(res => {
         console.log(res);
         if(res.code === '0000'){
-          getUserInfo(res.data.token).then(user => {
+          getUserInfo().then(user => {
             user.account = state.account;
             user.token = res.data.token;
             saveUser(user);

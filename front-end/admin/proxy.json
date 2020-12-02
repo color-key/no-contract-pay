@@ -8,6 +8,10 @@
     "target": "http://47.75.151.104:8083/rechage"
   },
   {
+    "path": "upload",
+    "target": "http://47.75.151.104:8083/upload"
+  },
+  {
     "path": "test-api",
     "target": "http://localhost:8082/api"
   }

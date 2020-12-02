@@ -51,16 +51,16 @@ const detailMoney = ({ item }: any) => {
   }
 
   const columns = [
-    {
-      width: '25%',
-      title: '变动原因',
-      dataIndex: 'cause',
-      render: (text: string) => (
-        <React.Fragment>
-          <div>{text || '-'}</div>
-        </React.Fragment>
-      )
-    },
+    // {
+    //   width: '25%',
+    //   title: '变动原因',
+    //   dataIndex: 'cause',
+    //   render: (text: string) => (
+    //     <React.Fragment>
+    //       <div>{text || '-'}</div>
+    //     </React.Fragment>
+    //   )
+    // },
     {
       width: '25%',
       title: '创建时间',

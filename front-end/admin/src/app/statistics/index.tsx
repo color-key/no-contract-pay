@@ -8,7 +8,8 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';
 import { getUser } from '@fay-react/lib/user';
 import Card from './card';
-import BalanceDetail from './balance-detail';
+// import BalanceDetail from './balance-detail';
+import BalanceDetail from '../manager/detail/money';
 import Recharge from './recharge';
 import PayAlert from './pay';
 import {payment} from '@/lib/api';
@@ -64,7 +65,10 @@ const Account = () => {
         <Card />
       </Box>
       <Box>
-        <BalanceDetail />
+        {
+          user &&
+          <BalanceDetail item={{merchid: user.merchid}}/>
+        }
       </Box>
       <Box>
         <Recharge />

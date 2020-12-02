@@ -51,7 +51,8 @@ const useStyles = makeStyles((theme) => ({
   },
   rightBtn: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: theme.spacing(2)
   },
   avatar: {
     backgroundColor: theme.palette.common.white,

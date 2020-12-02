@@ -3,7 +3,6 @@ import Box from '@material-ui/core/Box';
 // import { makeStyles, Theme } from '@material-ui/core/styles';
 // import Users from './users';
 // import Divider from '@material-ui/core/Divider';
-import Button from '@material-ui/core/Button';
 import ManagerAccount from '../manager/detail/account';
 import {getUser} from '@fay-react/lib/user';
 
@@ -44,13 +43,8 @@ const Account = () => {
   }, [])
 
   return (
-    <Box>
-      <Box mt={4}>
-        <Button variant={"contained"} color={"primary"}>添加收款账户</Button>
-      </Box>
-      <Box mt={3}>
-        {merchid && <ManagerAccount operate item={{merchid}}/>}
-      </Box>
+    <Box mt={4}>
+      {merchid && <ManagerAccount operate item={{merchid}}/>}
     </Box>
   )
 }
