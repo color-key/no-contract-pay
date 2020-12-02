@@ -55,8 +55,6 @@ export default () => {
     if(ctx.state.pic.paytype) {
       param.paytype = ctx.state.pic.paytype;
     }
-    //params.split('&').map(i => i.split('=')).reduce((i, j) => {i[j[0]]=j[1]; return i},{})
-    
 
     postJson({
       path: BASE_URL + `auth/query?cus_merchid=${ctx.state.pic.merchid}&paytype=${ctx.state.pic.paytype}&pageNum=${page}&pageSize=${rowsPerPage}`,
