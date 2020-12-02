@@ -44,7 +44,7 @@ interface Org {
   wecahtnm: string
 }
 
-const detailOrder = ({ item, showType=true }: any) => {
+const detailOrder = ({ item, operation=false }: any) => {
   const user = getUser();
   const router = useRouter();
   const [payItem, setPayItem] = React.useState<any>({
@@ -58,23 +58,27 @@ const detailOrder = ({ item, showType=true }: any) => {
   const [state, setState] = React.useState({ data: { rows: [{}], count: 0 }, loading: true, pageParams: { num: defaultPage, size: defaultRowsPerPage } });
 
   React.useEffect(() => {
-    getData(defaultPage, defaultRowsPerPage, '');
-  }, [])
+    getData(defaultPage, defaultRowsPerPage, operation ? '&qrtype=0' : '');
+  }, [operation])
   const handlePageChange = (page: number, rowsPerPage: number) => {
     setState({ pageParams: { num: page, size: rowsPerPage }, data: state.data, loading: true });
     getData(page, rowsPerPage, '');
   };
 
   const getData = (page: number, rowsPerPage: number, params: string) => {
-    postJson({
-      // /auth/selectOrder?pageNum=1&pageSize=10&qrtype=0&djmoney=0&ordernumber=531109142480424960&state=&begintime=2020-11-01+00:00:00&endtime=2020-12-01+00:00:00
-      //查看订单：http://47.75.151.104:8083/api/auth/queryOrder?merchid=100008&pageNum=1&pageSize=10
-      path: BASE_URL + '/auth/queryOrder' + '?pageNum=' + page + '&pageSize=' + rowsPerPage + '&merchid=' + item.merchid + params,
+    let path = `/auth/queryOrder?merchid=${item.merchid}pageNum=${page}&pageSize=${rowsPerPage}`;
+    if(operation) {
+      path = `/auth/selectOrder?pageNum=${page}&pageSize=${rowsPerPage}`
+    }
+    (operation ? getJson : postJson)({
+      path: BASE_URL + path + params,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
       if (res.code === '0000') {
         setState({ pageParams: { num: res.page.pageNum - 1, size: res.page.pageSize }, data: { rows: res.page.list || [], count: res.page.allPages || 0 }, loading: false });
+      } else {
+        setState({...state, loading: false})
       }
     })
   }
@@ -87,6 +91,17 @@ const detailOrder = ({ item, showType=true }: any) => {
   const handleTypeClick =(item: any) => {
     console.log(item);
     setPayItem({open: true, item});
+  }
+
+  const handleChangeType = (ordernumber: string, type: string, callback: any) => {
+    getJson({
+      path: BASE_URL + `/auth/UpdateOrderstats?ordernumber=${ordernumber}&state=${type}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
+    }).then(res => {
+      getData(defaultPage, defaultRowsPerPage, operation ? '&qrtype=0' : '');
+      setPayItem({...payItem, open: false})
+      callback && callback();
+    })
   }
 
   const col = [
@@ -103,7 +118,7 @@ const detailOrder = ({ item, showType=true }: any) => {
     {
       width: '20%',
       title: '订单号',
-      dataIndex: 'ordernumber',
+      dataIndex: operation ? 'orderid' : 'ordernumber',
       render: (text: string) => (
         <React.Fragment>
           <div>{text || '-'}</div>
@@ -113,7 +128,7 @@ const detailOrder = ({ item, showType=true }: any) => {
     {
       width: '10%',
       title: '类型',
-      dataIndex: 'qrtype',
+      dataIndex: operation ? 'type' : 'qrtype',
       render: (text: string) => (
         <React.Fragment>
           <div>{pay[text] || '-'}</div>
@@ -123,12 +138,12 @@ const detailOrder = ({ item, showType=true }: any) => {
     {
       width: '10%',
       title: '定价',
-      dataIndex: 'djmoney',
-    },
-    {
-      width: '10%',
-      title: '实价',
-      dataIndex: 'sjmoney',
+      dataIndex: operation ? 'money' : 'djmoney',
+      render: (text: string) => (
+        <React.Fragment>
+          <div>{text ? `¥${text}` : '-'}</div>
+        </React.Fragment>
+      )
     },
     {
       width: '10%',
@@ -152,7 +167,7 @@ const detailOrder = ({ item, showType=true }: any) => {
     }, 
   ]
 
-  const columns = showType ? 
+  const columns = operation ? 
   [...col,
     {
       width: '10%',
@@ -164,7 +179,16 @@ const detailOrder = ({ item, showType=true }: any) => {
         </React.Fragment>
       )
     }, 
-  ] : col;
+  ] : [...col, {
+    width: '10%',
+    title: '实价',
+    dataIndex: 'sjmoney',
+    render: (text: string) => (
+      <React.Fragment>
+        <div>¥{text}</div>
+      </React.Fragment>
+    )
+  },];
 
   const pagination = {
     page: state.pageParams.num,
@@ -175,11 +199,11 @@ const detailOrder = ({ item, showType=true }: any) => {
 
   return (
     <div>
-      <Search onSearch={handleSearch}/>
+      {operation ? <Search onSearch={handleSearch}/> : null}
       <Paper className={classes.root}>
         <Table className={classes.table} columns={columns} dataSource={state.data.rows} pagination={pagination} rowKey={(row: Org) => JSON.stringify(row)} loading={state.loading} />
       </Paper>
-      <Change open={payItem.open} item={payItem.item} onClose={() => setPayItem({...payItem, open: false})}/>
+      <Change open={payItem.open} item={payItem.item} onClose={() => setPayItem({...payItem, open: false})} onSubmit={handleChangeType}/>
     </div>
   );
 }

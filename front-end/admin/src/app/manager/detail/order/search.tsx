@@ -34,7 +34,7 @@ export default ({onSearch}: any) => {
     begintime: '', //2020-11-01+00:00:00
     endtime: '', //2020-12-01+00:00:00
     state: '',
-    qrtype: '',
+    qrtype: '0',
   };
   const [data, setData] = React.useState(initData);
 

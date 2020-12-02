@@ -53,7 +53,7 @@ export default ({ onChange }: any) => {
     openType: false,
     typeTxt: '全部',
     typeList: [{ name: '全部', state: '' }, { name: '支付中', state: '0' }, { name: '已关闭', state: '1' }, { name: '已成功', state: '2' }],
-    pay: { aitype: '', asname: '全部' },
+    pay: { aitype: '0', asname: '支付宝' },
     openPay: false,
     typePayTxt: '全部',
     payList: []
@@ -67,7 +67,7 @@ export default ({ onChange }: any) => {
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       if (res.code === '0000') {
-        const payList: any = [{ aitype: '', asname: '全部' }, ...res.list]
+        const payList: any = [...res.list]
         setState({ ...state, payList });
       }
     })

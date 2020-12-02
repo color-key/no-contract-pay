@@ -44,7 +44,7 @@ const Order = () => {
 
   return (
     <Box>
-      {merchid && <ManagerOrder item={{merchid}}/>}
+      {merchid && <ManagerOrder item={{merchid}} operation/>}
     </Box>
   )
 }
