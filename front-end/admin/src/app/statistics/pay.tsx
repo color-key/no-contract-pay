@@ -145,7 +145,7 @@ const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
           <Typography className={clsx(classes.tfDes, classes.tfMoney)}>充值金额:&nbsp;</Typography>
           <RadioGroup value={state.payValue} onChange={handleRadioPayMoney} className={classes.radioGroup}>
             { state.picList.length ?
-            [...state.picList,...state.picList,...state.picList,...state.picList,...state.picList,...state.picList,...state.picList,...state.picList,...state.picList,...state.picList,...state.picList,...state.picList].map((i: any, idx: any) => <FormControlLabel key={idx} className={classes.formLableMoney} value={i.money} control={<Radio color="primary" />} label={i.money} />) :
+            state.picList.map((i: any, idx: any) => <FormControlLabel key={idx} className={classes.formLableMoney} value={i.money} control={<Radio color="primary" />} label={i.money} />) :
             <Box mt={'10px'}>暂无充值金额</Box>
             }
           </RadioGroup>
