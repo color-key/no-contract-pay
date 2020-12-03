@@ -56,8 +56,7 @@ const Account = () => {
       setAlert({pay: false, qr: true});
       callback();
     }).catch(e => {
-      setAlert({pay: false, qr: true});
-      callback(e || '错误')
+      callback('错误');
     })
   }
 

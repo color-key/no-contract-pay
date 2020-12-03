@@ -74,7 +74,7 @@ const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
 
   const handleSubmit = () => {
     const item = state.picList.filter((i: any) => i.money == state.payValue);
-    if(item.length) {
+    if (item.length) {
       setLoading(true);
       payFuc(state.payWay, item[0], callback);
     } else {
@@ -98,7 +98,6 @@ const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
       if (res2.code === '0000') picList = res2.data;
       wayList.sort((i: any, j: any) => {
         if (i.aitype < j.aitype) return -1;
-        if (i.aitype > j.aitype) return 1;
       });
       wayList = wayList.map((k: any) => { k.pList = []; return k });
       picList.forEach((i: any) => {
@@ -108,11 +107,19 @@ const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
         })
       });
       wayList.forEach((i: any) => {
-        i.pList.filter((item: any, idx: any, list: any) => list.indexOf(item, 0) !== idx);
+        let tempObj: any = {}, changed: any = [];
+        changed = i.pList && i.pList.reduce((item: any, current: any) => {
+          if (!tempObj[current.money])  {
+            tempObj[current.money] = true;
+            item.push(current);
+          }
+          return item
+        }, []);
+        i.pList = changed;
         i.pList.sort((i: any, j: any) => {
-        if (i.money < j.money) return -1;
-        if (i.money > j.money) return 1;
-      })})
+          if (i.money < j.money) return -1;
+        })
+      })
       setState({ ...state, wayList });
     })
   }
@@ -144,9 +151,9 @@ const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
         <Box display='flex' mt={1} alignItems='flex-start' maxHeight='300px'>
           <Typography className={clsx(classes.tfDes, classes.tfMoney)}>充值金额:&nbsp;</Typography>
           <RadioGroup value={state.payValue} onChange={handleRadioPayMoney} className={classes.radioGroup}>
-            { state.picList.length ?
-            state.picList.map((i: any, idx: any) => <FormControlLabel key={idx} className={classes.formLableMoney} value={i.money} control={<Radio color="primary" />} label={i.money} />) :
-            <Box mt={'10px'}>暂无充值金额</Box>
+            {state.picList.length ?
+              state.picList.map((i: any, idx: any) => <FormControlLabel key={idx} className={classes.formLableMoney} value={i.money} control={<Radio color="primary" />} label={i.money} />) :
+              <Box mt={'10px'}>暂无充值金额</Box>
             }
           </RadioGroup>
         </Box>

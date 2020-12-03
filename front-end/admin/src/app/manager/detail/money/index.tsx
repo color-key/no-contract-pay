@@ -44,8 +44,8 @@ const detailMoney = ({ item }: any) => {
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
-      if (res) {
-        setState({ data: { rows: res }, loading: false });
+      if (res && res.length) {
+        setState({ data: { rows: res || [] }, loading: false });
       }
     })
   }
