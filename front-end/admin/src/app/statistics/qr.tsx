@@ -18,16 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const ChangeDialog = ({ open, onClose, item }: any) => {
   const classes = useStyles();
-  let test = {
-    "uid": "100001",
-    "orderid": "531108708890054656",
-    "price": 1000,
-    "notifyurl": "www.baidu.com",
-    "goodsname": "商户充值",
-    "returnurl": "www.baidu.com",
-    "type": "0",
-    "url": "https://qr.alipay.com/fkx19572iwinrkf0hxuu49d"
-  }
   return (
     <Dialog
       open={open}
@@ -35,15 +25,15 @@ const ChangeDialog = ({ open, onClose, item }: any) => {
       title='支付'
     >
       <Box>
-        <Box fontWeight={500} fontSize='1.5rem' textAlign='center'>¥{item.money}</Box>
+        <Box fontWeight={500} fontSize='1.5rem' textAlign='center'>¥{item.price}</Box>
         <Box color={red[400]} fontWeight={500} textAlign='center'>请支付上方所显示的金额，否则订单支付失败</Box>
         <Box textAlign='center' mt={2}>
-          <QRCode value={item.aliqrurl} size={120} fgColor="#000000" />
+          <QRCode value={item.url} size={120} fgColor="#000000" />
         </Box>
         <Box fontWeight={500} textAlign='center'>付款即时到账，未到账可联系我们</Box>
         <Box fontWeight={500} textAlign='center'>订单:{item.orderid}</Box>
         <Divider className={classes.divid} />
-        <Box textAlign='center' fontSize='1.25rem' mt={2.5}>打开{item.accpaytype === '0' ? '支付宝' : '微信'}[ 扫一扫 ]</Box>
+        <Box textAlign='center' fontSize='1.25rem' mt={2.5}>打开{item.type == '0' ? '支付宝' : '微信'}[ 扫一扫 ]</Box>
       </Box>
     </Dialog>
   )

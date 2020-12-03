@@ -52,7 +52,7 @@ const Account = () => {
   const payClick = (way: string, payItem: any, callback: any) => {
     payment(way, payItem.money).then(res => {
       console.log(res);
-      setItem({...payItem, ...res});
+      setItem(res.data);
       setAlert({pay: false, qr: true});
       callback();
     }).catch(e => {
