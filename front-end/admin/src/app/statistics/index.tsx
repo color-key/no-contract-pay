@@ -46,14 +46,14 @@ const Account = () => {
   const [item, setItem] = React.useState<any>({});
   const [alert, setAlert] = React.useState({
     pay: false,
-    qr: true
+    qr: false
   })
 
-  const payClick = (way: string, money: string, callback: any) => {
+  const payClick = (way: string, payItem: any, callback: any) => {
     debugger;
-    payment(way, money).then(res => {
+    payment(way, item.money).then(res => {
       console.log(res);
-      setItem(res.data);
+      setItem({...payItem, ...res});
       setAlert({pay: false, qr: true});
       callback();
     }).catch(e => {
