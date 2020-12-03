@@ -55,7 +55,7 @@ const EditDialog = ({ open, onClose, item, onRefresh }: any) => {
     formData.append('amount', item.acamount);
     formData.append('accpaytype', item.acpaytype);
     formData.append('head_img', fileDom.files[0]);
-    uploadQrcode(item.acaccname, item.acamount, item.acpaytype, formData).then(_res => {
+    uploadQrcode(formData).then(_res => {
       setFinishText('上传成功');
       onRefresh();
       setLoading(false);
