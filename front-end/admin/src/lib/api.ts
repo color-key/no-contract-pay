@@ -218,10 +218,10 @@ export const delQrcode = (accname: string, money: string, paytype: string) => {
   })
 }
 
-export const uploadQrcode = (accname: string, money: string, paytype: string, formData: any) => {
+export const uploadQrcode = (formData: any) => {
   return new Promise<any>((resolve) => {
     postJson({
-      path: `/upload?accountname=${accname}&accpaytype=${paytype}&amount=${money}`,
+      path: `/upload`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': getToken() },
       data: formData,
       contentType: 'multipart/form-data'
