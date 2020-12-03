@@ -50,15 +50,14 @@ const Account = () => {
   })
 
   const payClick = (way: string, payItem: any, callback: any) => {
-    debugger;
-    payment(way, item.money).then(res => {
+    payment(way, payItem.money).then(res => {
       console.log(res);
       setItem({...payItem, ...res});
       setAlert({pay: false, qr: true});
       callback();
     }).catch(e => {
       setAlert({pay: false, qr: true});
-      callback(e)
+      callback(e || '错误')
     })
   }
 
