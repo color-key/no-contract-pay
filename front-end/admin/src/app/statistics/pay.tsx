@@ -67,6 +67,12 @@ const ChangeDialog = ({ open, onClose, payFuc }: any) => {
     setState({ ...state, payValue: Number.parseFloat(e.target.value) });
   }
 
+  const handleClose = () => {
+    onClose();
+    setLoading(false);
+    setError('');
+  }
+
   const callback = (err: string) => {
     setLoading(false);
     if (err) setError(err);
@@ -126,10 +132,12 @@ const ChangeDialog = ({ open, onClose, payFuc }: any) => {
     })
   }
 
+  const disabled = state.payWay.length === 0 && Number(state.payValue) === 0;
+
   return (
     <Dialog
       open={open}
-      onClose={onClose}
+      onClose={handleClose}
       onSubmit={handleSubmit}
       onError={handleError}
       onKnow={handleError}
@@ -142,6 +150,7 @@ const ChangeDialog = ({ open, onClose, payFuc }: any) => {
       PaperProps={{
         className: classes.root
       }}
+      submitDisabled={disabled}
     >
       <Box>
         <Box display='flex'>
@@ -153,9 +162,14 @@ const ChangeDialog = ({ open, onClose, payFuc }: any) => {
         <Box display='flex' mt={1} alignItems='flex-start' maxHeight='300px'>
           <Typography className={clsx(classes.tfDes, classes.tfMoney)}>充值金额:&nbsp;</Typography>
           <RadioGroup value={state.payValue} onChange={handleRadioPayMoney} className={classes.radioGroup}>
-            {state.picList.length ?
-              state.picList.map((i: any, idx: any) => <FormControlLabel key={idx} className={classes.formLableMoney} value={i.money} control={<Radio color="primary" />} label={i.money} />) :
-              <Box mt={'10px'}>暂无充值金额</Box>
+            {
+              state.picList.length ?
+                state.picList.map((i: any, idx: any) => <FormControlLabel key={idx} className={classes.formLableMoney} value={i.money} control={<Radio color="primary" />} label={i.money} />)
+                :
+                  state.payWay.length === 0 ?
+                  <Box mt={'10px'}>请选择充值方式</Box>
+                  :
+                  <Box mt={'10px'}>暂无充值金额</Box>
             }
           </RadioGroup>
         </Box>

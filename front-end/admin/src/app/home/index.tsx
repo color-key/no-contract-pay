@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { Theme } from '@/components/theme';
 import Router from 'next/router';
 import { PATH_PREFIX } from '@/env';
+import { getUser } from '@fay-react/lib/user';
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -11,35 +12,51 @@ const useStyles = makeStyles((theme: Theme) => ({
     textTransform: 'none'
   }
 }));
-const list = [
+
+const manager = [
   {
     name: '全部商户',
     path: '/manager',
   },
   {
-    name: '新增商户',
-    path: '/merchants',
-  },
-  {
-    name: '全部图片',
-    path: '/images',
-  },
-  {
     name: '通道',
     path: '/way'
-  },
-  {
-    name: '充值收款账户',
-    path: '/account'
   }
 ];
 
+const others = [
+  {
+    name: '收款账户',
+    path: '/account',
+  },
+  {
+    name: '订单管理',
+    path: '/order',
+  },
+  {
+    name: '收入统计',
+    path: '/statistics',
+  },
+];
+const initNav: any = [];
+
 const Home = () => {
   const classes = useStyles();
+  const [nav, setNav] = React.useState(initNav);
+
+  React.useEffect(() => {
+    const easzadmin = getUser().easzadmin;
+    if(easzadmin === 0){
+      setNav(manager);
+    }else if(easzadmin === 1){
+      setNav(others);
+    }
+  }, [])
+
   return (
     <div>
       {
-        list.map((item: { path: string, name: string }, idx: number) =>
+        nav.map((item: { path: string, name: string }, idx: number) =>
           <Button variant='outlined'
             color='primary'
             className={classes.button}

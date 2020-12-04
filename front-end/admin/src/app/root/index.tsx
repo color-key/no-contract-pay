@@ -24,6 +24,5 @@ export default ({children}: any) => {
   }
 
   const path = router.pathname.substr((PATH_PREFIX+'/').length, router.pathname.length-(PATH_PREFIX+'/').length);
-  console.log(path);
   return root[path] || root['coming-soon'];
 }

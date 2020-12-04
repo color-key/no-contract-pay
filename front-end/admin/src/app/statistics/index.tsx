@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { getUser } from '@fay-react/lib/user';
 import Card from './card';
 import BalanceDetail from '../manager/detail/money';
-import Recharge from './recharge';
 import PayAlert from './pay';
 import {payment} from '@/lib/api';
 import QRAlert from './qr';
@@ -28,12 +27,11 @@ const Account = () => {
 
   const payClick = (way: string, payItem: any, callback: any) => {
     payment(way, payItem.money).then(res => {
-      console.log(res);
-      setItem(res.data);
+      setItem(res);
       setAlert({pay: false, qr: true});
       callback();
     }).catch(() => {
-      callback('错误');
+      callback('没有可用的二维码');
     })
   }
 
@@ -51,9 +49,6 @@ const Account = () => {
           user &&
           <BalanceDetail item={{merchid: user.merchid}}/>
         }
-      </Box>
-      <Box>
-        <Recharge />
       </Box>
       <PayAlert open={alert.pay} payFuc={payClick} onClose={() => setAlert({...alert, pay: false})}/>
       <QRAlert open={alert.qr} onClose={() => setAlert({...alert, qr: false})} item={item}/>

@@ -11,7 +11,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-// import {getUser} from '@fay-react/lib/user';
 import {useRouter} from 'next/router';
 import Link from 'next/link';
 import {PATH_PREFIX} from '@/env';
@@ -22,6 +21,7 @@ import ReceiptIcon from '@material-ui/icons/Receipt';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import PaymentIcon from '@material-ui/icons/Payment';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+import { getUser } from '@fay-react/lib/user';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -99,30 +99,20 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const navData = [{
+const manager = [{
   icon: SupervisorAccountIcon,
   text: '全部商户',
   path: '/manager'
-// },{
-//   icon: BookIcon,
-//   text: '新增商户',
-//   path: '/merchants'
-// },{
-//   icon: ListAltIcon,
-//   text: '全部图片',
-//   path: '/images'
 },{
   icon: PaymentIcon,
   text: '通道',
   path: '/way'
-},{
+}];
+
+const others = [{
   icon: AccountBalanceWalletIcon,
   text: '收款账户',
   path: '/account'
-// },{
-//   icon: UpdateIcon,
-//   text: '部署',
-//   path: '/deploy'
 },{
   icon: ReceiptIcon,
   text: '订单管理',
@@ -131,11 +121,23 @@ const navData = [{
   icon: PieChartIcon,
   text: '收入统计',
   path: '/statistics'
-}]
+}];
+
+const initNav: any = [];
 
 export default () => {
   const classes = useStyles();
   const Router = useRouter();
+  const [nav, setNav] = React.useState(initNav);
+
+  React.useEffect(() => {
+    const easzadmin = getUser().easzadmin;
+    if(easzadmin === 0){
+      setNav(manager);
+    }else if(easzadmin === 1){
+      setNav(others);
+    }
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -144,7 +146,7 @@ export default () => {
       </div>
       <List component="nav" className={classes.list} aria-label="contacts">
         {
-          navData.map((item, index) => {
+          nav.map((item: any, index:number) => {
             const active = Router.pathname === PATH_PREFIX+item.path;
             return (
               <Link key={index} href={PATH_PREFIX+item.path}>
