@@ -8,18 +8,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import clsx from 'clsx';
 import ListItemText from '@material-ui/core/ListItemText';
-// import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {PATH_PREFIX} from '@/env';
-// import UpdateIcon from '@material-ui/icons/Update';
-// import TitleIcon from '@material-ui/icons/Title';
-// import ViewCarouselIcon from '@material-ui/icons/ViewCarousel';
+import { PATH_PREFIX } from '@/env';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import PaymentIcon from '@material-ui/icons/Payment';
+import BookIcon from '@material-ui/icons/Book';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import { getUser } from '@fay-react/lib/user';
 
@@ -47,7 +44,6 @@ const useStyles = makeStyles((theme: Theme) =>
     list: {
       position: 'absolute',
       top: 100,
-      // color: theme.palette.common.white,
       zIndex: 4,
       width: '100%',
     },
@@ -61,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
     listItem: {
       margin: '10px 15px 0',
       width: 'auto',
-      '&:hover':{
+      '&:hover': {
         backgroundColor: 'transparent',
       },
     },
@@ -69,7 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.common.white,
       boxShadow: '0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(156, 39, 176,.4)',
-      '&:hover':{
+      '&:hover': {
         backgroundColor: theme.palette.primary.main,
       }
     },
@@ -121,6 +117,16 @@ const others = [{
   icon: PieChartIcon,
   text: '收入统计',
   path: '/statistics'
+},
+{
+  icon: BookIcon,
+  text: '发起付款接口',
+  path: '/payapi'
+},
+{
+  icon: BookIcon,
+  text: '查询接口',
+  path: '/searchapi'
 }];
 
 const initNav: any = [];
@@ -131,13 +137,18 @@ export default () => {
   const [nav, setNav] = React.useState(initNav);
 
   React.useEffect(() => {
-    const easzadmin = getUser().easzadmin;
-    if(easzadmin === 0){
-      setNav(manager);
-    }else if(easzadmin === 1){
-      setNav(others);
+    const user = getUser();
+    if(user){
+      const easzadmin = user.easzadmin;
+      if(easzadmin === 0){
+        setNav(manager);
+      }else if(easzadmin === 1){
+        setNav(others);
+      }
+    }else{
+      Router.push(PATH_PREFIX+'/login');
     }
-  }, [])
+  })
 
   return (
     <div className={classes.root}>
@@ -149,13 +160,13 @@ export default () => {
           nav.map((item: any, index:number) => {
             const active = Router.pathname === PATH_PREFIX+item.path;
             return (
-              <Link key={index} href={PATH_PREFIX+item.path}>
+              <Link key={index} href={PATH_PREFIX + item.path}>
                 <div className={classes.listItemWrapper}>
-                  <ListItem button className={clsx(classes.listItem, {[classes.listItemActive]: active})}>
+                  <ListItem button className={clsx(classes.listItem, { [classes.listItemActive]: active })}>
                     <ListItemIcon className={classes.icon}>
-                      <item.icon/>
+                      <item.icon />
                     </ListItemIcon>
-                    <ListItemText primary={item.text} className={classes.text}/>
+                    <ListItemText primary={item.text} className={classes.text} />
                   </ListItem>
                 </div>
               </Link>
@@ -164,7 +175,7 @@ export default () => {
           })
         }
       </List>
-      <div className={classes.bg} style={{backgroundImage: `url("${PATH_PREFIX}/static/bg/sidebar-2.jpg")`}}></div>
+      <div className={classes.bg} style={{ backgroundImage: `url("${PATH_PREFIX}/static/bg/sidebar-2.jpg")` }}></div>
     </div>
   )
 }

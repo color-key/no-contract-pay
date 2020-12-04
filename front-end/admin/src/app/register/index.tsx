@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import { PATH_PREFIX, BASE_URL } from '@/env';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import { saveUser } from '@fay-react/lib/user';
 import { postJson } from '@fay-react/lib/fetch';
 import TextField from '@/components/text-field';
 import PWInput from '@/components/text-field/password';
@@ -16,7 +15,6 @@ import { grey } from '@material-ui/core/colors';
 import ErrorInput from '@/components/err';
 import EmailTF from '@/components/text-field/email-text-field';
 import PhoneTF from '@/components/text-field/phone-text-field';
-import {getUserInfo} from '@/lib/api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -87,15 +85,7 @@ export default ({ className }: any) => {
       console.log(res);
       setLoading(false);
       if (res.code === '0000') {
-        const token = res.data.token;
-        saveUser({token, account: data.username});
-        getUserInfo().then(user => {
-          user.account = data.username;
-          user.token = token;
-          console.log(user);
-          saveUser(user);
-          router.push(PATH_PREFIX);
-        })
+        router.push(PATH_PREFIX+'/login');
       } else {
         setData({...data, err: res.message})
       }

@@ -15,6 +15,8 @@ const breadcrumbs = () => {
     else if(sub === 'account') return '收款账户';
     else if(sub === 'order') return '订单管理';
     else if(sub === 'statistics') return '收入统计';
+    else if(sub === 'payapi') return '发起付款接口';
+    else if(sub === 'searchapi') return '查询接口';
     else return '';
   }
   return (

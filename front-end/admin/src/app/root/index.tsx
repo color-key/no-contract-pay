@@ -21,6 +21,8 @@ export default ({children}: any) => {
     'account': <Layout>{children}</Layout>,
     'account/qrcodeManage': <Layout>{children}</Layout>,
     'statistics': <Layout>{children}</Layout>,
+    'payapi': <Layout>{children}</Layout>,
+    'searchapi': <Layout>{children}</Layout>,
   }
 
   const path = router.pathname.substr((PATH_PREFIX+'/').length, router.pathname.length-(PATH_PREFIX+'/').length);
