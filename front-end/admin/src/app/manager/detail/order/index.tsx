@@ -46,7 +46,6 @@ interface Org {
 
 const detailOrder = ({ item, operation=false }: any) => {
   const user = getUser();
-  console.log('item', item);
   // const router = useRouter();
   const [payItem, setPayItem] = React.useState<any>({
     open: false,
