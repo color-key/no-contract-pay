@@ -82,7 +82,7 @@ export default ({ className }: any) => {
       path: BASE_URL + '/auth/login?account='+data.account+'&password='+data.password,
       headers: {"X-PLATFORM": "WEBAPP"}
     }).then(res => {
-      console.log(res);
+      setLoading(false);
       if(res.code === '0000'){
         const token = res.data.token;
         saveUser({token, account: data.account});
