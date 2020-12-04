@@ -1,15 +1,17 @@
 [
   {
     "path": "api",
-    "target": "http://localhost:8082/api"
+    "target": "http://47.75.151.104:8083/api"
   },
   {
     "path": "rechage",
-    "target": "http://localhost:8082/rechage"
+    "target": "http://47.75.151.104:8083/rechage"
+
   },
   {
     "path": "upload",
-    "target": "http://localhost:8082/upload"
+    "target": "http://47.75.151.104:8083/upload"
+
   },
   {
     "path": "pay",

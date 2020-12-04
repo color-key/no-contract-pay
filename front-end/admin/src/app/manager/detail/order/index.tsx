@@ -103,7 +103,6 @@ const detailOrder = ({ item, operation=false }: any) => {
       callback && callback();
     })
   }
-
   const col = [
     {
       width: '15%',
@@ -118,7 +117,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '20%',
       title: '订单号',
-      dataIndex: operation ? 'orderid' : 'ordernumber',
+      dataIndex: operation ? 'ordernumber' : 'orderid',
       render: (text: string) => (
         <React.Fragment>
           <div>{text || '-'}</div>
@@ -128,7 +127,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '10%',
       title: '类型',
-      dataIndex: operation ? 'type' : 'qrtype',
+      dataIndex: operation ? 'qrtype' : 'type',
       render: (text: string) => (
         <React.Fragment>
           <div>{pay[text] || '-'}</div>
@@ -138,7 +137,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '10%',
       title: '定价',
-      dataIndex: operation ? 'money' : 'djmoney',
+      dataIndex: operation ? 'djmoney' : 'money',
       render: (text: string) => (
         <React.Fragment>
           <div>{text ? `¥${text}` : '-'}</div>

@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   rightBtn: {
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
   },
   avatar: {
     backgroundColor: theme.palette.common.white,
@@ -87,6 +87,7 @@ export default () => {
         {
           user ?
             <DropdownButton
+            
               dropdownComponent={<Info />}>
               <Box className={classes.rightBtn}>
                 <Avatar className={classes.avatar}>
