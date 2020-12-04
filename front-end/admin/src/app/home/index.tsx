@@ -31,6 +31,14 @@ const list = [
   {
     name: '充值收款账户',
     path: '/account'
+  },
+  {
+    name: '发起付款接口',
+    path: '/payapi'
+  },
+  {
+    name: '查询接口',
+    path: '/searchapi'
   }
 ];
 

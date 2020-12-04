@@ -12,15 +12,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 // import {getUser} from '@fay-react/lib/user';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {PATH_PREFIX} from '@/env';
+import { PATH_PREFIX } from '@/env';
 // import UpdateIcon from '@material-ui/icons/Update';
 // import TitleIcon from '@material-ui/icons/Title';
 // import ViewCarouselIcon from '@material-ui/icons/ViewCarousel';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import PaymentIcon from '@material-ui/icons/Payment';
+import BookIcon from '@material-ui/icons/Book';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) =>
     listItem: {
       margin: '10px 15px 0',
       width: 'auto',
-      '&:hover':{
+      '&:hover': {
         backgroundColor: 'transparent',
       },
     },
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.common.white,
       boxShadow: '0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(156, 39, 176,.4)',
-      '&:hover':{
+      '&:hover': {
         backgroundColor: theme.palette.primary.main,
       }
     },
@@ -99,39 +100,43 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const navData = [{
-  icon: SupervisorAccountIcon,
-  text: '全部商户',
-  path: '/manager'
-// },{
-//   icon: BookIcon,
-//   text: '新增商户',
-//   path: '/merchants'
-// },{
-//   icon: ListAltIcon,
-//   text: '全部图片',
-//   path: '/images'
-},{
-  icon: PaymentIcon,
-  text: '通道',
-  path: '/way'
-},{
-  icon: AccountBalanceWalletIcon,
-  text: '收款账户',
-  path: '/account'
-// },{
-//   icon: UpdateIcon,
-//   text: '部署',
-//   path: '/deploy'
-},{
-  icon: ReceiptIcon,
-  text: '订单管理',
-  path: '/order'
-},{
-  icon: PieChartIcon,
-  text: '收入统计',
-  path: '/statistics'
-}]
+const navData = [
+  {
+    icon: SupervisorAccountIcon,
+    text: '全部商户',
+    path: '/manager'
+  },
+  {
+    icon: PaymentIcon,
+    text: '通道',
+    path: '/way'
+  },
+  {
+    icon: AccountBalanceWalletIcon,
+    text: '收款账户',
+    path: '/account'
+  },
+  {
+    icon: ReceiptIcon,
+    text: '订单管理',
+    path: '/order'
+  },
+  {
+    icon: PieChartIcon,
+    text: '收入统计',
+    path: '/statistics'
+  },
+  {
+    icon: BookIcon,
+    text: '发起付款接口',
+    path: '/payapi'
+  },
+  {
+    icon: BookIcon,
+    text: '查询接口',
+    path: '/searchapi'
+  }
+]
 
 export default () => {
   const classes = useStyles();
@@ -145,15 +150,15 @@ export default () => {
       <List component="nav" className={classes.list} aria-label="contacts">
         {
           navData.map((item, index) => {
-            const active = Router.pathname === PATH_PREFIX+item.path;
+            const active = Router.pathname === PATH_PREFIX + item.path;
             return (
-              <Link key={index} href={PATH_PREFIX+item.path}>
+              <Link key={index} href={PATH_PREFIX + item.path}>
                 <div className={classes.listItemWrapper}>
-                  <ListItem button className={clsx(classes.listItem, {[classes.listItemActive]: active})}>
+                  <ListItem button className={clsx(classes.listItem, { [classes.listItemActive]: active })}>
                     <ListItemIcon className={classes.icon}>
-                      <item.icon/>
+                      <item.icon />
                     </ListItemIcon>
-                    <ListItemText primary={item.text} className={classes.text}/>
+                    <ListItemText primary={item.text} className={classes.text} />
                   </ListItem>
                 </div>
               </Link>
@@ -162,7 +167,7 @@ export default () => {
           })
         }
       </List>
-      <div className={classes.bg} style={{backgroundImage: `url("${PATH_PREFIX}/static/bg/sidebar-2.jpg")`}}></div>
+      <div className={classes.bg} style={{ backgroundImage: `url("${PATH_PREFIX}/static/bg/sidebar-2.jpg")` }}></div>
     </div>
   )
 }
