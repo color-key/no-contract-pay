@@ -46,6 +46,7 @@ interface Org {
 
 const detailOrder = ({ item, operation=false }: any) => {
   const user = getUser();
+  console.log('item', item);
   // const router = useRouter();
   const [payItem, setPayItem] = React.useState<any>({
     open: false,
@@ -66,7 +67,7 @@ const detailOrder = ({ item, operation=false }: any) => {
   };
 
   const getData = (page: number, rowsPerPage: number, params: string) => {
-    let path = `/auth/queryOrder?merchid=${item.merchid}pageNum=${page}&pageSize=${rowsPerPage}`;
+    let path = `/auth/queryOrder?merchid=${item.merchid}&pageNum=${page}&pageSize=${rowsPerPage}`;
     if(operation) {
       path = `/auth/selectOrder?pageNum=${page}&pageSize=${rowsPerPage}`
     }
@@ -117,7 +118,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '20%',
       title: '订单号',
-      dataIndex: operation ? 'ordernumber' : 'orderid',
+      dataIndex: 'ordernumber',
       render: (text: string) => (
         <React.Fragment>
           <div>{text || '-'}</div>
@@ -127,7 +128,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '10%',
       title: '类型',
-      dataIndex: operation ? 'qrtype' : 'type',
+      dataIndex:'qrtype',
       render: (text: string) => (
         <React.Fragment>
           <div>{pay[text] || '-'}</div>
@@ -137,7 +138,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '10%',
       title: '定价',
-      dataIndex: operation ? 'djmoney' : 'money',
+      dataIndex:'djmoney',
       render: (text: string) => (
         <React.Fragment>
           <div>{text ? `¥${text}` : '-'}</div>
