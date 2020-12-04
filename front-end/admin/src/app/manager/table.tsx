@@ -2,14 +2,14 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Table from '@/components/table';
 import Paper from '@material-ui/core/Paper';
-import { getJson, postJson } from '@fay-react/lib/fetch';
+import { postJson } from '@fay-react/lib/fetch';
 import { BASE_URL } from '@/env';
-import { ManagerType, SearchStateType } from './index';
+import { SearchStateType } from './index';
 import { getUser } from '@fay-react/lib/user';
 import Link from '@material-ui/core/Link';
 import {useRouter} from 'next/router';
 import {PATH_PREFIX} from '@/env';
-import {pay} from '@/lib/type';
+// import {pay} from '@/lib/type';
 import {datetimeFormat} from '@/lib/date-format';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -54,6 +54,11 @@ export default ({ search }: Props) => {
   React.useEffect(() => {
     getData(defaultPage, defaultRowsPerPage);
   }, [])
+
+  React.useEffect(() => {
+    console.log(search);
+  }, [JSON.stringify(search)]);
+
   const handlePageChange = (page: number, rowsPerPage: number) => {
     setState({ pageParams: { num: page, size: rowsPerPage }, data: state.data, loading: true });
     getData(page, rowsPerPage);

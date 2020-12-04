@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from '@/components/dialog';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -11,7 +11,7 @@ import { BASE_URL } from '@/env';
 import { getUser } from '@fay-react/lib/user';
 import clsx from 'clsx';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     width: 580
   },
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
+const ChangeDialog = ({ open, onClose, payFuc }: any) => {
   const classes = useStyles();
   const user = getUser();
   const [loading, setLoading] = React.useState(false);
@@ -98,6 +98,7 @@ const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
       if (res2.code === '0000') picList = res2.data;
       wayList.sort((i: any, j: any) => {
         if (i.aitype < j.aitype) return -1;
+        else return 1;
       });
       wayList = wayList.map((k: any) => { k.pList = []; return k });
       picList.forEach((i: any) => {
@@ -118,6 +119,7 @@ const ChangeDialog = ({ open, onClose, payFuc, item }: any) => {
         i.pList = changed;
         i.pList.sort((i: any, j: any) => {
           if (i.money < j.money) return -1;
+          else return 1;
         })
       })
       setState({ ...state, wayList });

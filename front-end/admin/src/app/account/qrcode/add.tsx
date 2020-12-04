@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import TF from '@/components/text-field';
-import {addMoney, getWays} from '@/lib/api';
+import {addMoney} from '@/lib/api';
 import {getQueryString} from '@fay-react/lib/router';
 
 const useStyles = makeStyles(() => ({

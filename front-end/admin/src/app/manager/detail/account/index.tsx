@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Table from '@/components/table';
 import Paper from '@material-ui/core/Paper';
-import { getJson, postJson } from '@fay-react/lib/fetch';
+import { postJson } from '@fay-react/lib/fetch';
 import { BASE_URL } from '@/env';
 import { getUser } from '@fay-react/lib/user';
 import { useRouter } from 'next/router';

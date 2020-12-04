@@ -6,8 +6,8 @@ import Paper from '@material-ui/core/Paper';
 import { getJson, postJson } from '@fay-react/lib/fetch';
 import { BASE_URL } from '@/env';
 import { getUser } from '@fay-react/lib/user';
-import { useRouter } from 'next/router';
-import { PATH_PREFIX } from '@/env';
+// import { useRouter } from 'next/router';
+// import { PATH_PREFIX } from '@/env';
 import { pay, orderState } from '@/lib/type';
 import { datetimeFormat } from '@/lib/date-format';
 import Search from './search';
@@ -46,7 +46,7 @@ interface Org {
 
 const detailOrder = ({ item, operation=false }: any) => {
   const user = getUser();
-  const router = useRouter();
+  // const router = useRouter();
   const [payItem, setPayItem] = React.useState<any>({
     open: false,
     item: {}
@@ -97,7 +97,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     getJson({
       path: BASE_URL + `/auth/UpdateOrderstats?ordernumber=${ordernumber}&state=${type}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
-    }).then(res => {
+    }).then(() => {
       getData(defaultPage, defaultRowsPerPage, operation ? '&qrtype=0' : '');
       setPayItem({...payItem, open: false})
       callback && callback();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import { Contxt, ContxtProvider } from './ctx';
+import { ContxtProvider } from './ctx';
 import { useRouter } from 'next/router';
 import Button from '@material-ui/core/Button';
 import Reorder from '@material-ui/icons/Reorder';
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const managerDetail = () => {
   const classes = useStyles();
   const router = useRouter();
-  const ctx: any = React.useContext(Contxt);
+  // const ctx: any = React.useContext(Contxt);
   const [item, setItem] = React.useState<any | null>({});
   const [idx, setIdx] = React.useState(0);
   React.useEffect(() => {

@@ -54,6 +54,7 @@ const ChangeDialog = ({ item, open, onClose, onSubmit }: any) => {
       buttonVariant={['cancel', 'submit']}
       submitText={'保存'}
       loading={loading}
+      className={classes.root}
     >
       <Box>
         <Box display='flex' alignItems={'center'}>

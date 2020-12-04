@@ -1,12 +1,12 @@
 import React from 'react';
 import Dialog from '@/components/dialog';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import QRCode from 'qrcode.react';
 import Divider from '@material-ui/core/Divider';
 import { red } from '@material-ui/core/colors';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
 
   },

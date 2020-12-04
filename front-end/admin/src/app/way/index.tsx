@@ -5,9 +5,7 @@ import Table from './table';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Add from './add';
-import Router from 'next/router';
-import {PATH_PREFIX} from '@/env';
-import { getJson, postJson } from '@fay-react/lib/fetch';
+import { postJson } from '@fay-react/lib/fetch';
 import { BASE_URL } from '@/env';
 import { getUser } from '@fay-react/lib/user';
 

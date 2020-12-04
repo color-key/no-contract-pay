@@ -15,6 +15,7 @@ const breadcrumbs = () => {
     else if(sub === 'account') return '收款账户';
     else if(sub === 'order') return '订单管理';
     else if(sub === 'statistics') return '收入统计';
+    else return '';
   }
   return (
     <Breadcrumbs aria-label="breadcrumb">

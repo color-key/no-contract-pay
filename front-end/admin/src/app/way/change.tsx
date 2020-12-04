@@ -1,12 +1,12 @@
 import React from 'react';
 import Dialog from '@/components/dialog';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import TF from '@/components/text-field';
 import {changeWayRate, addWayRate} from '@/lib/api';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
 
   },

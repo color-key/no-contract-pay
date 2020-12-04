@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import { getJson, postJson } from '@fay-react/lib/fetch';
+import { postJson } from '@fay-react/lib/fetch';
 import { BASE_URL, PATH_PREFIX } from '@/env';
 import { getUser } from '@fay-react/lib/user';
 import { Contxt } from '../ctx';

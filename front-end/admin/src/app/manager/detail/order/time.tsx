@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
@@ -8,7 +8,7 @@ import MomentUtils from '@date-io/moment';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     picker: {
       width: 150,

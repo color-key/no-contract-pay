@@ -2,11 +2,11 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Table from '@/components/table';
 import Paper from '@material-ui/core/Paper';
-import { getJson, postJson } from '@fay-react/lib/fetch';
+import { getJson } from '@fay-react/lib/fetch';
 import { BASE_URL } from '@/env';
 import { getUser } from '@fay-react/lib/user';
-import {useRouter} from 'next/router';
-import {PATH_PREFIX} from '@/env';
+// import {useRouter} from 'next/router';
+// import {PATH_PREFIX} from '@/env';
 import {datetimeFormat} from '@/lib/date-format';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -30,7 +30,7 @@ interface Org {
 
 const detailMoney = ({ item }: any) => {
   const user = getUser();
-  const router = useRouter();
+  // const router = useRouter();
   const classes = useStyles({});
   const [state, setState] = React.useState({ data: { rows: [{}] }, loading: true,});
 
