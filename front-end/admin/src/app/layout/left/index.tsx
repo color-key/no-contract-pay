@@ -102,7 +102,7 @@ const manager = [{
   icon: SupervisorAccountIcon,
   text: '全部商户',
   path: '/manager'
-},{
+}, {
   icon: PaymentIcon,
   text: '通道',
   path: '/way'
@@ -112,11 +112,11 @@ const others = [{
   icon: AccountBalanceWalletIcon,
   text: '收款账户',
   path: '/account'
-},{
+}, {
   icon: ReceiptIcon,
   text: '订单管理',
   path: '/order'
-},{
+}, {
   icon: PieChartIcon,
   text: '收入统计',
   path: '/statistics'
@@ -143,36 +143,46 @@ export default () => {
   const [orders, setOrders] = React.useState([[], [], []])
 
   React.useEffect(() => {
-    if(user){
+    if (user) {
       const easzadmin = user.easzadmin;
-      if(easzadmin === 0){
+      if (easzadmin === 0) {
         setNav(manager);
-      }else if(easzadmin === 1){
+      } else if (easzadmin === 1) {
         setNav(others);
-        orderCycle();
+        setTimeout(() => {
+          orderCycle(); 
+        }, 1000 * 10);
       }
-    }else{
-      Router.push(PATH_PREFIX+'/login');
+    } else {
+      Router.push(PATH_PREFIX + '/login');
     }
   })
+
+  React.useEffect(() => {
+    Promise.all([getData('0'), getData('1'), getData('3')])
+      .then(([res0, res1, res3]: any) => {
+        const value = [handleResp(res0), handleResp(res1), handleResp(res3)]
+        setOrders(value);
+      })
+  }, [])
 
   const orderCycle = () => {
     setInterval(() => {
       Promise.all([getData('0'), getData('1'), getData('3')])
-      .then(([res0, res1, res3]: any) => {
-        const value = [handleResp(res0), handleResp(res1), handleResp(res3)]
-        if(JSON.stringify(value) !== JSON.stringify(orders)) {
-          setSnack(true);
-          setOrders(value);
-        }
-      })
+        .then(([res0, res1, res3]: any) => {
+          const value = [handleResp(res0), handleResp(res1), handleResp(res3)]
+          if (JSON.stringify(value) !== JSON.stringify(orders)) {
+            setSnack(true);
+            setOrders(value);
+          }
+        })
     }, 1000 * 30)
   }
 
   const getData = (type: string) => getJson({
-      path: BASE_URL + `/auth/selectOrder?pageNum=1&pageSize=10&qrtype=${type}`,
-      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
-    })
+    path: BASE_URL + `/auth/selectOrder?pageNum=1&pageSize=10&qrtype=${type}`,
+    headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
+  })
 
   const handleResp = (res: any) => {
     if (res.code === '0000') return res.page.list || [];
@@ -186,8 +196,8 @@ export default () => {
       </div>
       <List component="nav" className={classes.list} aria-label="contacts">
         {
-          nav.map((item: any, index:number) => {
-            const active = Router.pathname === PATH_PREFIX+item.path;
+          nav.map((item: any, index: number) => {
+            const active = Router.pathname === PATH_PREFIX + item.path;
             return (
               <Link key={index} href={PATH_PREFIX + item.path}>
                 <div className={classes.listItemWrapper}>
@@ -205,7 +215,7 @@ export default () => {
         }
       </List>
       <div className={classes.bg} style={{ backgroundImage: `url("${PATH_PREFIX}/static/bg/sidebar-2.jpg")` }}></div>
-      <Snack open={snack} close={() => setSnack(false)}/>
+      <Snack open={snack} close={() => setSnack(false)} />
     </div>
   )
 }
