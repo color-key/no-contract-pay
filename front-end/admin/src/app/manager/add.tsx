@@ -47,7 +47,9 @@ const AddDialog = ({ open, onClose }: any) => {
       setLoading(false);
       if (res.code === '0000') {
         setSnack(true);
-        onClose();
+        setTimeout(() => {
+          onClose();
+        }, 1000  *3);
       } else {
         setData({ ...data, err: res.message })
       }
