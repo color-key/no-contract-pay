@@ -19,6 +19,9 @@ import PaymentIcon from '@material-ui/icons/Payment';
 import BookIcon from '@material-ui/icons/Book';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import { getUser } from '@fay-react/lib/user';
+import { getJson } from '@fay-react/lib/fetch';
+import { BASE_URL } from '@/env';
+import Snack from './snack';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -134,21 +137,47 @@ const initNav: any = [];
 export default () => {
   const classes = useStyles();
   const Router = useRouter();
+  const [snack, setSnack] = React.useState(false);
+  const user = getUser();
   const [nav, setNav] = React.useState(initNav);
+  const [orders, setOrders] = React.useState([[], [], []])
 
   React.useEffect(() => {
-    const user = getUser();
     if(user){
       const easzadmin = user.easzadmin;
       if(easzadmin === 0){
         setNav(manager);
       }else if(easzadmin === 1){
         setNav(others);
+        orderCycle();
       }
     }else{
       Router.push(PATH_PREFIX+'/login');
     }
   })
+
+  const orderCycle = () => {
+    setInterval(() => {
+      Promise.all([getData('0'), getData('1'), getData('3')])
+      .then(([res0, res1, res3]: any) => {
+        const value = [handleResp(res0), handleResp(res1), handleResp(res3)]
+        if(JSON.stringify(value) !== JSON.stringify(orders)) {
+          setSnack(true);
+          setOrders(value);
+        }
+      })
+    }, 1000 * 30)
+  }
+
+  const getData = (type: string) => getJson({
+      path: BASE_URL + `/auth/selectOrder?pageNum=1&pageSize=10&qrtype=${type}`,
+      headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
+    })
+
+  const handleResp = (res: any) => {
+    if (res.code === '0000') return res.page.list || [];
+    return [];
+  }
 
   return (
     <div className={classes.root}>
@@ -176,6 +205,7 @@ export default () => {
         }
       </List>
       <div className={classes.bg} style={{ backgroundImage: `url("${PATH_PREFIX}/static/bg/sidebar-2.jpg")` }}></div>
+      <Snack open={snack} close={() => setSnack(false)}/>
     </div>
   )
 }
