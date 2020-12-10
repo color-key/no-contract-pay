@@ -66,7 +66,7 @@ const detailOrder = ({ item, operation=false }: any) => {
   };
 
   const getData = (page: number, rowsPerPage: number, params: string) => {
-    let path = `/auth/queryOrder?merchid=${item.merchid}pageNum=${page}&pageSize=${rowsPerPage}`;
+    let path = `/auth/queryOrder?merchid=${item.merchid}&pageNum=${page}&pageSize=${rowsPerPage}`;
     if(operation) {
       path = `/auth/selectOrder?pageNum=${page}&pageSize=${rowsPerPage}`
     }
@@ -103,7 +103,6 @@ const detailOrder = ({ item, operation=false }: any) => {
       callback && callback();
     })
   }
-
   const col = [
     {
       width: '15%',
@@ -118,7 +117,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '20%',
       title: '订单号',
-      dataIndex: operation ? 'orderid' : 'ordernumber',
+      dataIndex: 'ordernumber',
       render: (text: string) => (
         <React.Fragment>
           <div>{text || '-'}</div>
@@ -128,7 +127,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '10%',
       title: '类型',
-      dataIndex: operation ? 'type' : 'qrtype',
+      dataIndex:'qrtype',
       render: (text: string) => (
         <React.Fragment>
           <div>{pay[text] || '-'}</div>
@@ -138,7 +137,7 @@ const detailOrder = ({ item, operation=false }: any) => {
     {
       width: '10%',
       title: '定价',
-      dataIndex: operation ? 'money' : 'djmoney',
+      dataIndex:'djmoney',
       render: (text: string) => (
         <React.Fragment>
           <div>{text ? `¥${text}` : '-'}</div>

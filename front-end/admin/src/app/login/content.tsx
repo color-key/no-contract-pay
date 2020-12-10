@@ -122,7 +122,7 @@ export default ({ className }: any) => {
           <img src={PATH_PREFIX + '/static/login/people.png'} className={classes.peopleImg} />
         </Box> */}
         <Box mt={2} >
-          <TextField label={'账户'} fullWidth onChange={handleUsername} variant= 'outlined'/>
+          <TextField label={'邮箱'} fullWidth onChange={handleUsername} variant= 'outlined'/>
         </Box>
         <Box mt={2}>
           <PWInput onChange={handleChange('password')} errorText={data.errPWText} onKeyUp={handleKeyUp} hot={false} variant= 'outlined'/>

@@ -10,7 +10,8 @@ const useStyles = makeStyles((_theme: Theme) =>
       position: 'relative',
     },
     iconBtn: {
-      padding: '0px'
+      padding: '0px',
+      textTransform: 'inherit'
     },
     dropdown: {
       position: 'absolute',

@@ -121,7 +121,7 @@ const detailAccount = ({item, operate= false}: any) => {
 
   const getData = () => {
     postJson({
-      path: BASE_URL + `auth/listaccount?cusMerchid=${item.merchid}`,
+      path: BASE_URL + `/auth/listaccount?cusMerchid=${item.merchid}`,
       headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
     }).then(res => {
       console.log(res);
