@@ -181,7 +181,7 @@ export default () => {
 
   const getData = (type: string) => getJson({
     path: BASE_URL + `/auth/selectOrder?pageNum=1&pageSize=10&qrtype=${type}`,
-    headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user.token }
+    headers: { "X-PLATFORM": "WEBAPP", 'X-AUTH-TOKEN': user && user.token }
   })
 
   const handleResp = (res: any) => {

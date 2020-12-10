@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) =>
     closeButton: {
       position: 'absolute',
       padding: theme.spacing(0.5),
-      top: 0,
-      right: 0,
+      top: 15,
+      right: 15,
     },
     tabs: {
       marginBottom: theme.spacing(3.5),
