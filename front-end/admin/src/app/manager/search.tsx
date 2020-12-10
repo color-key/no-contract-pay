@@ -5,7 +5,6 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import { SearchStateType } from './index';
 import Box from '@material-ui/core/Box';
-import AddIcon from '@material-ui/icons/Add';
 import AddDialog from './add';
 
 const useStyles = makeStyles((theme) => ({
@@ -50,9 +49,8 @@ export default ({ onSearch }: Props) => {
   return (
     <Paper className={classes.root} elevation={0}>
       <Box>
-        <Button className={classes.add} onClick={() => setOpen(true)}>
+        <Button variant={"contained"} className={classes.add} onClick={() => setOpen(true)}>
           <Box mr={1}>添加用户</Box>
-          <AddIcon />
         </Button>
       </Box>
       <Box >
