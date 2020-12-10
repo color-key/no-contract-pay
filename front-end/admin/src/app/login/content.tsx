@@ -102,7 +102,7 @@ export default ({ className }: any) => {
   const handleUsername = (e: any) => setData({ ...data, account: e.target.value });
   const handleChange = (key: string) => (value: any) => setData({ ...data, [key]: value });
 
-  const handleRegister = () => router.push(PATH_PREFIX + '/register');
+  // const handleRegister = () => router.push(PATH_PREFIX + '/register');
 
   const handleKeyUp = (e: any) => {
     if (e.keyCode === 13) setData({ ...data, keyenter: data.keyenter + 1 });
@@ -141,7 +141,7 @@ export default ({ className }: any) => {
               </div>
             }
           </Button>
-          <Box className={classes.register} onClick={handleRegister}>注册</Box>
+          {/* <Box className={classes.register} onClick={handleRegister}>注册</Box> */}
         </div>
       </Card>
     </div>
